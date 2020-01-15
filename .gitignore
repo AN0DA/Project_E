@@ -1,3 +1,30 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@Nemryk
+GwynDhoine /
+prog_proj2
+Private
+
+3
+2
+
+    0
+
+Code
+Issues 0
+Pull requests 1
+Actions
+Projects 2
+Wiki
+Security
+Insights
+prog_proj2/.gitignore
+@Nemryk Nemryk initialize unreal project 3aae58a yesterday
+76 lines (60 sloc) 962 Bytes
 /.history
 /.idea
 # Visual Studio 2015 user specific files
@@ -74,3 +101,18 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+    © 2020 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+

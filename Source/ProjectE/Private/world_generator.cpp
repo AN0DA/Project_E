@@ -9,7 +9,8 @@ Aworld_generator::Aworld_generator()
 	void Aworld_generator::BeginPlay()
 	{
 		Super::BeginPlay();
-		Generate_common();
+		//Generate_common();
+
 	}
 
 

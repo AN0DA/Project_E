@@ -2,13 +2,7 @@
 /.idea
 # Visual Studio 2015 user specific files
 .vs/
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
+s
 # Precompiled Headers
 *.gch
 *.pch
@@ -71,18 +65,3 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
-
-    © 2020 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Help
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-

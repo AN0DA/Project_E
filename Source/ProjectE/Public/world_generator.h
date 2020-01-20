@@ -21,7 +21,6 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Core")
 		AActor* core;
 	UPROPERTY(EditAnywhere, Category = "Dynamic")
-		int dupka;
 	TArray<Afragment*> frag_;
 	
 	UPROPERTY(EditAnywhere, Category = "World Size")
@@ -36,6 +35,8 @@ public:
 	void Generate_common()
 	{
 		float temp_hor = 0, temp_ver = 0, temp_high_dif = biomes[0]->heigth_diffrences;
+		Afragment* f = biomes[0]->fragment;
+		UWorld* w = GetWorld();
 		for (int i = 10;i <= horizontal;i++)
 		{
 			for (int j = 10;j <= vertical;j++)
@@ -44,7 +45,7 @@ public:
 				float temp_num = FMath::FRandRange(0, temp_high_dif);
 				FRotator rot = FRotator(0, 0, 0);
 				FVector vec = FVector(temp_hor, temp_ver, temp_num);
-				GetWorld() -> SpawnActor<Afragment>(biomes[0]->fragment, rot, vec);
+				frag_.Add(w->SpawnActor<Afragment>(GetClass(),vec,rot));
 				temp_ver += 125;
 			}
 			temp_hor += 125;

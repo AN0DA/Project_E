@@ -24,8 +24,9 @@ public:
 	TArray<Afragment*> frag_;
 	
 	UPROPERTY(EditAnywhere, Category = "World Size")
-		int horizontal = 10, vertical = 10, number_of_biomes=1;
-		
+		int horizontal = 10;
+	int vertical = 10;
+	int number_of_biomes = 1;
 protected:
 	virtual void BeginPlay() override;
 	

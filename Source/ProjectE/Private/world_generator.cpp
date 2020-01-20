@@ -9,7 +9,9 @@ Aworld_generator::Aworld_generator()
 	void Aworld_generator::BeginPlay()
 	{
 		Super::BeginPlay();
-		//Generate_common();
+		UE_LOG(LogTemp, Warning, TEXT("Szczecin2"));
+		
+		
 
 	}
 
@@ -18,6 +20,10 @@ Aworld_generator::Aworld_generator()
 void Aworld_generator::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	if (activate)
+	{
+		Generate_common();
+		activate = false;
+	}
 }
 

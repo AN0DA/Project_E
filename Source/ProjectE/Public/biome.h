@@ -14,8 +14,12 @@ class PROJECTE_API Abiome : public AActor
 	
 public:	
 	Abiome();
-	UPROPERTY(EditAnywhere, Category = "Heigth")
-		float top_lvl = 0, floor_lvl = 0,heigth_diffrences=5;
+	UPROPERTY(EditAnywhere, Category = "Config")
+		float top_lvl = 0;
+	UPROPERTY(EditAnywhere, Category = "Config")
+		float floor_lvl = 0;
+	UPROPERTY(EditAnywhere, Category = "Config")
+		float height_diffrences = 5;
 	UPROPERTY(EditAnywhere, Category = "Block")
 		Afragment* fragment;
 protected:

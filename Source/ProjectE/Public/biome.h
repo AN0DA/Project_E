@@ -20,6 +20,8 @@ public:
 		float floor_lvl = 0;
 	UPROPERTY(EditAnywhere, Category = "Config")
 		float height_diffrences = 5;
+	UPROPERTY(EditAnywhere, Category = "Config")
+		float amplitude = 5;
 	UPROPERTY(EditAnywhere, Category = "Block")
 		Afragment* fragment;
 protected:

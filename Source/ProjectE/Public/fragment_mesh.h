@@ -4,20 +4,17 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "fragment.generated.h"
+#include "fragment_mesh.generated.h"
 
 UCLASS()
-class PROJECTE_API Afragment : public AActor
+class PROJECTE_API Afragment_mesh : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	Afragment();
-	UPROPERTY(EditAnywhere, Category = "Neightbours")
-		TArray<Afragment*> frag_tab;
-	UPROPERTY(EditAnywhere, Category = "IDs")
-		int line = 0;
+	Afragment_mesh();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

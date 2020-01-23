@@ -9,7 +9,7 @@ Aworld_generator::Aworld_generator()
 	void Aworld_generator::BeginPlay()
 	{
 		Super::BeginPlay();
-		UE_LOG(LogTemp, Warning, TEXT("Szczecin2"));
+		//UE_LOG(LogTemp, Warning, TEXT("Szczecin2"));
 		
 		
 

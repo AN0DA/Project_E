@@ -16,6 +16,12 @@ public:
 	Aworld_generator();
 	UPROPERTY(EditAnywhere, Category = "Activation")
 		bool activate = 0;
+	UPROPERTY(EditAnywhere, Category = "Activation")
+		bool overterrain = 0;
+	UPROPERTY(EditAnywhere, Category = "Activation")
+		bool deepterrain = 0;
+	UPROPERTY(EditAnywhere, Category = "Activation")
+		int amplitude_structure = 10;
 	UPROPERTY(EditAnywhere, Category = "Water")
 	int water_level = 0;
 	UPROPERTY(EditAnywhere, Category = "Biomes")
@@ -42,6 +48,7 @@ public:
 	{
 		float temp_hor = 0, temp_ver = 0, temp_high_dif = biomes[0]->height_diffrences;
 		int y = biomes[0]->amplitude,u = -1;
+		int xx = 0;
 		Afragment* f = biomes[0]->fragment;
 		UWorld* w = GetWorld();
 		for (int i = 0;i < horizontal;i++)
@@ -68,13 +75,22 @@ public:
 				Afragment* a = w->SpawnActor<Afragment>(Class_,vec,rot);
 				frag_.Add(a);
 				a->line = i;
+				a->line_h = j;
 				//UE_LOG(LogTemp, Warning, TEXT("Szczecin"));
 				temp_ver += 128;
-				if (y < -biomes[0]->amplitude)
+				int ccc;
+				if (xx > 15)
+				{
+					ccc = FMath::FRandRange(biomes[0]->amplitude - 1, biomes[0]->amplitude * 3);
+					xx = 0;
+				}
+				xx++;
+				
+				if (y < -ccc)
 				{
 					u = 1;
 				}
-				if (y > biomes[0]->amplitude)
+				if (y > ccc)
 				{
 					u = -1;
 				}
@@ -138,6 +154,49 @@ public:
 		}
 		*/
 		UE_LOG(LogTemp, Warning, TEXT("problems solved!"));
-		
+//		Afragment* temporary_frag;
+			for (int i = 0;i <= amplitude_structure;i++)
+			{
+				if (deepterrain)
+				{
+				int temp_rad1 = FMath::FRandRange(0, vertical-1);
+				int temp_rad2 = FMath::FRandRange(0, horizontal-1);
+				for (int j = 0;j <= (horizontal * vertical)-1;j++)
+				{
+					if (frag_[j]->line == vertical && frag_[j]->line_h == horizontal)
+					{ 
+					FVector v = frag_[j]->GetActorLocation();
+					v.Z += 0.6 * biomes[0]->height_diffrences;
+					frag_[j]->SetActorLocation(v);
+						for (int k = 0; k < sizeof(frag_[j]->frag_tab);k++)
+						{
+						FVector vv = frag_[j]->frag_tab[k]->GetActorLocation();
+						vv.Z += 0.3 * biomes[0]->height_diffrences;
+						frag_[j]->frag_tab[k]->SetActorLocation(v);
+						}
+					}
+				}
+				}
+				if (overterrain)
+				{
+					int temp_rad1 = FMath::FRandRange(0, vertical - 1);
+					int temp_rad2 = FMath::FRandRange(0, horizontal - 1);
+					for (int j = 0;j <= (horizontal * vertical) - 1;j++)
+					{
+						if (frag_[j]->line == vertical && frag_[j]->line_h == horizontal)
+						{
+							FVector v = frag_[j]->GetActorLocation();
+							v.Z -= 0.6 * biomes[0]->height_diffrences;
+							frag_[j]->SetActorLocation(v);
+							for (int k = 0; k < sizeof(frag_[j]->frag_tab);k++)
+							{
+								FVector vv = frag_[j]->frag_tab[k]->GetActorLocation();
+								vv.Z -= 0.3 * biomes[0]->height_diffrences;
+								frag_[j]->frag_tab[k]->SetActorLocation(v);
+							}
+						}
+					}
+				}
+		}
 	}
 };

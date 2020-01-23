@@ -18,6 +18,7 @@ public:
 		TArray<Afragment*> frag_tab;
 	UPROPERTY(EditAnywhere, Category = "IDs")
 		int line = 0;
+		int line_h = 0;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

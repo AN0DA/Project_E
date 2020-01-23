@@ -13,6 +13,8 @@ UCLASS()
 class PROJECTE_API AProjectEGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
 //		PublicDependencyModuleNames.AddRange(new string[]{ "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "ProceduralMeshComponent" });
+
 
 };

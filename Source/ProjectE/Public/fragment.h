@@ -14,7 +14,7 @@ class PROJECTE_API Afragment : public AActor
 public:	
 	// Sets default values for this actor's properties
 	Afragment();
-	UPROPERTY(EditAnywhere, Category = "Neightbours")
+	UPROPERTY(EditAnywhere, Category = "Neighbours")
 		TArray<Afragment*> frag_tab;
 	UPROPERTY(EditAnywhere, Category = "IDs")
 		int line = 0;

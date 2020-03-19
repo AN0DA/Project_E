@@ -22,8 +22,8 @@ public:
 		float height_diffrences = 5;
 	UPROPERTY(EditAnywhere, Category = "Config")
 		float amplitude = 5;
-	UPROPERTY(EditAnywhere, Category = "Block")
-		Afragment* fragment;
+	//UPROPERTY(EditAnywhere, Category = "Block")
+		//Afragment* fragment;
 protected:
 	virtual void BeginPlay() override;
 

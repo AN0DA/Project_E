@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "biome.h"
 #include "GameFramework/Actor.h"
 #include "fragment.generated.h"
 
@@ -17,8 +18,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Neighbours")
 		TArray<Afragment*> frag_tab;
 	UPROPERTY(EditAnywhere, Category = "IDs")
-		int line = 0;
-		int line_h = 0;
+		int vertical = 0;
+		int horizontal = 0;
+	//UPROPERTY(EditAnywhere, Category = "Biome")
+		//Abiome* Current_biome; <--- curent biome
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

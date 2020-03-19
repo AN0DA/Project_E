@@ -52,7 +52,7 @@ public:
 		float temp_hor = 0, temp_ver = 0, temp_high_dif = biomes[0]->height_diffrences;
 		int y = biomes[0]->amplitude,u = -1;
 		int xx = 0;
-		Afragment* f = biomes[0]->fragment;
+		//Afragment* f = biomes[0]->fragment;
 		UWorld* w = GetWorld();
 		for (int i = 0;i < horizontal;i++)
 		{
@@ -79,8 +79,8 @@ public:
 				Afragment* a = w->SpawnActor<Afragment>(Class_,vec,rot);
 				//Afragment* gg = w->SpawnActor<Afragment>(Class_, vec, rot); // for frontier generating
 				frag_.Add(a);
-				a->line = i;
-				a->line_h = j;
+				a->vertical = i;
+				a->horizontal = j;
 				//UE_LOG(LogTemp, Warning, TEXT("Szczecin"));
 				temp_ver += 120;
 				int ccc;
@@ -113,35 +113,35 @@ public:
 			// 1,1  2,1  3,1
  			// 2,1  XXX  3,2
 			// 3,1  3,2  3,3
-			if (i<temp_num&& frag_[i]->line == (frag_[i + 1]->line)) // 2,1 S
+			if (i<temp_num&& frag_[i]->vertical == (frag_[i + 1]->vertical)) // 2,1 S
 			{
 			frag_[i]->frag_tab.Add(frag_[i+1]);
 			}
-			if (i >= 1 && frag_[i]->line == (frag_[i - 1]->line))  // 2,3 S
+			if (i >= 1 && frag_[i]->vertical == (frag_[i - 1]->vertical))  // 2,3 S
 			{
 			frag_[i]->frag_tab.Add(frag_[i - 1]);
 			}
-			if (i< temp_num-vertical&& frag_[i]->line == (frag_[i + vertical]->line-1)) //3,2 S
+			if (i< temp_num-vertical&& frag_[i]->vertical == (frag_[i + vertical]->vertical -1)) //3,2 S
 			{
 			frag_[i]->frag_tab.Add(frag_[i + vertical]);
 			}
-			if (i < (temp_num - vertical) - 1 && frag_[i]->line == (frag_[i + vertical + 1]->line - 1)) //3,1 S
+			if (i < (temp_num - vertical) - 1 && frag_[i]->vertical == (frag_[i + vertical + 1]->vertical - 1)) //3,1 S
 			{
 				frag_[i]->frag_tab.Add(frag_[i + 1 + vertical]);
 			}
-			if (i < (temp_num - vertical) + 1 && frag_[i]->line == (frag_[i + vertical-1]->line - 1)) //3,2 S
+			if (i < (temp_num - vertical) + 1 && frag_[i]->vertical == (frag_[i + vertical-1]->vertical - 1)) //3,2 S
 			{ 
 			frag_[i]->frag_tab.Add(frag_[i - 1+vertical]);
 			}
-			if (i >= vertical&& frag_[i]->line == (frag_[i - vertical]->line + 1)) //1,1
+			if (i >= vertical&& frag_[i]->vertical == (frag_[i - vertical]->vertical + 1)) //1,1
 			{
 			frag_[i]->frag_tab.Add(frag_[i - vertical]);
 			}
-			if (i >= vertical-1 && frag_[i]->line == (frag_[i -vertical+1]->line + 1)) // 2,1
+			if (i >= vertical-1 && frag_[i]->vertical == (frag_[i -vertical+1]->vertical + 1)) // 2,1
 			{
 			frag_[i]->frag_tab.Add(frag_[i + 1 - vertical]);
 			}
-			if (i >= vertical+1 && frag_[i]->line == (frag_[i - vertical-1]->line + 1)) //3,1
+			if (i >= vertical+1 && frag_[i]->vertical == (frag_[i - vertical-1]->vertical + 1)) //3,1
 			{
 			frag_[i]->frag_tab.Add(frag_[i - 1 - vertical]);
 			}
@@ -184,7 +184,7 @@ public:
 				int temp_rad2 = FMath::FRandRange(0, horizontal-1);
 				for (int j = 0;j <= (horizontal * vertical)-1;j++)
 				{
-					if (frag_[j]->line == vertical && frag_[j]->line_h == horizontal)
+					if (frag_[j]->vertical == vertical && frag_[j]->horizontal == horizontal)
 					{ 
 					FVector v = frag_[j]->GetActorLocation();
 					v.Z += 0.6 * biomes[0]->height_diffrences;
@@ -204,7 +204,7 @@ public:
 					int temp_rad2 = FMath::FRandRange(0, horizontal - 1);
 					for (int j = 0;j <= (horizontal * vertical) - 1;j++)
 					{
-						if (frag_[j]->line == vertical && frag_[j]->line_h == horizontal)
+						if (frag_[j]->vertical == vertical && frag_[j]->horizontal == horizontal)
 						{
 							FVector v = frag_[j]->GetActorLocation();
 							v.Z -= 0.6 * biomes[0]->height_diffrences;
@@ -224,36 +224,36 @@ public:
 					{
 					FRotator vvv = FRotator(0,0,0);
 					float g = 0;
-						if (i < temp_num && frag_[i]->line == frag_[i + 1]->line && frag_[i]->GetActorLocation().Z < frag_[i + 1]->GetActorLocation().Z) // 2,1 S
+						if (i < temp_num && frag_[i]->vertical == frag_[i + 1]->vertical && frag_[i]->GetActorLocation().Z < frag_[i + 1]->GetActorLocation().Z) // 2,1 S
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i + 1 ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(0 ,0, -g);
-						if (i >= 1 && frag_[i]->line == frag_[i - 1]->line && frag_[i]->GetActorLocation().Z < frag_[i - 1]->GetActorLocation().Z)  // 2,3 S
+						if (i >= 1 && frag_[i]->vertical == frag_[i - 1]->vertical && frag_[i]->GetActorLocation().Z < frag_[i - 1]->GetActorLocation().Z)  // 2,3 S
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i - 1 ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(0, 0, g);
-						if (i < temp_num - vertical && (frag_[i]->line == frag_[i + vertical]->line - 1) && frag_[i]->GetActorLocation().Z < frag_[i + vertical]->GetActorLocation().Z) //3,2 S
+						if (i < temp_num - vertical && (frag_[i]->vertical == frag_[i + vertical]->vertical - 1) && frag_[i]->GetActorLocation().Z < frag_[i + vertical]->GetActorLocation().Z) //3,2 S
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i + vertical  ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(g, 0, 0);
-						if (i >= vertical && frag_[i]->line == (frag_[i - vertical]->line + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical]->GetActorLocation().Z) //1,1
+						if (i >= vertical && frag_[i]->vertical == (frag_[i - vertical]->vertical + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical]->GetActorLocation().Z) //1,1
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i - vertical  ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(-g, 0, 0);
 						//more complicated - decent
 						
-						if (i >= vertical - 1 && frag_[i]->line == (frag_[i - vertical + 1]->line + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical+1]->GetActorLocation().Z) // 2,1
+						if (i >= vertical - 1 && frag_[i]->vertical == (frag_[i - vertical + 1]->vertical + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical+1]->GetActorLocation().Z) // 2,1
 						{
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i - vertical + 1]->GetActorLocation().Z)/10;
 							vvv += FRotator(-g, 0, -g);
 						}
-						if (i >= vertical + 1 && frag_[i]->line == (frag_[i - vertical - 1]->line + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical-1]->GetActorLocation().Z) //3,1
+						if (i >= vertical + 1 && frag_[i]->vertical == (frag_[i - vertical - 1]->vertical + 1)&& frag_[i]->GetActorLocation().Z < frag_[i - vertical-1]->GetActorLocation().Z) //3,1
 						{
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i - vertical -1 ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(-g, 0, g);
 						}
-						if (i < (temp_num - vertical) - 1 && frag_[i]->line == (frag_[i + vertical + 1]->line - 1)&& frag_[i]->GetActorLocation().Z < frag_[i + vertical+1]->GetActorLocation().Z) //3,1 S
+						if (i < (temp_num - vertical) - 1 && frag_[i]->vertical == (frag_[i + vertical + 1]->vertical - 1)&& frag_[i]->GetActorLocation().Z < frag_[i + vertical+1]->GetActorLocation().Z) //3,1 S
 						{
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i + vertical +  1]->GetActorLocation().Z) / 10;
 							vvv += FRotator(g, 0, g);
 						}
-						if (i < (temp_num - vertical) + 1 && frag_[i]->line == (frag_[i + vertical - 1]->line - 1)&& frag_[i]->GetActorLocation().Z < frag_[i + vertical-1]->GetActorLocation().Z) //3,2 S
+						if (i < (temp_num - vertical) + 1 && frag_[i]->vertical == (frag_[i + vertical - 1]->vertical - 1)&& frag_[i]->GetActorLocation().Z < frag_[i + vertical-1]->GetActorLocation().Z) //3,2 S
 						{
 							g = FMath::Abs(frag_[i]->GetActorLocation().Z - frag_[i + vertical -1 ]->GetActorLocation().Z) / 10;
 							vvv += FRotator(g, 0, -g);

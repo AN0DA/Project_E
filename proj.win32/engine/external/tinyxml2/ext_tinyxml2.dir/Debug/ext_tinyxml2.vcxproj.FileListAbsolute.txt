@@ -1,0 +1,2 @@
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\lib\Debug\ext_tinyxml2.pdb
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\engine\external\tinyxml2\ext_tinyxml2.dir\Debug\ext_tinyxml2.pdb

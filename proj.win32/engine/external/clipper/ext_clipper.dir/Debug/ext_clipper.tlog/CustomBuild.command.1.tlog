@@ -1,0 +1,10 @@
+^C:\USERS\MATEU\DOCUMENTS\DEVELOPMENT\PROJECT_E\COCOS2D\EXTERNAL\CLIPPER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/mateu/Documents/Development/Project_E -BC:/Users/mateu/Documents/Development/Project_E/proj.win32 --check-stamp-file C:/Users/mateu/Documents/Development/Project_E/proj.win32/engine/external/clipper/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

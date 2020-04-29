@@ -1,0 +1,2 @@
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\lib\Debug\cocos2d.pdb
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\engine\cocos\core\cocos2d.dir\Debug\cocos2d.pdb

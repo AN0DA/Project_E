@@ -1,0 +1,2 @@
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\lib\Debug\ext_poly2tri.pdb
+C:\Users\mateu\Documents\Development\Project_E\proj.win32\engine\external\poly2tri\ext_poly2tri.dir\Debug\ext_poly2tri.pdb

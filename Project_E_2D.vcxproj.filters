@@ -15,15 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mian.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
     <ClCompile Include="Core.cpp">
       <Filter>CPP</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Main</Filter>
+    <ClCompile Include="world_gen.cpp">
+      <Filter>CPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="world_gen.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

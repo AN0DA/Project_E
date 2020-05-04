@@ -1,0 +1,2 @@
+C:\Users\T4L3S\Documents\GitHub\Project_E\Project_E_2D\x64\Debug\Project_E_2D.exe
+C:\Users\T4L3S\Documents\GitHub\Project_E\Project_E_2D\x64\Debug\Project_E_2D.pdb

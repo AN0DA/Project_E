@@ -1,8 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+
 #include <iostream>
+
 #include "Core.h"
+
+
 bool needtogenerate = true;
+
 int main()
 {
 	Core core;

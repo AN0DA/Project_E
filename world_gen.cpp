@@ -1,7 +1,8 @@
-#include "world_gen.h"
-
-#include "Core.h"
 #include <iostream>
+
+#include "world_gen.h"
+#include "Core.h"
+
 void world_gen::generate_world(sf::Window* window)
 {
     //texture init for landscape

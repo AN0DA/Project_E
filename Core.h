@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
-#include "world_gen.h"
 #include <SFML/Window.hpp>
+
+#include "world_gen.h"
+
 
 class Core
 {

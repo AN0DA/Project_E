@@ -1,5 +1,5 @@
-//#include "world_gen.h"
-/*
+#include "world_gen.h"
+
 #include "Core.h"
 #include <iostream>
 void world_gen::generate_world(sf::Window* window)
@@ -42,4 +42,3 @@ void world_gen::generate_world(sf::Window* window)
 	
 	
 }
-*/

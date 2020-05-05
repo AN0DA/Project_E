@@ -20,11 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="env_gen.cpp" />
+    <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="env_gen.h" />
+    <ClInclude Include="env_temperature.h" />
     <ClInclude Include="world_gen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -4,6 +4,9 @@
 
 #include "world_gen.h"
 
+struct sprite_params{
+    double temperature;
+};
 
 class Core
 {

@@ -31,7 +31,14 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="Animal_core.cpp">
+    <ClCompile Include="env_temperature.cpp">
+      <Filter>CPP</Filter>
+    </ClCompile>
+    <ClCompile Include="env_gen.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>CPP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,5 +62,11 @@
     <Image Include="textures\Cat.png">
       <Filter>Source</Filter>
     </Image>
+    <ClInclude Include="env_temperature.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="env_gen.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

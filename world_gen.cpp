@@ -42,7 +42,7 @@ void world_gen::generate_world(sf::Window* window, env_gen environment_gen)
 		}
 	}
 
-    sprite_data sprite_params[500][500];
+    
 
     //env_gen
     //environment_gen.generate_environment();

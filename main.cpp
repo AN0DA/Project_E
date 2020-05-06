@@ -22,27 +22,27 @@ int main()
 			sf::Texture sand;
 			if (!sand.loadFromFile("textures/sand2.jpg"))
 			{
-				std::cout << "Sand isnt loaded!";
+				std::cout << "Sand isn't loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt1"; }
+			else { std::cout << "properly loaded txt1" << std::endl; }
 			sf::Texture sawannah;
 			if (!sawannah.loadFromFile("textures/sawannah.jpg"))
 			{
-				std::cout << "Sand isnt loaded!";
+				std::cout << "Sand isn't loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt2"; }
+			else { std::cout << "properly loaded txt2" << std::endl; }
 			sf::Texture snow;
 			if (!snow.loadFromFile("textures/snow.jpg"))
 			{
-				std::cout << "snow isnt loaded!";
+				std::cout << "snow isn't loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt3"; }
+			else { std::cout << "properly loaded txt3" << std::endl; }
 			sf::Texture grass;
 			if (!grass.loadFromFile("textures/grass.jpg"))
 			{
-				std::cout << "Grass isnt loaded!";
+				std::cout << "Grass isn't loaded! << std::endl << std::endl";
 			}
-			else { std::cout << "properly loaded txt4"; }
+			else { std::cout << "properly loaded txt4" << std::endl << std::endl; }
 			//end of loading
 
 			const int x = 50;
@@ -122,12 +122,17 @@ int main()
 			//window.display(); //<----- EPILEPSJA
 
 			//Generate natural environment
-			sprite_params sprite_data[x][y];
-			
-			env_gen::generate_environment
+			sprite_params** sprite_data = new sprite_params* [x];
+			for (int i = 0; i < x; i++)
+				sprite_data[x] = new sprite_params[y];
+
+			env_gen habitat;
+			std::cout;
+			habitat.generate_environment(sprite_data, x, y);
 
 			needtogenerate = false;
 		}
+
 		window.display();
 		sf::Event evt;
 		while (window.pollEvent(evt))

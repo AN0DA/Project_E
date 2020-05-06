@@ -4,6 +4,7 @@
 
 #include "env_gen.h"
 
+class env_gen;
 
 class world_gen
 {

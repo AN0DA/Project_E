@@ -1,12 +1,19 @@
 #pragma once
+
+#include <cmath>
+#include <random>
+
+#include "Core.h"
+
+struct sprite_params;
+
 class env_temperature
 {
-	//TEMPORARY
-	static const int temperature_min = 18;
-	static const int temperature_max = 26.5;
-	static const int biome = 1;
+	const int min_temp = -10;
+	const int max_temp = 35;
+	const float change_percent = 0.2; //from range <0, 1)
 
 public:
-	void generate_temperature(int biome = biome, int temperature_min = temperature_min, int temperature_max = temperature_max);
+	void generate_temperature(sprite_params** data, int width, int height);
 };
 

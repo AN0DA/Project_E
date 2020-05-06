@@ -9,7 +9,7 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;
 	//core.StartProjectE(core, &window);
-	 //texture init for landscape
+	 //texture init for landscape, textures're inside the textures folder. Seems logical
 	while (window.isOpen())
 	{
 		if (needtogenerate)
@@ -48,7 +48,8 @@ int main()
 		for (int j = 0; j < x; j++)
 		{
 			//sprites[i][j].setColor(sf::Color(core.GenerateRandomInt(10), core.GenerateRandomInt(10), core.GenerateRandomInt(10)));
-			
+			//									no sense for now	/\										*
+				//																	aligning texture from a lib of textures to an structed field
 			if (j >= y && i <= y)
 			{
 			
@@ -67,13 +68,14 @@ int main()
 			{
 			sprites[i][j].setTexture(sand);
 			}
-			
+			//																	setting position for sprite for V2 bc X and Y. 1px = 1.0f
 			sprites[i][j].setPosition(sf::Vector2f(i*32, j*32));
 			//window->setVisible();
 			window.draw(sprites[i][j]);
 
 		}
 	}
+	//																	overdone algorythm for generating terrain
 	/*
 	//render  other biomes!
 	const int NoB = 4;
@@ -122,6 +124,7 @@ int main()
 	needtogenerate = false;
 		}
 		window.display();
+	//																	Game loop
 	sf::Event evt;
 	while (window.pollEvent(evt))
 	{

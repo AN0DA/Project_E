@@ -20,14 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animals.cpp" />
+    <ClCompile Include="Animal_core.cpp" />
+    <ClCompile Include="Animal_stats.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animals.h" />
+    <ClInclude Include="Animal_stats.h" />
+    <ClInclude Include="Animal_core.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="world_gen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\Cat.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

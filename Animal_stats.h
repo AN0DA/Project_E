@@ -1,9 +1,8 @@
 #pragma once
-class Health
+class Stat
 {
 public:
-	Health();
-	Health(unsigned short _max, unsigned short _current);
+	Stat(unsigned short _max = 100, unsigned short _current = 100);
 
 	//setters
 	void set_current(unsigned short _current);
@@ -18,40 +17,4 @@ public:
 private:
 	unsigned short current;
 	unsigned short max;
-};
-
-class Age
-{
-public:
-	Age();
-	Age(unsigned short _max, unsigned short _reproduction);
-
-	//setters
-	void set_current(unsigned short _current);
-	void set_max(unsigned short _max);
-	void set_reproduction(unsigned short _reproduction);
-
-
-	void modify(int _val);
-
-
-	//getters
-	unsigned short get_max();
-	unsigned short get_current();
-	unsigned short get_reproduction();
-
-private:
-	unsigned short current;
-	unsigned short max;
-	unsigned short reproduction;
-};
-
-class Desease
-{
-public:
-	Desease();
-	~Desease();
-
-private:
-
 };

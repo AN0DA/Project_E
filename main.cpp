@@ -2,14 +2,23 @@
 #include <SFML/Window.hpp>
 
 #include <iostream>
+#include <vector>
+#include <string>
 
 #include "Core.h"
-#include "Animals.h"
+#include "Animal_core.h"
 
 bool needtogenerate = true;
 
 int main()
 {
+	Animals_gen table;
+	Animal kot(50, 50, false);
+	kot.set_sprite("textures/Cat.png");
+	table.create_new(kot);
+
+
+
 	Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;

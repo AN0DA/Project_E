@@ -27,6 +27,12 @@
     <ClCompile Include="Animals.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Animal_stats.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal_core.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -38,5 +44,16 @@
     <ClInclude Include="Animals.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Animal_stats.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_core.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\Cat.png">
+      <Filter>Source</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -24,12 +24,21 @@
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="treeClass.cpp">
+      <Filter>CPP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="world_gen.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="treeClass.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

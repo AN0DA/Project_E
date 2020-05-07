@@ -21,10 +21,13 @@
   <ItemGroup>
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="treeClass.cpp" />
     <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="treeClass.h" />
     <ClInclude Include="world_gen.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

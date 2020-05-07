@@ -233,7 +233,7 @@ int main()
 			//Generate natural environment
 			sprite_params** sprite_data = new sprite_params * [x];
 			for (int i = 0; i < x; i++)
-				sprite_data[x] = new sprite_params[y];
+				sprite_data[i] = new sprite_params[y];
 
 			env_gen habitat;
 			std::cout;

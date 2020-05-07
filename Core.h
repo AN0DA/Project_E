@@ -8,7 +8,10 @@ class Core
 public:
     int GenerateRandomInt(int a);
 };
+
+
 class sprite_params {
+
 public:
     double temperature;
 };

@@ -231,7 +231,7 @@ int main()
 			//window.display(); //<----- EPILEPSJA
 
 			//Generate natural environment
-			sprite_params** sprite_data = new sprite_params* [x];
+			sprite_params** sprite_data = new sprite_params * [x];
 			for (int i = 0; i < x; i++)
 				sprite_data[x] = new sprite_params[y];
 
@@ -252,23 +252,10 @@ int main()
 				window.close();
 				break;
 			}
-			*/
 			//window.display(); <----- EPILEPSJA
 			needtogenerate = false;
 			window.display();
 
 		}
-
-	sf::Event evt;
-	while (window.pollEvent(evt))
-	{
-		switch(evt.type)
-			{ 
-			case sf::Event::Closed:
-					window.close();
-					break;
-			}
-		}
-
 	}
-}
+};

@@ -23,7 +23,6 @@
     <ClCompile Include="Animal_core.cpp" />
     <ClCompile Include="Animal_stats.cpp" />
     <ClCompile Include="Core.cpp" />
-    <ClCompile Include="mian.cpp" />
     <ClCompile Include="env_gen.cpp" />
     <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="main.cpp" />
@@ -40,7 +39,6 @@
     <ClInclude Include="treeClass.h" />
     <ClInclude Include="env_gen.h" />
     <ClInclude Include="env_temperature.h" />
-    <ClInclude Include="world_gen.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\Cat.png" />

@@ -1,82 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Main">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Animals.cpp" />
+    <ClCompile Include="Animal_core.cpp" />
+    <ClCompile Include="Animal_stats.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="env_gen.cpp" />
+    <ClCompile Include="env_temperature.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="treeClass.cpp" />
+    <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mian.cpp">
-    <ClCompile Include="main.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="world_gen.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Core.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Animals.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Animal_stats.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Animal_core.cpp">
-    <ClCompile Include="env_temperature.cpp">
-      <Filter>CPP</Filter>
-    </ClCompile>
-    <ClCompile Include="world_gen.cpp">
-      <Filter>CPP</Filter>
-    <ClCompile Include="env_gen.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="treeClass.cpp">
-    <ClCompile Include="main.cpp">
-      <Filter>CPP</Filter>
-    </ClCompile>
+    <ClInclude Include="Animals.h" />
+    <ClInclude Include="Animal_stats.h" />
+    <ClInclude Include="Animal_core.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="world_gen.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="treeClass.h" />
+    <ClInclude Include="env_gen.h" />
+    <ClInclude Include="env_temperature.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="world_gen.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="treeClass.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="field.h">
-
-    <ClInclude Include="Animals.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Animal_stats.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Animal_core.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\Cat.png">
-      <Filter>Source</Filter>
-    </Image>
-    <ClInclude Include="env_temperature.h">
-      <Filter>Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="env_gen.h">
-
-      <Filter>Headers</Filter>
-    </ClInclude>
+    <Image Include="textures\Cat.png" />
   </ItemGroup>
 </Project>

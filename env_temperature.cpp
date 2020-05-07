@@ -1,5 +1,4 @@
 #include "env_temperature.h"
-
 #include <iostream>
 
 //ERROR: data -> ACCESS VIOLATION

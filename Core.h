@@ -1,17 +1,12 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-
 #include "world_gen.h"
-
-struct sprite_params{
-    double temperature;
-};
-
+#include <SFML/Window.hpp>
 class Core
 {
-    
+struct sprite_params{
+double temperature;
+}; 
 public:
     int GenerateRandomInt(int a);
 };

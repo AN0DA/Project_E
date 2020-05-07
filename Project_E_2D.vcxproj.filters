@@ -15,6 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="mian.cpp">
     <ClCompile Include="main.cpp">
       <Filter>Main</Filter>
     </ClCompile>
@@ -34,6 +35,8 @@
     <ClCompile Include="env_temperature.cpp">
       <Filter>CPP</Filter>
     </ClCompile>
+    <ClCompile Include="world_gen.cpp">
+      <Filter>CPP</Filter>
     <ClCompile Include="env_gen.cpp">
       <Filter>Main</Filter>
     </ClCompile>

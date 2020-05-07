@@ -37,6 +37,7 @@
     <ClCompile Include="env_gen.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="treeClass.cpp">
     <ClCompile Include="main.cpp">
       <Filter>CPP</Filter>
     </ClCompile>
@@ -48,6 +49,11 @@
     <ClInclude Include="world_gen.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="treeClass.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+
     <ClInclude Include="Animals.h">
       <Filter>Headers</Filter>
     </ClInclude>
@@ -66,6 +72,7 @@
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="env_gen.h">
+
       <Filter>Headers</Filter>
     </ClInclude>
   </ItemGroup>

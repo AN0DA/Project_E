@@ -26,6 +26,7 @@
     <ClCompile Include="env_gen.cpp" />
     <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="treeClass.cpp" />
     <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,6 +34,8 @@
     <ClInclude Include="Animal_stats.h" />
     <ClInclude Include="Animal_core.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="field.h" />
+    <ClInclude Include="treeClass.h" />
     <ClInclude Include="env_gen.h" />
     <ClInclude Include="env_temperature.h" />
     <ClInclude Include="world_gen.h" />

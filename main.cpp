@@ -14,10 +14,10 @@ bool needtogenerate = true;
 
 int main()
 {
-	Animals_gen table;
+	/*Animals_gen table;
 	Animal kot(50, 50, false);
 	kot.set_sprite("textures/Cat.png");
-	table.create_new(kot);
+	table.create_new(kot);*/
 
 
 

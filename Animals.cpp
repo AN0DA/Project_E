@@ -4,26 +4,6 @@
 #include "Animals.h"
 
 
-
-Animal::Animal()
-{
-	position_x = 0;
-	position_y = 0;
-	sex = false; //false = female, true = male;
-	size = 10;
-	reproduction_age = 20;
-	sight = 10;
-	parents = {};
-}
-Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal _parents[2]) {
-	position_x = _x;
-	position_y = _y;
-	sex = _sex; //false = female, true = male;
-	size = _size;
-	reproduction_age = _repro;
-	sight = _sight;
-	parents = {_parents[0], _parents[1]};
-}
 Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal _parents[2], Stat* _health, Stat* _age , Stat* _thirst, Stat* _hunger) {
 	position_x = _x;
 	position_y = _y;

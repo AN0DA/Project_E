@@ -1,45 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Main">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="CPP">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Core.cpp">
-      <Filter>CPP</Filter>
-    </ClCompile>
     <ClCompile Include="world_gen.cpp">
-      <Filter>CPP</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Main</Filter>
+    <ClCompile Include="Core.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="env_gen.cpp">
+      <Filter>Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal_core.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal_stats.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
+    <ClCompile Include="Animals.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
+    <ClCompile Include="env_temperature.cpp">
+      <Filter>Environment\Parameters</Filter>
     </ClCompile>
     <ClCompile Include="treeClass.cpp">
-      <Filter>CPP</Filter>
+      <Filter>Flora</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="env_gen.h">
+      <Filter>Environment</Filter>
+    </ClInclude>
     <ClInclude Include="Core.h">
-      <Filter>Headers</Filter>
+      <Filter>Core\Headers</Filter>
     </ClInclude>
     <ClInclude Include="world_gen.h">
-      <Filter>Headers</Filter>
+      <Filter>Core\Headers</Filter>
     </ClInclude>
     <ClInclude Include="treeClass.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="field.h">
+    <ClInclude Include="Animals.h">
       <Filter>Headers</Filter>
+    <ClInclude Include="env_temperature.h">
+      <Filter>Environment\Parameters\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="treeClass.h">
+      <Filter>Flora</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+      <Filter>Flora</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_core.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animals.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_stats.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{de1949d1-f062-45fc-b734-2fd6df586a18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment">
+      <UniqueIdentifier>{54c5e3b1-99f4-4ad7-a05c-5e1f0d64409c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Headers">
+      <UniqueIdentifier>{21240836-0fff-4a66-a50c-e9921311fd74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment\Parameters">
+      <UniqueIdentifier>{c40baccf-facf-4f25-b56b-71fc9758bfdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment\Parameters\Headers">
+      <UniqueIdentifier>{92066984-7003-4d9d-bdec-5a53f5930a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Flora">
+      <UniqueIdentifier>{823f0bca-45ce-46e4-914b-3f7b80e4659e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna">
+      <UniqueIdentifier>{49385630-c0b2-4728-a625-3de6109a7858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna\Textures">
+      <UniqueIdentifier>{c1524c9d-af4a-452d-b16b-0520e912be9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna\Headers">
+      <UniqueIdentifier>{77229115-bfcc-4ef9-8481-3cc652cb278d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\Cat.png">
+      <Filter>Fauna\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@ void Tree::treeGrow() {
 	int* currentMaxHumidityId = new int(0);
 	int* currentMaxHumidity = new int(-1);
 	for (int i = 0; i != this->neighborFields.size(); i++) {
-		if (this->neighborFields[i]->humidity > *currentMaxHumidity && !this->neighborFields[i]->isRooted) {
+		if (this->neighborFields[i]->humidity > * currentMaxHumidity && !this->neighborFields[i]->isRooted) {
 			*currentMaxHumidityId = i;
 			*currentMaxHumidity = this->neighborFields[i]->humidity;
 		}

@@ -3,8 +3,7 @@
 #include <string>
 #include "Animals.h"
 
-
-Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal _parents[2], Stat* _health, Stat* _age , Stat* _thirst, Stat* _hunger) {
+Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal _parents[2], Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) {
 	position_x = _x;
 	position_y = _y;
 	sex = _sex; //false = female, true = male;
@@ -47,7 +46,6 @@ void Animal::set_sprite(std::string _sprite_path) {
 
 unsigned short Animal::get_x() {
 	return position_x;
-
 }
 unsigned short Animal::get_y() {
 	return position_y;
@@ -65,8 +63,8 @@ unsigned short Animal::get_sight() {
 std::vector<Animal> Animal::get_parents(unsigned int _precision) {
 	if (parents.size() >= 2 && _precision > 0)
 	{
-		std::vector<Animal> parent1 = parents[0].get_parents(_precision -1);
-		std::vector<Animal> parent2 = parents[1].get_parents(_precision -1);
+		std::vector<Animal> parent1 = parents[0].get_parents(_precision - 1);
+		std::vector<Animal> parent2 = parents[1].get_parents(_precision - 1);
 
 		std::vector<Animal> heritage = parents;
 		heritage.insert(heritage.end(), parent1.begin(), parent1.end());
@@ -81,11 +79,6 @@ std::vector<Animal> Animal::get_parents(unsigned int _precision) {
 std::string Animal::get_sprite() {
 	return sprite_path;
 }
-
-
-
-
-
 
 Cat::Cat()
 {

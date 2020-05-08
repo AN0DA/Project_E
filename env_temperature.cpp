@@ -1,5 +1,5 @@
-#include "env_temperature.h"
 #include <iostream>
+#include "env_temperature.h"
 
 //ERROR: data -> ACCESS VIOLATION
 void env_temperature::generate_temperature(sprite_params** data, int width, int height) {
@@ -30,6 +30,7 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 		}
 	}
 
+	//DEBUG
 	for (int i = 0; i < width; i++) {
 		for (int j = 0; i < height; i++) {
 			std::cout << data[i][j].get_temperature() << " ";

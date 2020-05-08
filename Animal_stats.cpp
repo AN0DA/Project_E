@@ -1,9 +1,8 @@
 #include "Animal_stats.h"
 
-//Stat - - - - - - -  -- - - - -- - - - - -  
+//Stat - - - - - - -  -- - - - -- - - - - -
 
-
-Stat::Stat(unsigned short _max, unsigned short _current){
+Stat::Stat(unsigned short _max, unsigned short _current) {
 	current = _current;
 	max = _max;
 }
@@ -27,5 +26,3 @@ unsigned short Stat::get_max() {
 unsigned short Stat::get_current() {
 	return current;
 }
-
-

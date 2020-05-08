@@ -16,4 +16,3 @@ void generate_world(sf::Window* window);
 };
 
 */
-class env_gen;

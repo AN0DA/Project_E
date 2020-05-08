@@ -1,7 +1,6 @@
 #pragma once
 #include "Animal_stats.h"
 
-
 ///Implementation of an instance of an Animal
 class Animal
 {
@@ -59,7 +58,7 @@ public:
 	* @param _parent1 First parent
 	* @param _parent2 Second parent
 	*/
-	void set_parents(Animal _parent1, Animal _parent2 = NULL );
+	void set_parents(Animal _parent1, Animal _parent2 = NULL);
 	/**
 	* Sets file path to texture of animal
 	*
@@ -114,13 +113,13 @@ public:
 	Stat hunger;
 
 private:
-	
+
 	/// X Position of an Animal
 	int position_x;
 	/// Y Position of an Animal
 	int position_y;
-	/** Gender of an animal 
-	* False == Female, 
+	/** Gender of an animal
+	* False == Female,
 	* True == Male
 	*/
 	bool sex;
@@ -143,6 +142,4 @@ public:
 	~Cat();
 
 private:
-
 };
-

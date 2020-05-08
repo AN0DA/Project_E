@@ -1,14 +1,15 @@
-#include "Core.h"
 #include <cstdlib>
 #include <iostream>
+#include "Core.h"
+
 bool mustgenthisforfucksake = true;
 int Core::GenerateRandomInt(int a) {
 	if (mustgenthisforfucksake)
-	
-	srand((unsigned)time(NULL));
+
+		srand((unsigned)time(NULL));
 	mustgenthisforfucksake = false;
 	return rand() % a + 1;
-	}
+}
 
 void  sprite_params::set_temperature(double _temperature) {
 	temperature = _temperature;

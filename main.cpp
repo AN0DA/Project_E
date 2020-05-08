@@ -9,7 +9,6 @@
 #include "Animal_core.h"
 #include "env_gen.h"
 
-
 bool needtogenerate = true;
 
 int main()
@@ -18,8 +17,6 @@ int main()
 	Animal kot(50, 50, false);
 	kot.set_sprite("textures/Cat.png");
 	table.create_new(kot);*/
-
-
 
 	Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
@@ -66,12 +63,10 @@ int main()
 
 					if (j >= y && i <= y)
 					{
-
 						sprites[i][j].setTexture(grass);
 					}
 					else if (j >= y && i > y)
 					{
-
 						sprites[i][j].setTexture(sawannah);
 					}
 					else  if (j < y && i >= y)
@@ -86,7 +81,6 @@ int main()
 					sprites[i][j].setPosition(sf::Vector2f(i * 32, j * 32));
 					//window->setVisible();
 					window.draw(sprites[i][j]);
-
 				}
 			}
 			/*
@@ -94,7 +88,6 @@ int main()
 			const int NoB = 4;
 			for (int k = 1; NoB > k; k++)
 			{
-
 				int i = int(x+8 / k + 12);
 				int j = int(x+8 / k - 8);
 				//sprites[i][j].setTexture(sand);
@@ -236,7 +229,6 @@ int main()
 				sprite_data[i] = new sprite_params[y];
 
 			env_gen habitat;
-			std::cout;
 			habitat.generate_environment(sprite_data, x, y);
 
 			needtogenerate = false;
@@ -255,7 +247,6 @@ int main()
 			//window.display(); <----- EPILEPSJA
 			needtogenerate = false;
 			window.display();
-
 		}
 	}
 };

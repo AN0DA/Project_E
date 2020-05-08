@@ -11,7 +11,7 @@ class Tree {
 	int drainPerRoot;
 	int humidityUsage;
 	int waterToGrowth;
-	// to add later: health, 
+	// to add later: health,
 public:
 	Tree(sprite_params* trunk);
 	void treeLifeCycle(int interval); // this function will need ticks as argument later

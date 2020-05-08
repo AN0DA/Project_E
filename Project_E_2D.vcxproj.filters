@@ -37,6 +37,12 @@
     <ClInclude Include="world_gen.h">
       <Filter>Core\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="treeClass.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+    <ClInclude Include="Animals.h">
+      <Filter>Headers</Filter>
     <ClInclude Include="env_temperature.h">
       <Filter>Environment\Parameters\Headers</Filter>
     </ClInclude>

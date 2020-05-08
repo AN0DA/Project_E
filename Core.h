@@ -5,7 +5,6 @@
 
 #include "world_gen.h"
 
-
 class Core
 {
     

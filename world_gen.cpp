@@ -1,5 +1,6 @@
+/*
+#pragma once
 #include <iostream>
-
 #include "world_gen.h"
 #include "env_gen.h"
 #include "Core.h"
@@ -41,10 +42,5 @@ void world_gen::generate_world(sf::Window* window, env_gen environment_gen)
 
 		}
 	}
-
-    
-
-    //env_gen
-    //environment_gen.generate_environment();
-	
 }
+*/

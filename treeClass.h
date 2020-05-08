@@ -1,6 +1,6 @@
 #pragma once
-#include "field.h"
 #include <vector>
+#include "field.h"
 
 class Tree {
 	// possible rectreate later, I dont know how do exacly squares of our world will work
@@ -9,7 +9,7 @@ class Tree {
 	std::vector<Field* > neighborFields; // possible rectreate later, I dont know how do exacly squares of our world will work
 	int currentWater;
 	int humidityUsage;
-	// to add later: health, 
+	// to add later: health,
 public:
 	Tree(Field* trunk);
 	void treeLifeCycle(int currentWater); // this function will need ticks as argument later

@@ -4,16 +4,16 @@
 #include <chrono>
 #include "treeClass.h"
 
-Tree::Tree(Field* trunk) {
+Tree::Tree(sprite_params* trunk) {
 	std::cout << "Tree created" << std::endl;
-	(*trunk).isRooted = true;
+	(*trunk).setRootStatus(true);
 	this->trunk = trunk;
 	this->neighborFields.push_back((*trunk).neighbors[0]);
 	this->neighborFields.push_back((*trunk).neighbors[1]);
 	this->neighborFields.push_back((*trunk).neighbors[2]);
 	this->neighborFields.push_back((*trunk).neighbors[3]);
 }
-void Tree::assignNewNeighbor(Field* newNeighbor) {
+void Tree::assignNewNeighbor(sprite_params* newNeighbor) {
 	// search if newNeighbor is neighbor already, if not then push_back it to the neighbors vector
 	for (auto i = this->neighborFields.begin(); i != this->neighborFields.end(); i++) {
 		if (*i == newNeighbor)
@@ -28,9 +28,9 @@ void Tree::treeGrow() {
 	int* currentMaxHumidityId = new int(0);
 	int* currentMaxHumidity = new int(-1);
 	for (int i = 0; i != this->neighborFields.size(); i++) {
-		if (this->neighborFields[i]->humidity > * currentMaxHumidity && !this->neighborFields[i]->isRooted) {
+		if (this->neighborFields[i]->getHumidity() > * currentMaxHumidity && !this->neighborFields[i]->getRootStatus()) {
 			*currentMaxHumidityId = i;
-			*currentMaxHumidity = this->neighborFields[i]->humidity;
+			*currentMaxHumidity = this->neighborFields[i]->getHumidity();
 		}
 	}
 	// no growing if there are no free spaces
@@ -38,7 +38,7 @@ void Tree::treeGrow() {
 		return;
 	}
 	// setting found field as new root and deleting it form neighbor
-	this->neighborFields[*currentMaxHumidityId]->isRooted = true;
+	this->neighborFields[*currentMaxHumidityId]->setRootStatus(true);
 	this->roots.push_back((this->neighborFields[*currentMaxHumidityId]));
 	this->neighborFields.erase(this->neighborFields.begin() + *currentMaxHumidityId);
 	// adding new neighborFields if they are not neighbors already
@@ -49,7 +49,7 @@ void Tree::treeGrow() {
 void Tree::drinkWater() {
 	//drain every root
 	for (int i = 0; i != this->roots.size(); i++) {
-		this->roots[i]->humidity -= this->drainPerRoot;
+		this->roots[i]->setHumidity(this->roots[i]->getHumidity() - this->drainPerRoot);
 		this->currentWater += this->drainPerRoot;
 	}
 }

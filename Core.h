@@ -10,12 +10,22 @@ public:
 };
 
 class sprite_params {
+	double temperature = 0;
+	sf::Sprite sprite;
+	int x;
+	int y;
+	int humidity;
+	bool isRooted;
 public:
 	sprite_params();
-
 	void set_temperature(double _temperature);
 	double get_temperature();
-
-private:
-	double temperature = 0;
+	sf::Sprite getSprite();
+	int getX();
+	int getY();
+	int getHumidity();
+	void setHumidity(int newHumidity);
+	bool getRootStatus();
+	void setRootStatus(bool newStatus);
+	sprite_params* neighbors[4];
 };

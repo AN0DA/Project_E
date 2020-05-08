@@ -21,3 +21,21 @@ double sprite_params::get_temperature() {
 sprite_params::sprite_params() {
 	temperature = 0;
 }
+int sprite_params::getX() {
+	return this->x;
+}
+int sprite_params::getY() {
+	return this->y;
+}
+int sprite_params::getHumidity() {
+	return this->humidity;
+}
+void sprite_params::setHumidity(int newHumidity) {
+	this->humidity = newHumidity;
+}
+bool sprite_params::getRootStatus() {
+	return this->isRooted;
+}
+void sprite_params::setRootStatus(bool newStatus) {
+	this->isRooted = newStatus;
+}

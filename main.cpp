@@ -54,33 +54,34 @@ int main()
 			//end of lodin
 			const int x = 50;
 			const int y = 20;
-			sf::Sprite sprites[x][x];
+			// generating table of fields and sprite is inside
+			sprite_params field [x] [x] ;
 			for (int i = 0; i < x; i++)
 			{
 				for (int j = 0; j < x; j++)
 				{
 					//sprites[i][j].setColor(sf::Color(core.GenerateRandomInt(10), core.GenerateRandomInt(10), core.GenerateRandomInt(10)));
-
+					//just to get clear sprites are assigned to fields
 					if (j >= y && i <= y)
 					{
-						sprites[i][j].setTexture(grass);
+						field[i][j].sprite.setTexture(grass);
 					}
 					else if (j >= y && i > y)
 					{
-						sprites[i][j].setTexture(sawannah);
+						field[i][j].sprite.setTexture(sawannah);
 					}
 					else  if (j < y && i >= y)
 					{
-						sprites[i][j].setTexture(snow);
+						field[i][j].sprite.setTexture(snow);
 					}
 					else
 					{
-						sprites[i][j].setTexture(sand);
+						field[i][j].sprite.setTexture(sand);
 					}
 
-					sprites[i][j].setPosition(sf::Vector2f(i * 32, j * 32));
+					field[i][j].sprite.setPosition(sf::Vector2f(i * 32, j * 32));
 					//window->setVisible();
-					window.draw(sprites[i][j]);
+					window.draw(field[i][j].sprite);
 				}
 			}
 			/*

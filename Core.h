@@ -11,12 +11,13 @@ public:
 
 class sprite_params {
 	double temperature = 0;
-	sf::Sprite sprite;
+	
 	int x;
 	int y;
 	int humidity;
 	bool isRooted;
 public:
+	sf::Sprite sprite;
 	sprite_params();
 	void set_temperature(double _temperature);
 	double get_temperature();

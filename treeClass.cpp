@@ -1,16 +1,20 @@
 #include <iostream>
 #include <algorithm>
+#include <thread>
+#include <chrono>
 #include "treeClass.h"
 
 Tree::Tree(Field* trunk) {
 	std::cout << "Tree created" << std::endl;
 	(*trunk).isRooted = true;
 	this->trunk = trunk;
+	this->neighborFields.push_back((*trunk).neighbors[0]);
 	this->neighborFields.push_back((*trunk).neighbors[1]);
 	this->neighborFields.push_back((*trunk).neighbors[2]);
 	this->neighborFields.push_back((*trunk).neighbors[3]);
 }
 void Tree::assignNewNeighbor(Field* newNeighbor) {
+	// search if newNeighbor is neighbor already, if not then push_back it to the neighbors vector
 	for (auto i = this->neighborFields.begin(); i != this->neighborFields.end(); i++) {
 		if (*i == newNeighbor)
 		{
@@ -41,4 +45,25 @@ void Tree::treeGrow() {
 	for (int i = 0; i < 4; i++) {
 		this->assignNewNeighbor(this->neighborFields.back()->neighbors[i]);
 	}
+}
+void Tree::drinkWater() {
+	//drain every root
+	for (int i = 0; i != this->roots.size(); i++) {
+		this->roots[i]->humidity -= this->drainPerRoot;
+		this->currentWater += this->drainPerRoot;
+	}
+}
+void Tree::treeLifeCycle(int interval) {
+	// something similiar to JavaScript's setInterval
+	std::thread th([&]() {
+		while (true) {
+			std::this_thread::sleep_for(std::chrono::milliseconds(interval));
+			this->drinkWater();
+			this->currentWater -= this->humidityUsage;
+			if (this->currentWater > this->waterToGrowth) {
+				this->treeGrow();
+			}
+		}
+		});
+	th.detach();
 }

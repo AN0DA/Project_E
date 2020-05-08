@@ -14,10 +14,10 @@ bool needtogenerate = true;
 
 int main()
 {
-	Animals_gen table;
+	/*Animals_gen table;
 	Animal kot(50, 50, false);
 	kot.set_sprite("textures/Cat.png");
-	table.create_new(kot);
+	table.create_new(kot);*/
 
 
 
@@ -233,7 +233,7 @@ int main()
 			//Generate natural environment
 			sprite_params** sprite_data = new sprite_params * [x];
 			for (int i = 0; i < x; i++)
-				sprite_data[x] = new sprite_params[y];
+				sprite_data[i] = new sprite_params[y];
 
 			env_gen habitat;
 			std::cout;

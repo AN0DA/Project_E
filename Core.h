@@ -13,6 +13,12 @@ public:
 class sprite_params {
 
 public:
-    double temperature;
+    sprite_params();
+
+    void set_temperature(double _temperature);
+    double get_temperature();
+
+private:
+    double temperature = 0;
 };
 

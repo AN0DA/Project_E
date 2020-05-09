@@ -1,36 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Main">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="CPP">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Headers">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Core.cpp">
-      <Filter>CPP</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="world_gen.cpp">
-      <Filter>CPP</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Main</Filter>
+    <ClCompile Include="env_gen.cpp">
+      <Filter>Environment</Filter>
+    </ClCompile>
+    <ClCompile Include="env_temperature.cpp">
+      <Filter>Environment\Parameters</Filter>
+    </ClCompile>
+    <ClCompile Include="treeClass.cpp">
+      <Filter>Flora</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal_core.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
+    <ClCompile Include="Animal_stats.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
+    <ClCompile Include="Animals.cpp">
+      <Filter>Fauna</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
-      <Filter>Headers</Filter>
+      <Filter>Core\Headers</Filter>
     </ClInclude>
     <ClInclude Include="world_gen.h">
-      <Filter>Headers</Filter>
+      <Filter>Core\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="env_gen.h">
+      <Filter>Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="env_temperature.h">
+      <Filter>Environment\Parameters\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="treeClass.h">
+      <Filter>Flora</Filter>
+    </ClInclude>
+    <ClInclude Include="field.h">
+      <Filter>Flora</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_core.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animals.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_stats.h">
+      <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{21989777-5a98-4cdc-9168-ddba91004d68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core\Headers">
+      <UniqueIdentifier>{d28e526f-1327-49fc-8ce3-213e7e70236b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment">
+      <UniqueIdentifier>{22bb0208-763d-4b10-bf36-ac2a5040eefe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment\Parameters">
+      <UniqueIdentifier>{5a10eca3-975e-4e8d-bb0c-d32ce53ca6da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Environment\Parameters\Headers">
+      <UniqueIdentifier>{a31b0345-c97f-45d1-b0c4-439f985131a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Flora">
+      <UniqueIdentifier>{811448c2-8f03-4b3a-8a02-d28684b67d5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna">
+      <UniqueIdentifier>{c8676f34-fb8a-45d3-944f-c68c4591de04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna\Headers">
+      <UniqueIdentifier>{2a1733c4-6846-4a70-8c39-ec04e72527ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fauna\Textures">
+      <UniqueIdentifier>{d0eeed8e-f25b-4295-8066-6697a1e620a6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\Cat.png">
+      <Filter>Fauna\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

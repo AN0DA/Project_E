@@ -19,7 +19,7 @@ class sprite_params {
 	int y;
 	int humidity;
 	bool isRooted;
-	Biomes biome_num;
+	Biomes biome;
 public:
 	sf::Sprite sprite;
 	sprite_params();
@@ -40,10 +40,11 @@ public:
 
 
 enum Biomes {
-	water,
-	rainforest,
-	desert,
-	savanna,
-	grassland,
-	snow
+	water,		// temp 0+;			wilg = 100
+	ice,		// temp 0-;			wilg = 100
+	rainforest, // temp 25 - 35;	wilg  80-100
+	desert,		// temp 25 - 35;	wilg  20-0
+	savanna,	// temp 16 - 26
+	grassland,	// temp 1 - 15
+	snow		// temp -10 - 0
 };

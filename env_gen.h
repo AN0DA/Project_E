@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "env_temperature.h"
 #include "env_humidity.h"
+#include "env_biomes.h"
 
 class env_gen
 {

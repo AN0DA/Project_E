@@ -26,6 +26,9 @@
     <ClCompile Include="Animals.cpp">
       <Filter>Fauna</Filter>
     </ClCompile>
+    <ClCompile Include="env_humidity.cpp">
+      <Filter>Environment\Parameters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -54,6 +57,9 @@
     </ClInclude>
     <ClInclude Include="Animal_stats.h">
       <Filter>Fauna\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="env_humidity.h">
+      <Filter>Environment\Parameters\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

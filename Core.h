@@ -19,7 +19,7 @@ class sprite_params {
 	int y;
 	int humidity;
 	bool isRooted;
-	unsigned int biome_num;
+	Biomes biome_num;
 public:
 	sf::Sprite sprite;
 	sprite_params();
@@ -32,14 +32,16 @@ public:
 	void setHumidity(int newHumidity);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
-	void setBiomeNum(int ent);
-	int getBiomeNum();
+	void setBiome(Biomes biome);
+	int getBiome();
 
 	sprite_params* neighbors[4];
 };
 
 
 enum Biomes {
+	water,
+	rainforest,
 	desert,
 	savanna,
 	grassland,

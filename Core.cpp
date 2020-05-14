@@ -2,8 +2,12 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
+#include <random>
 #include "Core.h"
 #include "field.h"
+
+
+
 const int x = 50;
 const int y = 20;
 bool mustgenthisforfucksake = true;
@@ -98,9 +102,9 @@ bool sprite_params::getRootStatus() {
 void sprite_params::setRootStatus(bool newStatus) {
 	this->isRooted = newStatus;
 }
-int sprite_params::getBiomeNum() {
-	return this->biome_num;
+int sprite_params::getBiome() {
+	return this->biome;
 }
-void sprite_params::setBiomeNum(int ent) {
-	this->biome_num = ent;
+void sprite_params::setBiome(Biomes biome) {
+	this->biome = biome;
 }

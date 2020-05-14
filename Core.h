@@ -37,3 +37,11 @@ public:
 
 	sprite_params* neighbors[4];
 };
+
+
+enum Biomes {
+	desert,
+	savanna,
+	grassland,
+	snow
+};

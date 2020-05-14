@@ -65,18 +65,22 @@ int main()
 					if (j >= y && i <= y)
 					{
 						field[i][j].sprite.setTexture(grass);
+						field[i][j].setBiomeNum(0);
 					}
 					else if (j >= y && i > y)
 					{
 						field[i][j].sprite.setTexture(sawannah);
+						field[i][j].setBiomeNum(1);
 					}
 					else  if (j < y && i >= y)
 					{
 						field[i][j].sprite.setTexture(snow);
+						field[i][j].setBiomeNum(2);
 					}
 					else
 					{
 						field[i][j].sprite.setTexture(sand);
+						field[i][j].setBiomeNum(3);
 					}
 
 					field[i][j].sprite.setPosition(sf::Vector2f(i * 32, j * 32));

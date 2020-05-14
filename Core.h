@@ -3,10 +3,13 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "world_gen.h"
-
+#include <iostream>
+#include "field.h"
 class Core {
 public:
 	int GenerateRandomInt(int a);
+	void SafeToFileBiomeMap(std::string name, Field** d_f);
+	void ReadFromFileBiomeMap(std::string name, Field** d_f);
 };
 
 class sprite_params {
@@ -16,6 +19,7 @@ class sprite_params {
 	int y;
 	int humidity;
 	bool isRooted;
+	unsigned int biome_num;
 public:
 	sf::Sprite sprite;
 	sprite_params();
@@ -28,5 +32,8 @@ public:
 	void setHumidity(int newHumidity);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
+	void setBiomeNum(int ent);
+	int getBiomeNum();
+
 	sprite_params* neighbors[4];
 };

@@ -16,6 +16,8 @@ enum class Biomes {
 	grassland,	// temp 1 - 24							id:5
 	snow		// temp -10 - 0							id:6
 };
+
+
 template<typename T>
 std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::ostream>::type& stream, const T& e)
 {

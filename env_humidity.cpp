@@ -11,6 +11,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	std::cout << "river_trun:  " << river_turn << std::endl;
 	std::cout << "turn_length:  " << turn_length << std::endl;
 	std::cout << "strona: " << side<< std::endl;
+
 	for (int i = 0; i < river_turn; i++) {
 		data[i][river_top_start].setHumidity(100);
 	}
@@ -19,6 +20,9 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 		for (int j = river_top_start; j > (river_top_start-turn_length); j--) {
 			data[river_turn][j].setHumidity(100);
 		}
+		//nowe miejsce rzeki
+		new_river = river_top_start - turn_length;
+
 	}
 
 	else {
@@ -26,11 +30,9 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 		for (int j = river_top_start; j < (river_top_start + turn_length); j++) {
 			data[river_turn][j].setHumidity(100);
 		}
+		//nowe miejsce rzeki
+		new_river = river_top_start + turn_length;
 	}
-
-	//nowe miejsce rzeki
-	new_river = river_top_start + turn_length;
-
 
 	for (int i = river_turn; i <= height; i++) {
 		data[i][new_river].setHumidity(100);
@@ -52,7 +54,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 		
 		//æwiartka NW
 		for (int i = river_turn - 1; i >= 0; i--) {
-			for (int j = river_top_start - 1; i >= 0; i--) {
+			for (int j = river_top_start - 1; j >= 0; j--) {
 				humidty_value = ((data[i + 1][j].getHumidity() + data[i][j + 1].getHumidity()) / 2) - (1 + rand() % 4);
 				data[i][j].setHumidity(humidty_value);
 			}

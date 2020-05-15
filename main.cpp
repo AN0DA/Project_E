@@ -83,6 +83,14 @@ int main()
 			else { std::cout << "properly loaded txt6" << std::endl; }
 
 
+			sf::Texture error_texture;
+			if (!snow.loadFromFile("textures/error_texture.jpg"))
+			{
+				std::cout << "Error isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded txt7" << std::endl; }
+
+
 			//end of lodin
 			const int x = 30;
 			// generating table of fields and sprite is inside
@@ -124,7 +132,7 @@ int main()
 						field[i][j].sprite.setTexture(snow);
 						break;
 					default:
-						field[i][j].sprite.setTexture(snow);
+						field[i][j].sprite.setTexture(error_texture);
 						break;
 					}
 					

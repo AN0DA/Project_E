@@ -106,6 +106,5 @@ Biomes sprite_params::getBiome() {
 	return this->biome;
 }
 void sprite_params::setBiome(Biomes newBiome) {
-	std::cout << newBiome;
 	this->biome = newBiome;
 }

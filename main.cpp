@@ -18,7 +18,7 @@ int main()
 	kot.set_sprite("textures/Cat.png");
 	table.create_new(kot);*/
 
-	Core core;
+	//Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;
 	//core.StartProjectE(core, &window);
@@ -27,61 +27,128 @@ int main()
 	{
 		if (needtogenerate)
 		{
-			sf::Texture sand;
-			if (!sand.loadFromFile("textures/sand2.jpg"))
+			sf::Texture water;
+			if (!water.loadFromFile("textures/water.jpg"))
 			{
-				std::cout << "Sand isnt loaded!";
+				std::cout << "Water isnt loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt1"; }
-			sf::Texture sawannah;
-			if (!sawannah.loadFromFile("textures/sawannah.jpg"))
+			else { std::cout << "properly loaded txt0" << std::endl; }
+
+
+			sf::Texture ice;
+			if (!ice.loadFromFile("textures/ice.jpg"))
 			{
-				std::cout << "Sand isnt loaded!";
+				std::cout << "Ice isnt loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt2"; }
+			else { std::cout << "properly loaded txt1" << std::endl; }
+
+
+			sf::Texture rainforest;
+			if (!rainforest.loadFromFile("textures/rainforest.jpg"))
+			{
+				std::cout << "Rainforest isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded txt2" << std::endl; }
+
+
+			sf::Texture desert;
+			if (!desert.loadFromFile("textures/desert.jpg"))
+			{
+				std::cout << "Desert isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded txt3" << std::endl; }
+
+
+			sf::Texture savanna;
+			if (!savanna.loadFromFile("textures/savanna.jpg"))
+			{
+				std::cout << "Savanna isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded txt4" << std::endl; }
+
+
+			sf::Texture grassland;
+			if (!grassland.loadFromFile("textures/grassland.jpg"))
+			{
+				std::cout << "Grassland isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded txt5" << std::endl; }
+
+
 			sf::Texture snow;
 			if (!snow.loadFromFile("textures/snow.jpg"))
 			{
-				std::cout << "snow isnt loaded!";
+				std::cout << "Snow isnt loaded!" << std::endl;
 			}
-			else { std::cout << "properly loaded txt3"; }
-			sf::Texture grass;
-			if (!grass.loadFromFile("textures/grass.jpg"))
-			{
-				std::cout << "Grass isnt loaded!";
-			}
-			else { std::cout << "properly loaded txt4"; }
+			else { std::cout << "properly loaded txt6" << std::endl; }
+
+
 			//end of lodin
-			const int x = 50;
-			const int y = 20;
+			const int x = 30;
 			// generating table of fields and sprite is inside
-			sprite_params field [x] [x] ;
+			sprite_params** field = new sprite_params* [x];
+			for (int i = 0; i < x; i++) {
+				field[i] = new sprite_params[x];
+			}
+			env_gen e;
+			e.generate_environment(field, x-1, x-1);
+			needtogenerate = false;
+			std::cout << "generated";
 			for (int i = 0; i < x; i++)
 			{
 				for (int j = 0; j < x; j++)
 				{
+					
+					Biomes b = field[i][j].getBiome();
+					switch (b)
+					{
+					case Biomes::water:
+						field[i][j].sprite.setTexture(water);
+						break;
+					case Biomes::ice:
+						field[i][j].sprite.setTexture(ice);
+						break;
+					case Biomes::rainforest:
+						field[i][j].sprite.setTexture(rainforest);
+						break;
+					case Biomes::desert:
+						field[i][j].sprite.setTexture(desert);
+						break;
+					case Biomes::savanna:
+						field[i][j].sprite.setTexture(savanna);
+						break;
+					case Biomes::grassland:
+						field[i][j].sprite.setTexture(grassland);
+						break;
+					case Biomes::snow:
+						field[i][j].sprite.setTexture(snow);
+						break;
+					default:
+						field[i][j].sprite.setTexture(snow);
+						break;
+					}
+					
 					//sprites[i][j].setColor(sf::Color(core.GenerateRandomInt(10), core.GenerateRandomInt(10), core.GenerateRandomInt(10)));
 					//just to get clear sprites are assigned to fields
+					/*
 					if (j >= y && i <= y)
 					{
-						field[i][j].sprite.setTexture(grass);
-						field[i][j].setBiomeNum(0);
+						field[i][j].sprite.setTexture(grassland);
 					}
 					else if (j >= y && i > y)
 					{
-						field[i][j].sprite.setTexture(sawannah);
-						field[i][j].setBiomeNum(1);
+						field[i][j].sprite.setTexture(savanna);
 					}
 					else  if (j < y && i >= y)
 					{
 						field[i][j].sprite.setTexture(snow);
-						field[i][j].setBiomeNum(2);
 					}
 					else
 					{
-						field[i][j].sprite.setTexture(sand);
-						field[i][j].setBiomeNum(3);
+						field[i][j].sprite.setTexture(desert);
 					}
+					*/
+					
 
 					field[i][j].sprite.setPosition(sf::Vector2f(i * 32, j * 32));
 					//window->setVisible();
@@ -229,14 +296,14 @@ int main()
 			//window.display(); //<----- EPILEPSJA
 
 			//Generate natural environment
-			sprite_params** sprite_data = new sprite_params * [x];
-			for (int i = 0; i < x; i++)
-				sprite_data[i] = new sprite_params[y];
+			//sprite_params** sprite_data = new sprite_params * [x];
+			//for (int i = 0; i < x; i++)
+			//	sprite_data[i] = new sprite_params[y];
 
-			env_gen habitat;
-			habitat.generate_environment(sprite_data, x, y);
+			//env_gen habitat;
+			//habitat.generate_environment(sprite_data, x, y);
 
-			needtogenerate = false;
+			//needtogenerate = false;
 		}
 
 		window.display();

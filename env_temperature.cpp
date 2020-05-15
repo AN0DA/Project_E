@@ -31,10 +31,13 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 
 	//DEBUG
+	/*
 	for (int i = 0; i < width; i++) {
-		for (int j = 0; i < height; i++) {
-			std::cout << data[i][j].get_temperature() << " ";
+		for (int j = 0; j < height; j++) {
+			std::cout << data[i][j].get_temperature() << std::endl;
 		}
 		std::cout << std::endl;
 	}
+	*/
+	
 }

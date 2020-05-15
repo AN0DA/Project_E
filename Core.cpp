@@ -90,10 +90,10 @@ int sprite_params::getX() {
 int sprite_params::getY() {
 	return this->y;
 }
-int sprite_params::getHumidity() {
+double sprite_params::getHumidity() {
 	return this->humidity;
 }
-void sprite_params::setHumidity(int newHumidity) {
+void sprite_params::setHumidity(double newHumidity) {
 	this->humidity = newHumidity;
 }
 bool sprite_params::getRootStatus() {
@@ -102,9 +102,10 @@ bool sprite_params::getRootStatus() {
 void sprite_params::setRootStatus(bool newStatus) {
 	this->isRooted = newStatus;
 }
-int sprite_params::getBiome() {
+Biomes sprite_params::getBiome() {
 	return this->biome;
 }
-void sprite_params::setBiome(Biomes biome) {
-	this->biome = biome;
+void sprite_params::setBiome(Biomes newBiome) {
+	std::cout << newBiome;
+	this->biome = newBiome;
 }

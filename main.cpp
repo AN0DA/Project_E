@@ -13,10 +13,10 @@ bool needtogenerate = true;
 
 int main()
 {
-	/*Animals_gen table;
+
 	Animal kot(50, 50, false);
-	kot.set_sprite("textures/Cat.png");
-	table.create_new(kot);*/
+	kot.set_sprite("Fauna/textures/Cat.png");
+
 
 	Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");

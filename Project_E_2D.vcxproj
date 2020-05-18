@@ -23,7 +23,9 @@
     <ClCompile Include="Animal_core.cpp" />
     <ClCompile Include="Animal_stats.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="env_biomes.cpp" />
     <ClCompile Include="env_gen.cpp" />
+    <ClCompile Include="env_humidity.cpp" />
     <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="treeClass.cpp" />
@@ -34,6 +36,8 @@
     <ClInclude Include="Animal_stats.h" />
     <ClInclude Include="Animal_core.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="env_biomes.h" />
+    <ClInclude Include="env_humidity.h" />
     <ClInclude Include="world_gen.h" />
     <ClInclude Include="field.h" />
     <ClInclude Include="treeClass.h" />

@@ -11,4 +11,5 @@ struct Field
 	int humidity;
 	bool isRooted;
 	Field* neighbors[4];
+	unsigned int biome_num;
 };

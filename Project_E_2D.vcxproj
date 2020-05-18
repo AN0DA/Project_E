@@ -39,7 +39,6 @@
     <ClInclude Include="env_biomes.h" />
     <ClInclude Include="env_humidity.h" />
     <ClInclude Include="world_gen.h" />
-    <ClInclude Include="field.h" />
     <ClInclude Include="treeClass.h" />
     <ClInclude Include="env_gen.h" />
     <ClInclude Include="env_temperature.h" />

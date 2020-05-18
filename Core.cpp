@@ -14,10 +14,12 @@ bool mustgenthisforfucksake = true;
 int Core::GenerateRandomInt(int a) {
 	if (mustgenthisforfucksake)
 
+
 		srand((unsigned)time(NULL));
 	mustgenthisforfucksake = false;
 	return rand() % a + 1;
 }
+
 void Core::SafeToFileBiomeMap(std::string name,Field**d_f) {
 	std::ofstream file;
 	file.open(name);
@@ -74,6 +76,7 @@ void Core::ReadFromFileBiomeMap(std::string name, Field** d_f) {
 			file.getline(str_d, i);
 		}
 }
+
 void  sprite_params::set_temperature(double _temperature) {
 	temperature = _temperature;
 }

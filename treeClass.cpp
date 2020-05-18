@@ -13,7 +13,6 @@ Tree::Tree(sprite_params* trunk) {
 	this->neighborFields.push_back((*trunk).neighbors[2]);
 	this->neighborFields.push_back((*trunk).neighbors[3]);
 }
-
 void Tree::assignNewNeighbor(sprite_params* newNeighbor) {
 	// search if newNeighbor is neighbor already, if not then push_back it to the neighbors vector
 	for (auto i = this->neighborFields.begin(); i != this->neighborFields.end(); i++) {
@@ -50,7 +49,6 @@ void Tree::treeGrow() {
 void Tree::drinkWater() {
 	//drain every root
 	for (int i = 0; i != this->roots.size(); i++) {
-
 		this->roots[i]->setHumidity(this->roots[i]->getHumidity() - this->drainPerRoot);
 		this->currentWater += this->drainPerRoot;
 	}

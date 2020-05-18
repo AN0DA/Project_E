@@ -2,7 +2,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-
 struct Field
 {
 	sf::Sprite sprite;

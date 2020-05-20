@@ -134,7 +134,7 @@ int main()
 						field[i][j].sprite.setTexture(error_texture);
 						break;
 					}
-					field[i][j].sprite.setPosition(sf::Vector2f(j * 10, i * 10));
+					field[i][j].sprite.setPosition(sf::Vector2f(i * 10, j * 10));
 					//window->setVisible();
 					window.draw(field[i][j].sprite);
 				}

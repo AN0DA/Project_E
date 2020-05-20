@@ -11,12 +11,16 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 
 	env_biomes biomes;
 
-	if (generate_temperature) {
+
+	srand(time(NULL));
+
+	/*if (generate_temperature) {
 		temperature.generate_temperature(d, w, h);
-	}
+	}*/
 	if (generate_humidity) {
 		humidity.generate_humidity(d, w, h);
 	}
+	
 	if (generate_biomes) {
 		biomes.generate_biomes(d, w, h);
 	}

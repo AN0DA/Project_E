@@ -81,8 +81,14 @@ void  sprite_params::set_temperature(double _temperature) {
 double sprite_params::get_temperature() {
 	return temperature;
 }
-sprite_params::sprite_params() {
-	temperature = 0;
+
+bool sprite_params::isWater() {
+	return this->water;
+}
+sprite_params::sprite_params() = default;
+
+void sprite_params::setWater(bool w) {
+	this->water = w;
 }
 int sprite_params::getX() {
 	return this->x;

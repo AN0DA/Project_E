@@ -1,24 +1,46 @@
 #include "env_humidity.h"
+#include <cmath>
 
-void env_humidity::generate_humidity(sprite_params** data, int width, int height) {
-	int river_top_start = 1 + (std::rand() % (width-1));
-	int river_turn = 5 + (std::rand() % (height - 10));
+
+void env_humidity::generate_desert(sprite_params** data, int width, int height, int coordX, int coordY) {
+	for (int i = coordX; i < height; i++) {
+		int left = rand() % (width / 3);
+		int right = rand() % (width / 3);
+		for (int j = (width / 3) - left; j < ((width / 3) * 2) + right - 1; j++) {
+			//std::cout << i << " " << j<<" N: ";
+			data[i][j].setHumidity(10);
+		}
+		//std::cout << std::endl;
+	}
+}
+
+void env_humidity::generate_lake(sprite_params** data, int coordX, int coordY, int radius) {
+	sprite_params center = data[coordX][coordY];
+	for (int i = coordX-radius; i <= coordX+radius; i++) {
+		for (int j = coordY-radius; j <= coordY + radius; j++) {
+			if (sqrt(((coordX - i)*(coordX-i)) + ((coordY - j)*(coordY-j))) <= radius) {
+				data[i][j].setWater(true);
+				std::cout << i << " " << j<<" N: ";
+			}
+		}
+		std::cout << std::endl;
+	}
+}
+void env_humidity::generate_river(sprite_params** data, int width, int height) {
+	int river_top_start = 1 + (std::rand() % (width - 1));
+	int river_turn =(height/10)+ (std::rand() % (height - (height/10)));
 	int turn_length = 1 + (std::rand() % (width - 1) / 5);
 	int new_river;
-	double humidty_value;
 	bool side = river_top_start > (width / 2); //true=lewo,false=prawo
-	std::cout << "river_top_start:  " << river_top_start << std::endl;
-	std::cout << "river_trun:  " << river_turn << std::endl;
-	std::cout << "turn_length:  " << turn_length << std::endl;
-	std::cout << "strona: " << side<< std::endl;
+
 
 	for (int i = 0; i < river_turn; i++) {
-		data[i][river_top_start].setHumidity(100);
+		data[i][river_top_start].setWater(true);
 	}
 	if (side) {
 		//lewo
-		for (int j = river_top_start; j > (river_top_start-turn_length); j--) {
-			data[river_turn][j].setHumidity(100);
+		for (int j = river_top_start; j > (river_top_start - turn_length); j--) {
+			data[river_turn][j].setWater(true);
 		}
 		//nowe miejsce rzeki
 		new_river = river_top_start - turn_length;
@@ -28,16 +50,38 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	else {
 		//prawo
 		for (int j = river_top_start; j < (river_top_start + turn_length); j++) {
-			data[river_turn][j].setHumidity(100);
+			data[river_turn][j].setWater(true);
 		}
 		//nowe miejsce rzeki
 		new_river = river_top_start + turn_length;
 	}
 
 	for (int i = river_turn; i <= height; i++) {
-		data[i][new_river].setHumidity(100);
+		data[i][new_river].setWater(true);
 	}
-
+}
+void env_humidity::generate_humidity(sprite_params** data, int width, int height) {
+	generate_river(data,  width,  height);
+	int desert_width = 3 + (rand() % ((width * 2 / 3)));
+	int desert_height = 3 + (rand() % ((height * 2 / 3)));
+	int desert_coordX = rand() % (width - desert_width - 1);
+	int desert_coordY = rand() % (height - desert_height - 1);
+	std::cout << desert_width << "   " << desert_height << "   " << desert_coordX << "   " << desert_coordY << std::endl;
+	generate_desert(data,desert_width,desert_height,desert_coordX,desert_coordY);
+	int lake_number = 1+ (rand() % (std::max(width, height) / 20));
+	while (lake_number >= 0) {
+		int lake_center_coordX = rand() % width;
+		int lake_center_coordY = rand() % height;	
+		int lake_radius = 1 + (rand() % (std::min(width, height) / 10));
+		while (lake_center_coordX + lake_radius >= width || lake_center_coordX - lake_radius <= 0 || lake_center_coordY + lake_radius >= height || lake_center_coordY - lake_radius <= 0) {
+			std::cout << lake_radius<<std::endl;
+			lake_radius = rand() % (std::min(width, height) / 10);
+		}
+		generate_lake(data, lake_center_coordX, lake_center_coordY, lake_radius);
+		lake_number--;
+	}
+}
+/*
 	if (side) {
 		//LEWO
 
@@ -141,6 +185,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 		}
 		std::cout << std::endl;
 	}
-	*/
+	/
 
 }
+*/

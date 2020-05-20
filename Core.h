@@ -9,7 +9,7 @@
 
 enum class Biomes {
 	water,		// temp 0+;			wilg = 100			id:0
-	ice,		// temp 0-;			wilg = 100			id:1
+	ice,		// temp -10 - 0;	wilg = 100			id:1
 	rainforest, // temp 25 - 35;	wilg  80-100		id:2
 	desert,		// temp 25 - 35;	wilg  20-0			id:3
 	savanna,	// temp 25 - 35							id:4
@@ -33,14 +33,17 @@ public:
 };
 
 class sprite_params {
-	double temperature = 0;
-	double humidity;
+	bool water = false;
+	int temperature = 30; //(rand()%46)-10;
+	int humidity = 40;
 	int x;
 	int y;
 	bool isRooted;
 	Biomes biome;
 public:
 	sf::Sprite sprite;
+	bool isWater();
+	void setWater(bool w);
 	sprite_params();
 	void set_temperature(double _temperature);
 	double get_temperature();

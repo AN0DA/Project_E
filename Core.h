@@ -24,13 +24,6 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
 }
 
 
-class Core {
-public:
-	int GenerateRandomInt(int a);
-	void SafeToFileBiomeMap(std::string name, Field** d_f);
-	void ReadFromFileBiomeMap(std::string name, Field** d_f);
-};
-
 class sprite_params {
 	double temperature = 0;
 	double humidity;
@@ -56,24 +49,10 @@ public:
 	sprite_params* neighbors[4];
 };
 
-class sprite_params {
-	double temperature = 0;
-	
-	int x;
-	int y;
-	int humidity;
-	bool isRooted;
+
+class Core {
 public:
-	sf::Sprite sprite;
-	sprite_params();
-	void set_temperature(double _temperature);
-	double get_temperature();
-	sf::Sprite getSprite();
-	int getX();
-	int getY();
-	int getHumidity();
-	void setHumidity(int newHumidity);
-	bool getRootStatus();
-	void setRootStatus(bool newStatus);
-	sprite_params* neighbors[4];
+	int GenerateRandomInt(int a);
+	void SaveToFileBiomeMap(std::string name, sprite_params** d_f);
+	void ReadFromFileBiomeMap(std::string name, sprite_params** d_f);
 };

@@ -4,7 +4,6 @@
 #include <fstream>
 #include <random>
 #include "Core.h"
-#include "field.h"
 
 
 

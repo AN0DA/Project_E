@@ -18,9 +18,17 @@ void env_biomes::generate_biomes(sprite_params** data, int width, int height) {
 				}
 			}
 			else if (temperature >= 25) {
-				if (humidity > 80) {
+				if (humidity >= 90) {
+					data[i][j].setBiome(Biomes::swamp);
+					//std::cout << "swamp" << " ";
+				}
+				else if (humidity > 75) {
 					data[i][j].setBiome(Biomes::rainforest);
 					//std::cout << "rainforest" << " ";
+				}
+				else if (humidity > 50) {
+					data[i][j].setBiome(Biomes::grassland);
+					//std::cout << "desert" << " ";
 				}
 				else if (humidity < 20) {
 					data[i][j].setBiome(Biomes::desert);

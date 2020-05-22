@@ -1,6 +1,15 @@
 #include "env_humidity.h"
 #include <cmath>
 
+void env_humidity::create_water_tile(sprite_params** data, int width, int height, int coordX, int coordY, int humidity_reach) {
+	if (!data[coordX][coordY].isWater()) {
+		data[coordX][coordY].setWater(true);
+		circle_humidity(data, width, height, coordX, coordY, humidity_reach);
+	}
+	else {
+		std::cout << coordX << "    " << coordY << std::endl;
+	}
+}
 
 void env_humidity::generate_desert(sprite_params** data, int width, int height, int coordX, int coordY) {
 	for (int i = coordX; i < height; i++) {
@@ -12,52 +21,63 @@ void env_humidity::generate_desert(sprite_params** data, int width, int height, 
 	}
 }
 
-void env_humidity::generate_lake(sprite_params** data, int coordX, int coordY, int radius) {
-	for (int i = coordX-radius; i <= coordX+radius; i++) {
-		for (int j = coordY-radius; j <= coordY + radius; j++) {
-			if (sqrt(((coordX - i)*(coordX-i)) + ((coordY - j)*(coordY-j))) <= radius) {
-				data[i][j].setWater(true);
+void env_humidity::generate_lake(sprite_params** data,int width,int height, int coordX, int coordY, int radius) {
+	for (int i = std::max((coordX - radius), 0); i <= std::min((coordX + radius), width); i++) {
+		for (int j = std::max((coordY - radius), 0); j <= std::min((coordY + radius), height); j++) {
+			if (sqrt(((coordX - i) * (coordX - i)) + ((coordY - j) * (coordY - j))) <= radius) {
+				create_water_tile(data, width, height, i, j, radius * 2);
+			}
+		}
+	}
+}
+void env_humidity::circle_humidity(sprite_params** data, int width, int height, int coordX, int coordY, int radius) {
+	double temp_hum;
+	for (int i = std::max((coordX - radius),0); i <= std::min((coordX + radius),width); i++) {
+		for (int j = std::max((coordY - radius), 0); j <= std::min((coordY + radius), height); j++) {
+			if (sqrt(((coordX - i) * (coordX - i)) + ((coordY - j) * (coordY - j))) <= radius) {
+				temp_hum = data[i][j].getHumidity() + (data[i][j].getHumidity() +1)* 0.01;
+				data[i][j].setHumidity(temp_hum);
 			}
 		}
 	}
 }
 void env_humidity::generate_river(sprite_params** data, int width, int height, int coordX, int coordY, int river_width,int river_turn) {
 	int turn_length = (river_width * 2) + (std::rand() % (width / 2 - (river_width * 4)));
-bool side = coordX > (width / 2); //true=lewo,false=prawo
+	bool side = coordX > (width / 2); //true=lewo,false=prawo
 
 if (side) {
 	//lewo
-	for (int j = coordY; j <= river_turn; j++) {
+	for (int j = coordY; j < river_turn; j++) {
 		for (int i = coordX - river_width; i <= coordX; i++) {
-			data[i][j].setWater(true);
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2, 7));
 		}
 	}
 	//zakrêt góra-lewo
 	for (int j = river_turn; j <= river_turn + river_width; j++) {
 		for (int i = coordX - river_width; i <= coordX; i++) {
 			if (sqrt(((coordX - river_width - i) * (coordX - river_width - i)) + ((river_turn - j) * (river_turn - j))) <= river_width) {
-				data[i][j].setWater(true);
+				create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 			}
 		}
 	}
 	//rzeka
 	for (int j = river_turn; j <= river_turn + river_width; j++) {
-		for (int i = coordX - river_width - turn_length; i <= coordX - river_width; i++) {
-			data[i][j].setWater(true);
+		for (int i = coordX - river_width - turn_length; i < coordX - river_width; i++) {
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}
 	}
 	//zakrêt prawo-dó³
 	for (int j = river_turn; j <= river_turn + river_width; j++) {
-		for (int i = coordX - river_width - turn_length - river_width; i <= coordX - river_width - turn_length; i++) {
+		for (int i = coordX - river_width - turn_length - river_width; i < coordX - river_width - turn_length; i++) {
 			if (sqrt(((coordX - river_width - turn_length - i) * (coordX - river_width - turn_length - i)) + ((river_turn + river_width - j) * (river_turn + river_width - j))) <= river_width) {
-				data[i][j].setWater(true);
+				create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 			}
 		}
 	}
 	//rzeka
-	for (int j = river_turn + river_width; j < height; j++) {
+	for (int j = river_turn + river_width+1; j < height; j++) {
 		for (int i = coordX - river_width - turn_length - river_width; i <= coordX - river_width - turn_length; i++) {
-			data[i][j].setWater(true);
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}
 	}
 }
@@ -65,41 +85,41 @@ else {
 	//prawo
 
 	//rzeka
-	for (int j = coordY; j <= river_turn; j++) {
+	for (int j = coordY; j < river_turn; j++) {
 		for (int i = coordX; i <= coordX + river_width; i++) {
-			data[i][j].setWater(true);
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}
 	}
 
 	//zakrêt góra-prawo
 	for (int j = river_turn; j <= river_turn + river_width; j++) {
-		for (int i = coordX; i <= coordX + river_width; i++) {
+		for (int i = coordX; i < coordX + river_width; i++) {
 			if (sqrt(((coordX + river_width - i) * (coordX + river_width - i)) + ((river_turn - j) * (river_turn - j))) <= river_width) {
-				data[i][j].setWater(true);
+				create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2, 7));
 			}
 		}
 	}
 
 	//rzeka
 	for (int j = river_turn; j <= river_turn + river_width; j++) {
-		for (int i = coordX + river_width; i <= coordX + river_width + turn_length; i++) {
-			data[i][j].setWater(true);
+		for (int i = coordX + river_width; i < coordX + river_width + turn_length; i++) {
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}
 	}
 
 	//zakrêt lewo-dó³
-	for (int j = river_turn; j <= river_turn + river_width; j++) {
+	for (int j = river_turn; j < river_turn + river_width; j++) {
 		for (int i = coordX + river_width + turn_length; i <= coordX + river_width + turn_length + river_width; i++) {
 			if (sqrt(((coordX + river_width + turn_length - i) * (coordX + river_width + turn_length - i)) + ((river_turn + river_width - j) * (river_turn + river_width - j))) <= river_width) {
-				data[i][j].setWater(true);
+				create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 			}
 		}
 	}
 
 	//rzeka
-	for (int j = river_turn + river_width; j < height; j++) {
+	for (int j = river_turn + river_width; j <= height; j++) {
 		for (int i = coordX + river_width + turn_length; i <= coordX + +river_width + turn_length + river_width; i++) {
-			data[i][j].setWater(true);
+			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}
 	}
 }
@@ -107,7 +127,7 @@ else {
 void env_humidity::generate_humidity(sprite_params** data, int width, int height) {
 	//rzeka
 
-	int river_top_start = 1 + (std::rand() % (width - 1));
+	int river_top_start  = 33;// 1 + (std::rand() % (width - 1));
 	int river_width = rand() % (std::min(height, width) / 20);
 	int river_turn = (height / 10) + (std::rand() % (height - (height / 10)));
 	generate_river(data, width, height, river_top_start, 0, river_width,river_turn);
@@ -124,13 +144,11 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	int lake_number = 1 + (rand() % (std::max(width, height) / 20));
 	while (lake_number > 0) {
 		int lake_radius = 1 + (rand() % (std::min(width, height) / 10));
-		int lake_center_coordX = lake_radius+ rand() % (width-(lake_radius*2));
-		int lake_center_coordY = lake_radius + rand() % (height - (lake_radius * 2));
-		generate_lake(data, lake_center_coordX, lake_center_coordY, lake_radius);
-
+		int lake_center_coordX = rand() % width;
+		int lake_center_coordY = rand() % height;
+		generate_lake(data,width,height, lake_center_coordX, lake_center_coordY, lake_radius);
 		lake_number--;
 	}
-}
 /*
 	if (side) {
 		//LEWO
@@ -227,15 +245,14 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	}
 
 	//TEST
-	/*
-	for (int i = 0; i < width; i++) {
-		std::cout << "RZ¥D: " << i << std::endl;
-		for (int j = 0; j < height; j++) {
+	*/
+	
+	for (int j = 0; j <= height; j++) {
+		std::cout << "RZ¥D: " << j << std::endl;
+		for (int i = 0; i <= width; i++) {
 			std::cout << data[i][j].getHumidity() << "  ";
 		}
 		std::cout << std::endl;
 	}
-	/
-
+	
 }
-*/

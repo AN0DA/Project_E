@@ -34,7 +34,6 @@ int main()
 			}
 			else { std::cout << "properly loaded Water" << std::endl; }
 
-
 			sf::Texture ice;
 			if (!ice.loadFromFile("textures/ice.jpg"))
 			{
@@ -42,6 +41,12 @@ int main()
 			}
 			else { std::cout << "properly loaded ice" << std::endl; }
 
+			sf::Texture swamp;
+			if (!swamp.loadFromFile("textures/swamp.jpg"))
+			{
+				std::cout << "Swamp isnt loaded!" << std::endl;
+			}
+			else { std::cout << "properly loaded swamp" << std::endl; }
 
 			sf::Texture rainforest;
 			if (!rainforest.loadFromFile("textures/rainforest.jpg"))
@@ -50,14 +55,12 @@ int main()
 			}
 			else { std::cout << "properly loaded rainforest" << std::endl; }
 
-
 			sf::Texture desert;
 			if (!desert.loadFromFile("textures/desert.jpg"))
 			{
 				std::cout << "Desert isnt loaded!" << std::endl;
 			}
 			else { std::cout << "properly loaded desert" << std::endl; }
-
 
 			sf::Texture savanna;
 			if (!savanna.loadFromFile("textures/savanna.jpg"))
@@ -66,14 +69,12 @@ int main()
 			}
 			else { std::cout << "properly loaded savanna" << std::endl; }
 
-
 			sf::Texture grassland;
 			if (!grassland.loadFromFile("textures/grassland.jpg"))
 			{
 				std::cout << "Grassland isnt loaded!" << std::endl;
 			}
 			else { std::cout << "properly loaded grassland" << std::endl; }
-
 
 			sf::Texture snow;
 			if (!snow.loadFromFile("textures/snow.jpg"))
@@ -82,28 +83,27 @@ int main()
 			}
 			else { std::cout << "properly loaded snow" << std::endl; }
 
-
 			sf::Texture error_texture;
-			if (!snow.loadFromFile("textures/error_texture.jpg"))
+			if (!error_texture.loadFromFile("textures/error_texture.jpg"))
 			{
 				std::cout << "Error isnt loaded!" << std::endl;
 			}
 			else { std::cout << "properly loaded error_texture" << std::endl; }
 
-
 			//end of lodin
 			const int x = 100;
+			const int y = 100;
 			// generating table of fields and sprite is inside
 			sprite_params** field = new sprite_params* [x];
 			for (int i = 0; i < x; i++) {
-				field[i] = new sprite_params[x];
+				field[i] = new sprite_params[y];
 			}
 			env_gen e;
-			e.generate_environment(field, x-1, x-1);
+			e.generate_environment(field, x-1, y-1);
 			std::cout << "generated";
 			for (int i = 0; i < x; i++)
 			{
-				for (int j = 0; j < x; j++)
+				for (int j = 0; j < y; j++)
 				{
 					
 					Biomes b = field[i][j].getBiome();
@@ -114,6 +114,9 @@ int main()
 						break;
 					case Biomes::ice:
 						field[i][j].sprite.setTexture(ice);
+						break;
+					case Biomes::swamp:
+						field[i][j].sprite.setTexture(swamp);
 						break;
 					case Biomes::rainforest:
 						field[i][j].sprite.setTexture(rainforest);

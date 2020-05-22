@@ -8,13 +8,14 @@
 
 
 enum class Biomes {
-	water,		// temp 0+;			wilg = 100			id:0
-	ice,		// temp -10 - 0;	wilg = 100			id:1
-	rainforest, // temp 25 - 35;	wilg  80-100		id:2
-	desert,		// temp 25 - 35;	wilg  20-0			id:3
-	savanna,	// temp 25 - 35							id:4
-	grassland,	// temp 1 - 24							id:5
-	snow		// temp -10 - 0							id:6
+	water,		// temp 0+;			water = true		id:0
+	ice,		// temp -10 - 0;	water = true		id:1
+	swamp,		//					wilg  85+			id:2
+	rainforest, // temp 25 - 35;	wilg  70-85			id:3
+	desert,		// temp 25 - 35;	wilg  20-0			id:4
+	savanna,	// temp 25 - 35							id:5
+	grassland,	// temp 1 - 24							id:6
+	snow		// temp -10 - 0							id:7
 };
 
 
@@ -33,9 +34,9 @@ public:
 };
 
 class sprite_params {
-	bool water = false;
-	int temperature = 30; //(rand()%46)-10;
-	int humidity = 40;
+	bool water = false;//false = l¹d, //true = woda
+	int temperature = 30;// (rand()%46)-10;
+	double humidity = 40;
 	int x;
 	int y;
 	bool isRooted;

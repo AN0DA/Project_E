@@ -4,7 +4,7 @@
 #include <fstream>
 #include <random>
 #include "Core.h"
-
+#include "field.h"
 
 
 const int x = 50;
@@ -19,22 +19,22 @@ int Core::GenerateRandomInt(int a) {
 	return rand() % a + 1;
 }
 
-void Core::SafeToFileBiomeMap(std::string name,Field**d_f) {
+void Core::SaveToFileBiomeMap(std::string name, sprite_params** d_f) {
 	std::ofstream file;
 	file.open(name);
-	for(int i =0;i<x;i++)
+	for (int i = 0; i < x; i++)
 		for (int j = 0; j < y; j++)
 		{
 			{
 
-	file << d_f[i][j].biome_num;
+				file << d_f[i][j].getBiome();
 			}
-			file << "\n";
+			file << std::endl;
 		}
 	file.close();
 }
 
-void Core::ReadFromFileBiomeMap(std::string name, Field** d_f) {
+void Core::ReadFromFileBiomeMap(std::string name, sprite_params** d_f) {
 	//std::ofstream file;
 	std::ifstream file;
 	//std::ifstream input(name);
@@ -54,7 +54,7 @@ void Core::ReadFromFileBiomeMap(std::string name, Field** d_f) {
 		for (int j = 0; j < y; j++)
 		{
 			{
-				if (str_d[j]==0)
+				if (str_d[j] == 0)
 				{
 					d_f[i][j].sprite.setTexture(grass);
 				}
@@ -70,7 +70,7 @@ void Core::ReadFromFileBiomeMap(std::string name, Field** d_f) {
 				{
 					d_f[i][j].sprite.setTexture(sand);
 				}
-		
+
 			}
 			file.getline(str_d, i);
 		}

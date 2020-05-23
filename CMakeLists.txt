@@ -13,6 +13,7 @@ set (SOURCE_FILES main.cpp)
 #look for SFML and add it
 
 set (SFML_DIR "${CMAKE_CURRENT_LIST_DIR}/SFML/lib/cmake/SFML")
+set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/SFML/lib/cmake/SFML/")
 find_package (SFML REQUIRED system window graphics network audio)
 
 include_directories(${SFML_INCLUDE_DIR})

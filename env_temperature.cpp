@@ -1,10 +1,18 @@
+/// \file
+/// \brief Source file for env_temperature
+/// \details Source file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
+/// \author Miko³aj Kaczmarek
+/// \date 20.05.2020
+/// \version 0.10
+
 #include "env_temperature.h"
 
-const int min_temp = -10; ///< Lowest temperature that can be generated
-const int max_temp = 35; ///< Highest temperature that can be generated
-const double change_percent = 0.2; ///< Max temperature amplitude percent, that can occur in adjacent blocks. It should be in range <0, 1).
 
-///Script generating temperature
+
+/// \brief Script generating temperature
+/// \author Miko³aj Kaczmarek
+/// \date 20.05.2020
+/// \version 0.10
 ///
 ///Temperature is generated based on previously generated neightbours and amplitude percent set in env_temperature.h. 
 ///In first place generated is block [0, 0], then first line and after that first column. Rest of array use average value from blocks [n-1, m], [n, m-1] and [n-1, m-1].

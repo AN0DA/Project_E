@@ -11,7 +11,7 @@ set (CMAKE_CXX_STANDARD 11)
 set (SOURCE_FILES main.cpp)
 
 #look for SFML and add it
-set (CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/SFML/cmake-modules/")
+
 set (SFML_DIR "${CMAKE_CURRENT_LIST_DIR}/SFML/lib/cmake/SFML")
 find_package (SFML REQUIRED system window graphics network audio)
 

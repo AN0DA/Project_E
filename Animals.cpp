@@ -3,7 +3,8 @@
 #include <string>
 #include "Animals.h"
 
-Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal _parents[2], Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) {
+
+Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal *_parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) {
 	position_x = _x;
 	position_y = _y;
 	sex = _sex; //false = female, true = male;
@@ -14,10 +15,10 @@ Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short 
 	{
 		parents = { _parents[0], _parents[1] };
 	}
-	if (_health != NULL) health = *_health;
-	if (_age != NULL) age = *_age;
-	if (_thirst != NULL) thirst = *_thirst;
-	if (_hunger != NULL) hunger = *_hunger;
+	if(_health != NULL) health = *_health;
+	if(_age != NULL) age = *_age;
+	if(_thirst != NULL) thirst = *_thirst;
+	if(_hunger != NULL) hunger = *_hunger;
 }
 
 bool Animal::is_dead() {
@@ -81,12 +82,4 @@ std::vector<Animal> Animal::get_parents(unsigned int _precision) {
 }
 std::string Animal::get_sprite() {
 	return sprite_path;
-}
-
-Cat::Cat()
-{
-}
-
-Cat::~Cat()
-{
 }

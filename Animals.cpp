@@ -1,4 +1,6 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 #include <vector>
 #include <string>
 #include "Animals.h"
@@ -44,8 +46,9 @@ void Animal::set_parents(Animal _parent1, Animal _parent2) {
 	std::vector<Animal> temp = { _parent1, _parent2 };
 	parents = temp;
 }
-void Animal::set_sprite(std::string _sprite_path) {
-	sprite_path = _sprite_path;
+void Animal::set_sprite(sf::Texture _sprite) {
+
+	texture = _sprite;
 }
 
 unsigned short Animal::get_x() {
@@ -80,6 +83,6 @@ std::vector<Animal> Animal::get_parents(unsigned int _precision) {
 		return empty;
 	}
 }
-std::string Animal::get_sprite() {
-	return sprite_path;
+sf::Texture Animal::get_sprite() {
+	return texture;
 }

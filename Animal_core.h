@@ -12,8 +12,15 @@
 class Animals_gen
 {
 public:
-	///Constructot
-	Animals_gen();
+	///Constructor
+	Animals_gen() = default;
+	/**
+	Constructor with defining texture for animal group
+
+	@param _texture Texture path for animals group
+	*/
+	Animals_gen(std::string _texture);
+
 	///Destructor
 	~Animals_gen();
 
@@ -22,13 +29,32 @@ public:
 	*
 	* @param window variable
 	*/
-	void generate_animals(sf::Window* window);
+	std::vector< sf::Sprite > generate_animals();
 	/**
 	* Create new animal
 	*
 	* @param _animal Animal object to add to list of animals
 	*/
-	void create_new(Animal _animal);
+	void set_new(Animal _animal);
+	/**
+	* Get Animal on given index
+	*
+	* @param _index Index of animal to return
+	*/
+	Animal get_animal(int _index);
+	/**
+	* Removes Animal
+	*
+	* @param _index Index of animal to remove
+	*/
+	void remove_animal(int _index);
+
+	/**
+	* Get Amount of animals
+	*
+	* @return Amount of animals
+	*/
+	int get_amount();
 
 private:
 	/**
@@ -37,4 +63,5 @@ private:
 	* @return Vector of animals
 	*/
 	std::vector<Animal> Animals_all;
+	sf::Texture texture;
 };

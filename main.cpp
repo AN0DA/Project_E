@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <time.h>
+#include <stdlib.h>
+
 
 #include "Core.h"
 #include "Animal_core.h"
@@ -12,21 +15,32 @@
 bool needtogenerate = true;
 
 int main()
-{
-
-	Animal kot(50, 40, false);
-	kot.set_sprite("Fauna/textures/Cat.png");
-	std::cout << "sex: " << kot.get_sex() << "\n";
-	std::cout << "Sight: " << kot.get_sight() << "\n";
-	std::cout << "Position: " << kot.get_x() << kot.get_y() << "\n";
-
-
-
+{	
+	//Defining random
+	srand(time(NULL));
+	
 	//Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;
 	//core.StartProjectE(core, &window);
 	 //texture init for landscape
+
+	//generating animals
+	Animals_gen Cats("./textures/Cat.png");
+	Animals_gen Camels("./textures/Camel.png");
+	for (int i = 0; i < 4; i++)
+	{
+		Cat* temp_anim = new Cat(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semiradnom parameters and putting in Cats array
+		Cats.set_new(*temp_anim);
+
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		Camel* temp_anim = new Camel(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semirandom parameters and putting in Camels array
+		Camels.set_new(*temp_anim);
+	}
+
+
 	while (window.isOpen())
 	{
 		if (needtogenerate)
@@ -95,8 +109,10 @@ int main()
 			else { std::cout << "properly loaded txt7" << std::endl; }
 
 
-			//end of lodin
+			//end of loadin
 			const int x = 30;
+
+
 			// generating table of fields and sprite is inside
 			sprite_params** field = new sprite_params* [x];
 			for (int i = 0; i < x; i++) {
@@ -167,6 +183,17 @@ int main()
 					window.draw(field[i][j].sprite);
 				}
 			}
+			std::vector< sf::Sprite > animal_sprites;
+			animal_sprites = Cats.generate_animals();
+			for (int i = 0; i < animal_sprites.size(); i++)
+			{
+				std::cout << animal_sprites[i].getTexture() << "\n";
+
+				window.draw(animal_sprites[i]);
+				//std::cout << animal_sprites[i];
+			}
+
+			
 			/*
 			//render  other biomes!
 			const int NoB = 4;

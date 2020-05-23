@@ -65,7 +65,7 @@ public:
 	*
 	* @param _sptite_path String with file path to textur file
 	*/
-	void set_sprite(std::string _sprite_path);
+	void set_sprite(sf::Texture _sprite);
 	/**
 	* Checks whether an animal is dead or not
 	*/
@@ -98,9 +98,9 @@ public:
 	*/
 	std::vector<Animal> get_parents(unsigned int _precision = 4);
 	/**
-	* @return string with path to texture file of animal
+	* @return sfml texture of animal
 	*/
-	std::string get_sprite();
+	sf::Texture get_sprite();
 
 	//unsigned int get_animal_count();
 
@@ -132,13 +132,16 @@ private:
 	unsigned short sight;
 	/// Array of two objects, parents of an animal
 	std::vector<Animal> parents;
-	/// File path to animal texture
-	std::string sprite_path;
+	/// Animal texture
+	sf::Texture texture;
 };
 
 class Cat : public Animal
 {
-public:
+	using Animal::Animal;
+};
 
-private:
+class Camel : public Animal
+{
+	using Animal::Animal;
 };

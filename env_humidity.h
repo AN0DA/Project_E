@@ -2,6 +2,8 @@
 
 #include <cmath>
 #include <random>
+#include <iostream>
+
 #include "Core.h"
 
 class env_humidity {

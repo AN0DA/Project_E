@@ -6,10 +6,9 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	sprite_params** d = data;
 
 	env_temperature temperature;
-
 	env_humidity humidity;
-
 	env_biomes biomes;
+
 
 	if (generate_temperature) {
 		temperature.generate_temperature(d, w, h);

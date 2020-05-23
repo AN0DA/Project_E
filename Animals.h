@@ -139,8 +139,6 @@ private:
 class Cat : public Animal
 {
 public:
-	Cat();
-	~Cat();
 
 private:
 };

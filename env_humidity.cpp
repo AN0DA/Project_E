@@ -1,4 +1,5 @@
 #include "env_humidity.h"
+#include	<iostream>
 
 void env_humidity::generate_humidity(sprite_params** data, int width, int height) {
 	int river_top_start = 1 + (std::rand() % (width-1));
@@ -10,7 +11,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	std::cout << "river_top_start:  " << river_top_start << std::endl;
 	std::cout << "river_trun:  " << river_turn << std::endl;
 	std::cout << "turn_length:  " << turn_length << std::endl;
-	std::cout << "strona: " << side<< std::endl;
+	std::cout << "strona: " << side << std::endl;
 
 	for (int i = 0; i < river_turn; i++) {
 		data[i][river_top_start].setHumidity(100);

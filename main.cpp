@@ -14,8 +14,12 @@ bool needtogenerate = true;
 int main()
 {
 
-	Animal kot(50, 50, false);
+	Animal kot(50, 40, false);
 	kot.set_sprite("Fauna/textures/Cat.png");
+	std::cout << "sex: " << kot.get_sex() << "\n";
+	std::cout << "Sight: " << kot.get_sight() << "\n";
+	std::cout << "Position: " << kot.get_x() << kot.get_y() << "\n";
+
 
 
 	//Core core;

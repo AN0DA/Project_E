@@ -10,11 +10,14 @@ Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short 
 	size = _size;
 	reproduction_age = _repro;
 	sight = _sight;
-	parents = { _parents[0], _parents[1] };
-	health = *_health;
-	age = *_age;
-	thirst = *_thirst;
-	hunger = *_hunger;
+	if (_parents != NULL)
+	{
+		parents = { _parents[0], _parents[1] };
+	}
+	if (_health != NULL) health = *_health;
+	if (_age != NULL) age = *_age;
+	if (_thirst != NULL) thirst = *_thirst;
+	if (_hunger != NULL) hunger = *_hunger;
 }
 
 bool Animal::is_dead() {

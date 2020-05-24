@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.1) # personally I'd set this version as low as required; you don't have to require the cutting edge version
 
 #how the project will be called
-project (project_e)
+project Project_E_2D)
 
 #set include files
 include_directories("${CMAKE_CURRENT_LIST_DIR}/SFML/include")

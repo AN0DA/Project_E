@@ -19,7 +19,7 @@ if(NOT SFML_ROOT)
   set(SFML_ROOT CACHE "" FORCE)
 endif()
 
-set(SFML_DIR "<sfml root prefix>/lib/cmake/SFML")
+set(SFML_DIR "SFML/lib/cmake/SFML")
 
 # Find SFML
 set(SFML_STATIC_LIBRARIES TRUE)

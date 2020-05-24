@@ -19,6 +19,8 @@ if(NOT SFML_ROOT)
   set(SFML_ROOT CACHE "" FORCE)
 endif()
 
+set(SFML_DIR "<sfml root prefix>/lib/cmake/SFML")
+
 # Find SFML
 set(SFML_STATIC_LIBRARIES TRUE)
 find_package(SFML REQUIRED COMPONENTS audio graphics window system)
@@ -30,7 +32,6 @@ endif()
 
 #set include files
 include_directories(${SFML_INCLUDE_DIR})
-
 
 
 #set source files

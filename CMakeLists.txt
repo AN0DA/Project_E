@@ -22,5 +22,6 @@ find_package (SFML REQUIRED system window graphics network audio)
 include_directories(${SFML_INCLUDE_DIR})
 
 #we add the executable of the program
-add_executable (project_e ${SOURCE_FILES})
-target_link_libraries(project_e ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+add_executable (Project_E_2D ${SOURCE_FILES})
+target_link_libraries(Project_E_2D ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
+target_link_libraries(Project_E_2D sfml-system sfml-window sfml-graphics sfml-network sfml-audio)

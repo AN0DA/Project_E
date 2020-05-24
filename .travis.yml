@@ -41,6 +41,7 @@ matrix:
            - doxygen-latex
            - doxygen-gui
            - graphviz
+           - libsfml-dev
          sources: &precise_latest_boost_sources
            - ubuntu-toolchain-r-test
            - llvm-toolchain-precise-3.7

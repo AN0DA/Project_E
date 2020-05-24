@@ -1,40 +1,65 @@
-#include <iostream>
+/// \file
+/// \brief Source file for env_temperature
+/// \details Source file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
+/// \author Miko³aj Kaczmarek
+/// \date 20.05.2020
+/// \version 0.10
+
 #include "env_temperature.h"
 
-//ERROR: data -> ACCESS VIOLATION
+
+
+/// \brief Script generating temperature
+/// \author Miko³aj Kaczmarek
+/// \date 20.05.2020
+/// \version 0.10
+///
+///Temperature is generated based on previously generated neightbours and amplitude percent set in env_temperature.h. 
+///In first place generated is block [0, 0], then first line and after that first column. Rest of array use average value from blocks [n-1, m], [n, m-1] and [n-1, m-1].
 void env_temperature::generate_temperature(sprite_params** data, int width, int height) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 
-	std::uniform_int_distribution<> dis(min_temp, max_temp);
+	std::uniform_real_distribution<> dis(min_temp, max_temp);
 	data[0][0].set_temperature(dis(gen));
+
+	double temp_change, temp_value, temp_min, temp_max;
 
 	//generate first row
 	for (int i = 1; i < width; i++) {
-		std::uniform_int_distribution<> dis((data[0][i - 1].get_temperature() * change_percent), (data[0][i - 1].get_temperature() * (double(change_percent) + 1)));
+		temp_value = data[0][i - 1].get_temperature();
+		temp_change = abs(temp_value * change_percent);
+
+		temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+		temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+		std::uniform_real_distribution<> dis(temp_min, temp_max);
 		data[0][i].set_temperature(dis(gen));
 	}
 
 	//generate first column
 	for (int i = 1; i < height; i++) {
-		std::uniform_int_distribution<> dis((data[i - 1][0].get_temperature() * change_percent), (data[i - 1][0].get_temperature() * (double(change_percent) + 1)));
+		temp_value = data[i - 1][0].get_temperature();
+		temp_change = abs(temp_value * change_percent);
+
+		temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+		temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+		std::uniform_real_distribution<> dis(temp_min, temp_max);
 		data[i][0].set_temperature(dis(gen));
 	}
 
 	//generate rest of area
 	for (int i = 1; i < width; i++) {
-		for (int j = 1; i < height; i++) {
-			double avg = (data[i - 1][j].get_temperature() + data[i][j - 1].get_temperature() + data[i - 1][j - 1].get_temperature()) / 3;
-			std::uniform_int_distribution<> dis((avg * change_percent), (avg * (double(change_percent) + 1)));
+		for (int j = 1; j < height; j++) {
+			temp_value = (data[i - 1][j].get_temperature() + data[i][j - 1].get_temperature() + data[i - 1][j - 1].get_temperature()) / 3;
+			temp_change = abs(temp_value * change_percent);
+
+			temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+			temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+			std::uniform_real_distribution<> dis(temp_min, temp_max);
 			data[i][j].set_temperature(dis(gen));
 		}
-	}
-
-	//DEBUG
-	for (int i = 0; i < width; i++) {
-		for (int j = 0; i < height; i++) {
-			std::cout << data[i][j].get_temperature() << " ";
-		}
-		std::cout << std::endl;
 	}
 }

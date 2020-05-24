@@ -1,0 +1,104 @@
+\hypertarget{class_stat}{}\doxysection{Stat Class Reference}
+\label{class_stat}\index{Stat@{Stat}}
+
+
+{\ttfamily \#include $<$Animal\+\_\+stats.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stat_ae7970ee14cf6e6fba9443ce96c83123c}{Stat}} (unsigned short \+\_\+max=100, unsigned short \+\_\+current=100)
+\item 
+void \mbox{\hyperlink{class_stat_aeb06b788d7951a3ba51b71dfe0794078}{set\+\_\+current}} (unsigned short \+\_\+current)
+\item 
+void \mbox{\hyperlink{class_stat_a3232af2d3b8e35508bf9edfec5d4323e}{set\+\_\+max}} (unsigned short \+\_\+max)
+\item 
+void \mbox{\hyperlink{class_stat_ac82ee3594a213b816aee9e45f8e7ab5f}{modify}} (int \+\_\+val)
+\item 
+unsigned short \mbox{\hyperlink{class_stat_a954b2c3a13d7ed65e83551742179f898}{get\+\_\+max}} ()
+\item 
+unsigned short \mbox{\hyperlink{class_stat_a86dc3bb4f9a1098b1bbc04a5fb152e81}{get\+\_\+current}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Instance of stats represents a statistic of animal that have max and current level and cannot be less than 0 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_stat_ae7970ee14cf6e6fba9443ce96c83123c}\label{class_stat_ae7970ee14cf6e6fba9443ce96c83123c}} 
+\index{Stat@{Stat}!Stat@{Stat}}
+\index{Stat@{Stat}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{Stat()}{Stat()}}
+{\footnotesize\ttfamily Stat\+::\+Stat (\begin{DoxyParamCaption}\item[{unsigned short}]{\+\_\+max = {\ttfamily 100},  }\item[{unsigned short}]{\+\_\+current = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+Default constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+max} & Maximum amount of given statistic \\
+\hline
+{\em \+\_\+current} & Currnet amount of given statistic \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_stat_a86dc3bb4f9a1098b1bbc04a5fb152e81}\label{class_stat_a86dc3bb4f9a1098b1bbc04a5fb152e81}} 
+\index{Stat@{Stat}!get\_current@{get\_current}}
+\index{get\_current@{get\_current}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{get\_current()}{get\_current()}}
+{\footnotesize\ttfamily unsigned short Stat\+::get\+\_\+current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns current value of statistic \begin{DoxyReturn}{Returns}
+Current statistic 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stat_a954b2c3a13d7ed65e83551742179f898}\label{class_stat_a954b2c3a13d7ed65e83551742179f898}} 
+\index{Stat@{Stat}!get\_max@{get\_max}}
+\index{get\_max@{get\_max}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{get\_max()}{get\_max()}}
+{\footnotesize\ttfamily unsigned short Stat\+::get\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns maximum value of statistic \begin{DoxyReturn}{Returns}
+Maximum statistic 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_stat_ac82ee3594a213b816aee9e45f8e7ab5f}\label{class_stat_ac82ee3594a213b816aee9e45f8e7ab5f}} 
+\index{Stat@{Stat}!modify@{modify}}
+\index{modify@{modify}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{modify()}{modify()}}
+{\footnotesize\ttfamily void Stat\+::modify (\begin{DoxyParamCaption}\item[{int}]{\+\_\+val }\end{DoxyParamCaption})}
+
+Adds or substract given value from current
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+val} & Value that modifies current value. Positive for addition. Negative for substraction \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_stat_aeb06b788d7951a3ba51b71dfe0794078}\label{class_stat_aeb06b788d7951a3ba51b71dfe0794078}} 
+\index{Stat@{Stat}!set\_current@{set\_current}}
+\index{set\_current@{set\_current}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{set\_current()}{set\_current()}}
+{\footnotesize\ttfamily void Stat\+::set\+\_\+current (\begin{DoxyParamCaption}\item[{unsigned short}]{\+\_\+current }\end{DoxyParamCaption})}
+
+Sets current statistic 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+current} & Value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_stat_a3232af2d3b8e35508bf9edfec5d4323e}\label{class_stat_a3232af2d3b8e35508bf9edfec5d4323e}} 
+\index{Stat@{Stat}!set\_max@{set\_max}}
+\index{set\_max@{set\_max}!Stat@{Stat}}
+\doxysubsubsection{\texorpdfstring{set\_max()}{set\_max()}}
+{\footnotesize\ttfamily void Stat\+::set\+\_\+max (\begin{DoxyParamCaption}\item[{unsigned short}]{\+\_\+max }\end{DoxyParamCaption})}
+
+Sets max statistic 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+max} & Value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_animal__stats_8h}{Animal\+\_\+stats.\+h}}\item 
+\mbox{\hyperlink{_animal__stats_8cpp}{Animal\+\_\+stats.\+cpp}}\end{DoxyCompactItemize}

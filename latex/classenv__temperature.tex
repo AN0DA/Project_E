@@ -1,0 +1,74 @@
+\hypertarget{classenv__temperature}{}\doxysection{env\+\_\+temperature Class Reference}
+\label{classenv__temperature}\index{env\_temperature@{env\_temperature}}
+
+
+Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}}.  
+
+
+
+
+{\ttfamily \#include $<$env\+\_\+temperature.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classenv__temperature_ae87767157c08de7c08c783126f39c35c}{generate\+\_\+temperature}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height)
+\begin{DoxyCompactList}\small\item\em Script generating temperature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}}. 
+
+Class related to environment temperature simulation.
+
+Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}} environment parameter. Currently only generates temperature, in future will also mix it as time passes. \begin{DoxyAuthor}{Author}
+Miko³aj Kaczmarek 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+20.\+05.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+10
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Miko³aj Kaczmarek 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classenv__temperature_ae87767157c08de7c08c783126f39c35c}\label{classenv__temperature_ae87767157c08de7c08c783126f39c35c}} 
+\index{env\_temperature@{env\_temperature}!generate\_temperature@{generate\_temperature}}
+\index{generate\_temperature@{generate\_temperature}!env\_temperature@{env\_temperature}}
+\doxysubsubsection{\texorpdfstring{generate\_temperature()}{generate\_temperature()}}
+{\footnotesize\ttfamily void env\+\_\+temperature\+::generate\+\_\+temperature (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Script generating temperature. 
+
+Fuction that generates tempeature for the first time
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array passed from main \\
+\hline
+{\em width} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array width \\
+\hline
+{\em height} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array height\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Miko³aj Kaczmarek 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+20.\+05.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+10
+\end{DoxyVersion}
+Temperature is generated based on previously generated neightbours and amplitude percent set in \mbox{\hyperlink{env__temperature_8h}{env\+\_\+temperature.\+h}}. In first place generated is block \mbox{[}0, 0\mbox{]}, then first line and after that first column. Rest of array use average value from blocks \mbox{[}n-\/1, m\mbox{]}, \mbox{[}n, m-\/1\mbox{]} and \mbox{[}n-\/1, m-\/1\mbox{]}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{env__temperature_8h}{env\+\_\+temperature.\+h}}\item 
+\mbox{\hyperlink{env__temperature_8cpp}{env\+\_\+temperature.\+cpp}}\end{DoxyCompactItemize}

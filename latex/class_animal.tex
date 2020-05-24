@@ -1,0 +1,317 @@
+\hypertarget{class_animal}{}\doxysection{Animal Class Reference}
+\label{class_animal}\index{Animal@{Animal}}
+
+
+Implementation of an instance of an \mbox{\hyperlink{class_animal}{Animal}}.  
+
+
+
+
+{\ttfamily \#include $<$Animals.\+h$>$}
+
+Inheritance diagram for Animal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_animal}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_animal_a05b81a2531a1af87068b8311a32c3730}{Animal}} (int \+\_\+x=0, int \+\_\+y=0, bool \+\_\+sex=0, unsigned short \+\_\+repro=20, unsigned short \+\_\+size=10, unsigned short \+\_\+sight=10, \mbox{\hyperlink{class_animal}{Animal}} \+\_\+parents\mbox{[}2\mbox{]}=\{\}, \mbox{\hyperlink{class_stat}{Stat}} $\ast$\+\_\+health=N\+U\+LL, \mbox{\hyperlink{class_stat}{Stat}} $\ast$\+\_\+age=N\+U\+LL, \mbox{\hyperlink{class_stat}{Stat}} $\ast$\+\_\+thirst=N\+U\+LL, \mbox{\hyperlink{class_stat}{Stat}} $\ast$\+\_\+hunger=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{class_animal_a6d98076bd0745c3d21ad453a9c7886b4}{set\+\_\+x}} (int \+\_\+x)
+\item 
+void \mbox{\hyperlink{class_animal_adb2dc0a8ad2d26eb6b2f3a322971b702}{set\+\_\+y}} (int \+\_\+y)
+\item 
+void \mbox{\hyperlink{class_animal_a895ca0927b0468424f2b8ef12dbbdb5f}{set\+\_\+sex}} (bool \+\_\+sex)
+\item 
+void \mbox{\hyperlink{class_animal_adf849288bb07273edbee98183208ac7c}{set\+\_\+reproduction}} (unsigned short \+\_\+repro)
+\item 
+void \mbox{\hyperlink{class_animal_a1a4bcf0e40ff5cb3c611683de16dda60}{set\+\_\+sight}} (unsigned short \+\_\+sight)
+\item 
+void \mbox{\hyperlink{class_animal_a8c6b381db7422db0522707c384d80935}{set\+\_\+parents}} (\mbox{\hyperlink{class_animal}{Animal}} \+\_\+parent1, \mbox{\hyperlink{class_animal}{Animal}} \+\_\+parent2=N\+U\+LL)
+\item 
+void \mbox{\hyperlink{class_animal_af79cbe3f40c37cf1d6e4d2a329777940}{set\+\_\+sprite}} (std\+::string \+\_\+sprite\+\_\+path)
+\item 
+bool \mbox{\hyperlink{class_animal_a5b76d24da2fef24adeeb049cc054cad6}{is\+\_\+dead}} ()
+\item 
+unsigned short \mbox{\hyperlink{class_animal_a8a6bb02bfbb68ee3cf9c4eb885620b42}{get\+\_\+x}} ()
+\item 
+unsigned short \mbox{\hyperlink{class_animal_a8e2ee195f40e1c4a33302b2ca1062a77}{get\+\_\+y}} ()
+\item 
+bool \mbox{\hyperlink{class_animal_a782154d323fcc7a1bf943f08a5a0b3ed}{get\+\_\+sex}} ()
+\item 
+unsigned short \mbox{\hyperlink{class_animal_abd9e36a867589c8d9ccd36bef068ed28}{get\+\_\+reproduction}} ()
+\item 
+unsigned short \mbox{\hyperlink{class_animal_a0069ca94caf2d7c17c7d47897fb63466}{get\+\_\+sight}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_animal}{Animal}} $>$ \mbox{\hyperlink{class_animal_a663d7738783727ac547de45fb786f45b}{get\+\_\+parents}} (unsigned int \+\_\+precision=4)
+\item 
+std\+::string \mbox{\hyperlink{class_animal_ace8d6b796afa7562495929ac6a08609e}{get\+\_\+sprite}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_stat}{Stat}} \mbox{\hyperlink{class_animal_a6caf806b597560e8d4526ae0cfd2e3bb}{health}}
+\begin{DoxyCompactList}\small\item\em Object that describes Health of an animal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stat}{Stat}} \mbox{\hyperlink{class_animal_a34a7266775d796df9ff28c7393314b66}{age}}
+\begin{DoxyCompactList}\small\item\em Object that describes Age of an animal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stat}{Stat}} \mbox{\hyperlink{class_animal_a267a6adaad82be8e216cd8749528896b}{thirst}}
+\begin{DoxyCompactList}\small\item\em Object that describes Thirst of an animal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_stat}{Stat}} \mbox{\hyperlink{class_animal_a571500ba1f2402d3da9cb78c92175260}{hunger}}
+\begin{DoxyCompactList}\small\item\em Object that describes Hunger of an animal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of an instance of an \mbox{\hyperlink{class_animal}{Animal}}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_animal_a05b81a2531a1af87068b8311a32c3730}\label{class_animal_a05b81a2531a1af87068b8311a32c3730}} 
+\index{Animal@{Animal}!Animal@{Animal}}
+\index{Animal@{Animal}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{Animal()}{Animal()}}
+{\footnotesize\ttfamily Animal\+::\+Animal (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x = {\ttfamily 0},  }\item[{int}]{\+\_\+y = {\ttfamily 0},  }\item[{bool}]{\+\_\+sex = {\ttfamily 0},  }\item[{unsigned short}]{\+\_\+repro = {\ttfamily 20},  }\item[{unsigned short}]{\+\_\+size = {\ttfamily 10},  }\item[{unsigned short}]{\+\_\+sight = {\ttfamily 10},  }\item[{\mbox{\hyperlink{class_animal}{Animal}}}]{\+\_\+parents\mbox{[}2\mbox{]} = {\ttfamily \{\}},  }\item[{\mbox{\hyperlink{class_stat}{Stat}} $\ast$}]{\+\_\+health = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{class_stat}{Stat}} $\ast$}]{\+\_\+age = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{class_stat}{Stat}} $\ast$}]{\+\_\+thirst = {\ttfamily NULL},  }\item[{\mbox{\hyperlink{class_stat}{Stat}} $\ast$}]{\+\_\+hunger = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Creating constructor of an \mbox{\hyperlink{class_animal}{Animal}} None of fields is mandatory
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x,\+\_\+y} & location of an animal \\
+\hline
+{\em \+\_\+sex} & Gender of an animal \\
+\hline
+{\em \+\_\+repro} & Age at which an animal can reproduce \\
+\hline
+{\em \+\_\+size} & Size of an animal \\
+\hline
+{\em \+\_\+sight} & Distance at which an animal can see \\
+\hline
+{\em \+\_\+parents} & Array of two other animals which are parents of the new one \\
+\hline
+{\em \+\_\+health} & object Health \\
+\hline
+{\em \+\_\+age} & object Age \\
+\hline
+{\em \+\_\+thirst} & object Thirst \\
+\hline
+{\em \+\_\+hunger} & object Hunger \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_animal_a663d7738783727ac547de45fb786f45b}\label{class_animal_a663d7738783727ac547de45fb786f45b}} 
+\index{Animal@{Animal}!get\_parents@{get\_parents}}
+\index{get\_parents@{get\_parents}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_parents()}{get\_parents()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_animal}{Animal}} $>$ Animal\+::get\+\_\+parents (\begin{DoxyParamCaption}\item[{unsigned int}]{\+\_\+precision = {\ttfamily 4} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+precision} & how many levels of genealogical tree to search for\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+list ancestors with given precision 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_abd9e36a867589c8d9ccd36bef068ed28}\label{class_animal_abd9e36a867589c8d9ccd36bef068ed28}} 
+\index{Animal@{Animal}!get\_reproduction@{get\_reproduction}}
+\index{get\_reproduction@{get\_reproduction}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_reproduction()}{get\_reproduction()}}
+{\footnotesize\ttfamily unsigned short Animal\+::get\+\_\+reproduction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+reproduction age of animal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_a782154d323fcc7a1bf943f08a5a0b3ed}\label{class_animal_a782154d323fcc7a1bf943f08a5a0b3ed}} 
+\index{Animal@{Animal}!get\_sex@{get\_sex}}
+\index{get\_sex@{get\_sex}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_sex()}{get\_sex()}}
+{\footnotesize\ttfamily bool Animal\+::get\+\_\+sex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+gender of animal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_a0069ca94caf2d7c17c7d47897fb63466}\label{class_animal_a0069ca94caf2d7c17c7d47897fb63466}} 
+\index{Animal@{Animal}!get\_sight@{get\_sight}}
+\index{get\_sight@{get\_sight}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_sight()}{get\_sight()}}
+{\footnotesize\ttfamily unsigned short Animal\+::get\+\_\+sight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+how far an animal can see 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_ace8d6b796afa7562495929ac6a08609e}\label{class_animal_ace8d6b796afa7562495929ac6a08609e}} 
+\index{Animal@{Animal}!get\_sprite@{get\_sprite}}
+\index{get\_sprite@{get\_sprite}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_sprite()}{get\_sprite()}}
+{\footnotesize\ttfamily std\+::string Animal\+::get\+\_\+sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+string with path to texture file of animal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_a8a6bb02bfbb68ee3cf9c4eb885620b42}\label{class_animal_a8a6bb02bfbb68ee3cf9c4eb885620b42}} 
+\index{Animal@{Animal}!get\_x@{get\_x}}
+\index{get\_x@{get\_x}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_x()}{get\_x()}}
+{\footnotesize\ttfamily unsigned short Animal\+::get\+\_\+x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+X position of animal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_a8e2ee195f40e1c4a33302b2ca1062a77}\label{class_animal_a8e2ee195f40e1c4a33302b2ca1062a77}} 
+\index{Animal@{Animal}!get\_y@{get\_y}}
+\index{get\_y@{get\_y}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{get\_y()}{get\_y()}}
+{\footnotesize\ttfamily unsigned short Animal\+::get\+\_\+y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+Y position of animal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_animal_a5b76d24da2fef24adeeb049cc054cad6}\label{class_animal_a5b76d24da2fef24adeeb049cc054cad6}} 
+\index{Animal@{Animal}!is\_dead@{is\_dead}}
+\index{is\_dead@{is\_dead}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{is\_dead()}{is\_dead()}}
+{\footnotesize\ttfamily bool Animal\+::is\+\_\+dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks whether an animal is dead or not \mbox{\Hypertarget{class_animal_a8c6b381db7422db0522707c384d80935}\label{class_animal_a8c6b381db7422db0522707c384d80935}} 
+\index{Animal@{Animal}!set\_parents@{set\_parents}}
+\index{set\_parents@{set\_parents}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_parents()}{set\_parents()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+parents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_animal}{Animal}}}]{\+\_\+parent1,  }\item[{\mbox{\hyperlink{class_animal}{Animal}}}]{\+\_\+parent2 = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+Sets both parents of an animal Second not mandatory 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+parent1} & First parent \\
+\hline
+{\em \+\_\+parent2} & Second parent \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_adf849288bb07273edbee98183208ac7c}\label{class_animal_adf849288bb07273edbee98183208ac7c}} 
+\index{Animal@{Animal}!set\_reproduction@{set\_reproduction}}
+\index{set\_reproduction@{set\_reproduction}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_reproduction()}{set\_reproduction()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+reproduction (\begin{DoxyParamCaption}\item[{unsigned short}]{\+\_\+repro }\end{DoxyParamCaption})}
+
+Sets reproduction age of an animal
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+reproduction} & Age at which animal can have children \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_a895ca0927b0468424f2b8ef12dbbdb5f}\label{class_animal_a895ca0927b0468424f2b8ef12dbbdb5f}} 
+\index{Animal@{Animal}!set\_sex@{set\_sex}}
+\index{set\_sex@{set\_sex}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_sex()}{set\_sex()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+sex (\begin{DoxyParamCaption}\item[{bool}]{\+\_\+sex }\end{DoxyParamCaption})}
+
+Sets gender of an animal
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+sex} & Gender\+: False -\/ Female, True -\/ Male \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_a1a4bcf0e40ff5cb3c611683de16dda60}\label{class_animal_a1a4bcf0e40ff5cb3c611683de16dda60}} 
+\index{Animal@{Animal}!set\_sight@{set\_sight}}
+\index{set\_sight@{set\_sight}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_sight()}{set\_sight()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+sight (\begin{DoxyParamCaption}\item[{unsigned short}]{\+\_\+sight }\end{DoxyParamCaption})}
+
+Sets distance animal can see
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+sight} & Distance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_af79cbe3f40c37cf1d6e4d2a329777940}\label{class_animal_af79cbe3f40c37cf1d6e4d2a329777940}} 
+\index{Animal@{Animal}!set\_sprite@{set\_sprite}}
+\index{set\_sprite@{set\_sprite}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_sprite()}{set\_sprite()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+sprite (\begin{DoxyParamCaption}\item[{std\+::string}]{\+\_\+sprite\+\_\+path }\end{DoxyParamCaption})}
+
+Sets file path to texture of animal
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+sptite\+\_\+path} & String with file path to textur file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_a6d98076bd0745c3d21ad453a9c7886b4}\label{class_animal_a6d98076bd0745c3d21ad453a9c7886b4}} 
+\index{Animal@{Animal}!set\_x@{set\_x}}
+\index{set\_x@{set\_x}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_x()}{set\_x()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+x (\begin{DoxyParamCaption}\item[{int}]{\+\_\+x }\end{DoxyParamCaption})}
+
+Sets X coordinate of an animal
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+x} & X position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_animal_adb2dc0a8ad2d26eb6b2f3a322971b702}\label{class_animal_adb2dc0a8ad2d26eb6b2f3a322971b702}} 
+\index{Animal@{Animal}!set\_y@{set\_y}}
+\index{set\_y@{set\_y}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{set\_y()}{set\_y()}}
+{\footnotesize\ttfamily void Animal\+::set\+\_\+y (\begin{DoxyParamCaption}\item[{int}]{\+\_\+y }\end{DoxyParamCaption})}
+
+Sets Y coordinate of an animal
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+y} & Y position \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_animal_a34a7266775d796df9ff28c7393314b66}\label{class_animal_a34a7266775d796df9ff28c7393314b66}} 
+\index{Animal@{Animal}!age@{age}}
+\index{age@{age}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{age}{age}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stat}{Stat}} Animal\+::age}
+
+
+
+Object that describes Age of an animal. 
+
+\mbox{\Hypertarget{class_animal_a6caf806b597560e8d4526ae0cfd2e3bb}\label{class_animal_a6caf806b597560e8d4526ae0cfd2e3bb}} 
+\index{Animal@{Animal}!health@{health}}
+\index{health@{health}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stat}{Stat}} Animal\+::health}
+
+
+
+Object that describes Health of an animal. 
+
+\mbox{\Hypertarget{class_animal_a571500ba1f2402d3da9cb78c92175260}\label{class_animal_a571500ba1f2402d3da9cb78c92175260}} 
+\index{Animal@{Animal}!hunger@{hunger}}
+\index{hunger@{hunger}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{hunger}{hunger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stat}{Stat}} Animal\+::hunger}
+
+
+
+Object that describes Hunger of an animal. 
+
+\mbox{\Hypertarget{class_animal_a267a6adaad82be8e216cd8749528896b}\label{class_animal_a267a6adaad82be8e216cd8749528896b}} 
+\index{Animal@{Animal}!thirst@{thirst}}
+\index{thirst@{thirst}!Animal@{Animal}}
+\doxysubsubsection{\texorpdfstring{thirst}{thirst}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stat}{Stat}} Animal\+::thirst}
+
+
+
+Object that describes Thirst of an animal. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_animals_8h}{Animals.\+h}}\item 
+\mbox{\hyperlink{_animals_8cpp}{Animals.\+cpp}}\end{DoxyCompactItemize}

@@ -11,6 +11,7 @@ class Tree {
 	int drainPerRoot;
 	int humidityUsage;
 	int waterToGrowth;
+
 	// to add later: health,
 public:
 	Tree(sprite_params* trunk);

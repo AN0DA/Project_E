@@ -1,7 +1,7 @@
 #pragma once
 /// \headerfile
-/// \brief Header file for env_humidity
-/// \details Header file for env_humidity environment parameter. Generates river, lakes and humidity around them.
+/// \brief Header file for env_biomes
+/// \details Header file for env_biomes environment parameter. Sets the biome of every tile.
 /// \author Konstanty Kordas
 /// \date 27.05.2020
 /// \version 0.1
@@ -11,6 +11,8 @@ class env_biomes {
 	/// \class env_biomes env_biomes.h
 	/// \brief Class related to setting the biome of all tiles on the grid
 	/// \author Konstanty Kordas
+
+
 public:
 	/// Fuction that goes through every tile on the grid and sets its biome based on tiles temperature and humidity
 	///

@@ -5,6 +5,7 @@
 class Animal
 {
 public:
+
 	/**
 	* Creating constructor of an Animal
 	* None of fields is mandatory
@@ -20,7 +21,7 @@ public:
 	* @param _thirst object Thirst
 	* @param _hunger object Hunger
 	*/
-	Animal(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal _parents[2] = {}, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+	Animal(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal *_parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
 
 	/**
 	* Sets X coordinate of an animal

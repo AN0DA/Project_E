@@ -132,7 +132,7 @@ if (side) {
 
 
 	//river going down from turn to the end of the grid
-	for (int j = river_turn + river_width+1; j < height; j++) {
+	for (int j = river_turn + river_width+1; j <= height; j++) {
 		for (int i = coordX - river_width - turn_length - river_width; i <= coordX - river_width - turn_length; i++) {
 			create_water_tile(data, width, height, i, j, std::max((2 + river_width) * 2,7));
 		}

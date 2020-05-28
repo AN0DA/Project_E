@@ -35,7 +35,7 @@ public:
 
 class sprite_params {
 	bool water = false;//false = l¹d, //true = woda
-	int temperature = 30;// (rand()%46)-10;
+	int temperature = (rand()%46)-10;
 	double humidity = 40;
 	int x;
 	int y;

@@ -18,9 +18,12 @@ class env_temperature
 	/// \brief Class related to environment temperature simulation.
 	/// \author Miko³aj Kaczmarek
 	
-	const int min_temp = -10; ///< Lowest temperature that can be generated
-	const int max_temp = 35; ///< Highest temperature that can be generated
-	const double change_percent = 0.2; ///< Max temperature amplitude percent, that can occur in adjacent blocks. It should be in range <0, 1).
+	/// Lowest temperature that can be generated
+	const int min_temp = -10; 
+	/// Highest temperature that can be generated
+	const int max_temp = 35; 
+	/// Max temperature amplitude percent, that can occur in adjacent blocks. It should be in range <0, 1).
+	const double change_percent = 0.2; 
 
 public:
 	/// Fuction that generates tempeature for the first time

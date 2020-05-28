@@ -7,6 +7,7 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 
 	env_temperature temperature;
 	env_humidity humidity;
+	env_pressure pressure;
 	env_biomes biomes;
 
 
@@ -19,6 +20,7 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	if (generate_biomes) {
 		biomes.generate_biomes(d, w, h);
 	}
-
-
+	if (generate_pressure) {
+		pressure.generate_pressure(d, w, h);
+	}
 }

@@ -27,6 +27,7 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
 class sprite_params {
 	double temperature = 0;
 	double humidity;
+	double pressure = 1010;
 	int x;
 	int y;
 	bool isRooted;
@@ -41,6 +42,8 @@ public:
 	int getY();
 	double getHumidity();
 	void setHumidity(double newHumidity);
+	double get_pressure();
+	void set_pressure(double _pressure);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
 	void setBiome(Biomes biome);

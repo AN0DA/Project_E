@@ -98,6 +98,13 @@ double sprite_params::getHumidity() {
 void sprite_params::setHumidity(double newHumidity) {
 	this->humidity = newHumidity;
 }
+double sprite_params::get_pressure() {
+	return this->pressure;
+}
+void sprite_params::set_pressure(double _pressure)
+{
+	this->pressure = _pressure;
+}
 bool sprite_params::getRootStatus() {
 	return this->isRooted;
 }

@@ -74,6 +74,9 @@ void env_humidity::circle_humidity(sprite_params** data, int width, int height, 
 			if (sqrt(((coordX - i) * (coordX - i)) + ((coordY - j) * (coordY - j))) <= radius) {
 				temp_hum = data[i][j].getHumidity() + (data[i][j].getHumidity() +1)* 0.01;
 				data[i][j].setHumidity(temp_hum);
+				if (data[i][j].getHumidity() > 100) {
+					data[i][j].setHumidity(100);
+				}
 			}
 		}
 	}

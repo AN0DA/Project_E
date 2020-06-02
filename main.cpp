@@ -26,8 +26,8 @@ int main()
 	 //texture init for landscape
 
 	//generating animals
-	Animals_gen Cats("./textures/Cat.png");
-	Animals_gen Camels("./textures/Camel.png");
+	Animals_gen Cats("textures/Cat.png");
+	Animals_gen Camels("textures/Camel.png");
 	for (int i = 0; i < 4; i++)
 	{
 		Cat* temp_anim = new Cat(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semiradnom parameters and putting in Cats array
@@ -36,7 +36,7 @@ int main()
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		Camel* temp_anim = new Camel(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semirandom parameters and putting in Camels array
+		Camel* temp_anim = new Camel(rand() % 30, rand() % 30, rand() % 2); //Creating camel with semirandom parameters and putting in Camels array
 		Camels.set_new(*temp_anim);
 	}
 
@@ -183,10 +183,16 @@ int main()
 					window.draw(field[i][j].sprite);
 				}
 			}
+
+			//Animal Rendering
 			std::vector< sf::Sprite > animal_sprites;
 			animal_sprites = Cats.generate_animals();
 			for (int i = 0; i < animal_sprites.size(); i++)
-			{
+			{	
+				sf::Texture temp;
+				temp.loadFromFile("textures/Cat.png");
+				animal_sprites[i].setTexture(temp);
+				animal_sprites[i].setPosition(Cats.get_animal(i).get_x() * 32, Cats.get_animal(i).get_y() * 32);
 				std::cout << animal_sprites[i].getTexture() << "\n";
 
 				window.draw(animal_sprites[i]);

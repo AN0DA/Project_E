@@ -24,3 +24,14 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 		pressure.generate_pressure(d, w, h);
 	}
 }
+
+void env_gen::tick() {
+	int pressure_exec = 0;
+
+	env_pressure pressure;
+
+
+	if (pressure_exec = 5000) {
+		pressure.regenerate_pressure()
+	}
+}

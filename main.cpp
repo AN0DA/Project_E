@@ -18,6 +18,8 @@ int main()
 	kot.set_sprite("textures/Cat.png");
 	table.create_new(kot);*/
 
+	env_gen environment_generator;
+
 	//Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;
@@ -328,5 +330,7 @@ int main()
 			needtogenerate = false;
 			window.display();
 		}
+
+		environment_generator.tick();
 	}
 };

@@ -14,4 +14,6 @@ class env_gen
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);
+
+	void tick();
 };

@@ -6,6 +6,7 @@ class env_pressure {
 public:
 	void generate_pressure(sprite_params** data, int width, int height);
 
-	void regenerate_pressure(sprite_params** data, int width, int height, int iterations);
+	//TODO: Add optional parameters
+	void regenerate_pressure(sprite_params** data, int width, int height, int iterations = NULL);
 
 };

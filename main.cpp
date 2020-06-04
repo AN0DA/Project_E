@@ -25,26 +25,39 @@ int main()
 	//core.StartProjectE(core, &window);
 	 //texture init for landscape
 
+
+	//Animal Texture
+	sf::Texture cat_texture;
+	if (!cat_texture.loadFromFile("textures/Cat.png"))
+		std::cout << "Error isnt loaded!" << std::endl;
+	else  std::cout << "properly loaded cat" << std::endl; 
+
+	sf::Texture camel_texture;
+	if (!camel_texture.loadFromFile("textures/Camel.png"))
+		std::cout << "Error isnt loaded!" << std::endl;
+	else std::cout << "properly loaded camel" << std::endl; 
+
 	//generating animals
-	Animals_gen Cats("textures/Cat.png");
-	Animals_gen Camels("textures/Camel.png");
+	Animals_gen Cats(cat_texture);
+	Animals_gen Camels(camel_texture);
 	for (int i = 0; i < 4; i++)
 	{
-		Cat* temp_anim = new Cat(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semiradnom parameters and putting in Cats array
-		Cats.set_new(*temp_anim);
+		Cat temp_anim(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semiradnom parameters and putting in Cats array
+		Cats.set_new(temp_anim);
 
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		Camel* temp_anim = new Camel(rand() % 30, rand() % 30, rand() % 2); //Creating camel with semirandom parameters and putting in Camels array
-		Camels.set_new(*temp_anim);
+		Camel temp_anim(rand() % 30, rand() % 30, rand() % 2); //Creating camel with semirandom parameters and putting in Camels array
+		Camels.set_new(temp_anim);
 	}
-
+	
 
 	while (window.isOpen())
 	{
 		if (needtogenerate)
 		{
+			//Ground Textures
 			sf::Texture water;
 			if (!water.loadFromFile("textures/water.jpg"))
 			{
@@ -185,18 +198,13 @@ int main()
 			}
 
 			//Animal Rendering
-			std::vector< sf::Sprite > animal_sprites;
+			std::vector<sf::Sprite> animal_sprites;
 			animal_sprites = Cats.generate_animals();
+			std::vector<sf::Sprite> temp_camel = Camels.generate_animals();
+			animal_sprites.insert(std::end(animal_sprites), std::begin(temp_camel), std::end(temp_camel));
 			for (int i = 0; i < animal_sprites.size(); i++)
 			{	
-				sf::Texture temp;
-				temp.loadFromFile("textures/Cat.png");
-				animal_sprites[i].setTexture(temp);
-				animal_sprites[i].setPosition(Cats.get_animal(i).get_x() * 32, Cats.get_animal(i).get_y() * 32);
-				std::cout << animal_sprites[i].getTexture() << "\n";
-
 				window.draw(animal_sprites[i]);
-				//std::cout << animal_sprites[i];
 			}
 
 			

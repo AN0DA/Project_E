@@ -6,7 +6,7 @@
 #include "Animals.h"
 
 
-Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal *_parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) {
+Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) {
 	position_x = _x;
 	position_y = _y;
 	sex = _sex; //false = female, true = male;
@@ -21,6 +21,7 @@ Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short 
 	if(_age != NULL) age = *_age;
 	if(_thirst != NULL) thirst = *_thirst;
 	if(_hunger != NULL) hunger = *_hunger;
+	type = "unspecified";
 }
 
 bool Animal::is_dead() {
@@ -45,10 +46,6 @@ void Animal::set_reproduction(unsigned short _repro) {
 void Animal::set_parents(Animal _parent1, Animal _parent2) {
 	std::vector<Animal> temp = { _parent1, _parent2 };
 	parents = temp;
-}
-void Animal::set_sprite(sf::Texture _sprite) {
-
-	texture = _sprite;
 }
 
 unsigned short Animal::get_x() {
@@ -83,6 +80,22 @@ std::vector<Animal> Animal::get_parents(unsigned int _precision) {
 		return empty;
 	}
 }
-sf::Texture Animal::get_sprite() {
-	return texture;
+
+void Animal::set_type(std::string _type) {
+	type = _type;
 }
+
+std::string Animal::get_type() {
+	return type;
+}
+
+
+Cat::Cat(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger):Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger){
+	set_type("Cat");
+}
+
+
+Camel::Camel(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) : Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger) {
+	set_type("Camel");
+}
+

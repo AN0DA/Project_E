@@ -19,7 +19,7 @@ public:
 
 	@param _texture Texture path for animals group
 	*/
-	Animals_gen(std::string _texture);
+	Animals_gen(sf::Texture _texture);
 
 	///Destructor
 	~Animals_gen();
@@ -55,6 +55,10 @@ public:
 	* @return Amount of animals
 	*/
 	int get_amount();
+	/**
+		Return texture
+	*/
+	sf::Texture get_texture();
 
 private:
 	/**
@@ -62,6 +66,7 @@ private:
 	*
 	* @return Vector of animals
 	*/
-	std::vector<Animal> Animals_all;
 	sf::Texture texture;
+	std::vector<Animal> Animals_all;
+	
 };

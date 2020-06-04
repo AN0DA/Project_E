@@ -60,12 +60,7 @@ public:
 	* @param _parent2 Second parent
 	*/
 	void set_parents(Animal _parent1, Animal _parent2 = NULL);
-	/**
-	* Sets file path to texture of animal
-	*
-	* @param _sptite_path String with file path to textur file
-	*/
-	void set_sprite(sf::Texture _sprite);
+
 	/**
 	* Checks whether an animal is dead or not
 	*/
@@ -97,10 +92,18 @@ public:
 	* @return list ancestors with given precision
 	*/
 	std::vector<Animal> get_parents(unsigned int _precision = 4);
+
 	/**
-	* @return sfml texture of animal
+	* @param _type Type of animal to assign
+	*
 	*/
-	sf::Texture get_sprite();
+	void set_type(std::string _type);
+	/**
+	* @return string name of type of animal
+	*
+	*/
+	std::string get_type();
+
 
 	//unsigned int get_animal_count();
 
@@ -132,16 +135,40 @@ private:
 	unsigned short sight;
 	/// Array of two objects, parents of an animal
 	std::vector<Animal> parents;
-	/// Animal texture
-	sf::Texture texture;
+	///Type of an animal
+	std::string type;
+
 };
 
 class Cat : public Animal
 {
-	using Animal::Animal;
+public:
+	Cat(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+private:
 };
 
 class Camel : public Animal
+{
+public:
+	Camel(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+private:
+};
+class Cow : public Animal
+{
+	using Animal::Animal;
+};
+
+class Fish : public Animal
+{
+	using Animal::Animal;
+};
+
+class Bird : public Animal
+{
+	using Animal::Animal;
+};
+
+class Wolf : public Animal
 {
 	using Animal::Animal;
 };

@@ -20,6 +20,7 @@ int main()
 
 	env_gen environment_generator;
 
+
 	//Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
 	//Core core;
@@ -93,7 +94,7 @@ int main()
 			else { std::cout << "properly loaded txt7" << std::endl; }
 
 
-			//end of lodin
+			//end of loading
 			const int x = 30;
 			// generating table of fields and sprite is inside
 			sprite_params** field = new sprite_params* [x];
@@ -329,6 +330,8 @@ int main()
 			//window.display(); <----- EPILEPSJA
 			needtogenerate = false;
 			window.display();
+
+			//environment_generator.tick();
 		}
 
 		environment_generator.tick();

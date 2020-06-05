@@ -86,3 +86,61 @@ void env_pressure::regenerate_pressure(sprite_params** data, int width, int heig
 		}
 	}
 }
+
+void env_pressure::simulate_wind(sprite_params** data, int width, int height) {
+	double temp0_0 = data[0][0].get_pressure();
+	double dif0_0[2]; // 00 - 01, 00 - 10
+	dif0_0[0] = temp0_0 - data[0][1].get_pressure();
+	dif0_0[1] = temp0_0 - data[1][0].get_pressure();
+
+	if (abs(dif0_0[0]) > abs(dif0_0[1])) {
+		if (dif0_0[0] < 0) {
+
+		}
+		else {
+
+		}
+	}
+
+
+
+	double temp_change, temp_value, temp_min, temp_max;
+
+	//generate first row
+	for (int i = 1; i < width; i++) {
+		temp_value = data[0][i - 1].get_temperature();
+		temp_change = abs(temp_value * change_percent);
+
+		temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+		temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+		std::uniform_real_distribution<> dis(temp_min, temp_max);
+		data[0][i].set_temperature(dis(gen));
+	}
+
+	//generate first column
+	for (int i = 1; i < height; i++) {
+		temp_value = data[i - 1][0].get_temperature();
+		temp_change = abs(temp_value * change_percent);
+
+		temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+		temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+		std::uniform_real_distribution<> dis(temp_min, temp_max);
+		data[i][0].set_temperature(dis(gen));
+	}
+
+	//generate rest of area
+	for (int i = 1; i < width; i++) {
+		for (int j = 1; j < height; j++) {
+			temp_value = (data[i - 1][j].get_temperature() + data[i][j - 1].get_temperature() + data[i - 1][j - 1].get_temperature()) / 3;
+			temp_change = abs(temp_value * change_percent);
+
+			temp_min = ((temp_value - temp_change) > min_temp) ? (temp_value - temp_change) : min_temp;
+			temp_max = ((temp_value + temp_change) < max_temp) ? (temp_value + temp_change) : max_temp;
+
+			std::uniform_real_distribution<> dis(temp_min, temp_max);
+			data[i][j].set_temperature(dis(gen));
+		}
+	}
+}

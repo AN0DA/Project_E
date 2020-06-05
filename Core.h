@@ -28,6 +28,8 @@ class sprite_params {
 	double temperature = 0;
 	double humidity;
 	double pressure = 1010;
+	short wind_direction;
+	double wind_strength;
 	int x;
 	int y;
 	bool isRooted;
@@ -44,6 +46,10 @@ public:
 	void setHumidity(double newHumidity);
 	double get_pressure();
 	void set_pressure(double _pressure);
+	short get_wind_direction();
+	void set_wind_diretion(short _wind_direction);
+	double get_wind_strength();
+	void set_wind_strength(double _wind_strength);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
 	void setBiome(Biomes biome);

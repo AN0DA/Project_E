@@ -105,6 +105,22 @@ void sprite_params::set_pressure(double _pressure)
 {
 	this->pressure = _pressure;
 }
+short sprite_params::get_wind_direction()
+{
+	return this->wind_direction;
+}
+void sprite_params::set_wind_diretion(short _wind_direction)
+{
+	this->wind_direction = _wind_direction;
+}
+double sprite_params::get_wind_strength()
+{
+	return this->wind_strength;
+}
+void sprite_params::set_wind_strength(double _wind_strength)
+{
+	this->wind_strength = _wind_strength;
+}
 bool sprite_params::getRootStatus() {
 	return this->isRooted;
 }

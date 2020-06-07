@@ -24,3 +24,18 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 		pressure.generate_pressure(d, w, h);
 	}
 }
+
+void env_gen::tick() {
+	int pressure_interval = 20000;
+
+	if (init) {
+		pressure_exec = int(win::GetTickCount()) + pressure_interval;
+		init = false;
+}
+
+	if (abs(pressure_exec) <= abs(int(win::GetTickCount()))) {
+		std::cout << "tick ";
+	pressure_exec = int(win::GetTickCount()) + pressure_interval;
+	}
+
+}

@@ -53,17 +53,18 @@ void Tree::drinkWater() {
 		this->currentWater += this->drainPerRoot;
 	}
 }
-void Tree::treeLifeCycle(int interval) {
-	// something similiar to JavaScript's setInterval
-	std::thread th([&]() {
-		while (true) {
-			std::this_thread::sleep_for(std::chrono::milliseconds(interval));
-			this->drinkWater();
-			this->currentWater -= this->humidityUsage;
-			if (this->currentWater > this->waterToGrowth) {
-				this->treeGrow();
-			}
+void Tree::treeShrink() {
+	double* currentMinHumidity = new double(9007199254740991);
+	int* minIndex = nullptr;
+	for (int i = 0; i != this->roots.size(); i++) {
+		if (this->roots[i]->getSpriteRef()->getHumidity() < *currentMinHumidity && !this->roots[i]->checkChildRoots()) {
+			*currentMinHumidity = this->roots[i]->getSpriteRef()->getHumidity();
 		}
-		});
-	th.detach();
+	}
+	this->roots.erase(this->roots.begin() + *minIndex);
+	if (!roots.size()) {
+		//this->treeDie();
+	}
+	delete currentMinHumidity;
+	delete minIndex;
 }

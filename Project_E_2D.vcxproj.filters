@@ -26,6 +26,8 @@
     <ClCompile Include="Animals.cpp">
       <Filter>Fauna</Filter>
     </ClCompile>
+    <ClCompile Include="env_biomes.cpp" />
+    <ClCompile Include="env_humidity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -43,9 +45,6 @@
     <ClInclude Include="treeClass.h">
       <Filter>Flora</Filter>
     </ClInclude>
-    <ClInclude Include="field.h">
-      <Filter>Flora</Filter>
-    </ClInclude>
     <ClInclude Include="Animal_core.h">
       <Filter>Fauna\Headers</Filter>
     </ClInclude>
@@ -55,6 +54,8 @@
     <ClInclude Include="Animal_stats.h">
       <Filter>Fauna\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="env_biomes.h" />
+    <ClInclude Include="env_humidity.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">

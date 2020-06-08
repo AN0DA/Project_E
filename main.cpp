@@ -102,7 +102,7 @@ int main()
 				field[i] = new sprite_params[x];
 			}
 			env_gen e;
-			e.generate_environment(field, x-1, x-1);
+			e.generate_environment(field, x, x);
 			needtogenerate = false;
 			std::cout << "generated";
 			for (int i = 0; i < x; i++)
@@ -330,10 +330,7 @@ int main()
 			//window.display(); <----- EPILEPSJA
 			needtogenerate = false;
 			window.display();
-
-			//environment_generator.tick();
 		}
-
-		environment_generator.tick();
+		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height());
 	}
 };

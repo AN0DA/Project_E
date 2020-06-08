@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-#include "world_gen.h"
-
 
 enum class Biomes {
 	water,		// temp 0+;			wilg = 100			id:0

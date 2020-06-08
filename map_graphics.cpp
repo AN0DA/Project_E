@@ -80,8 +80,6 @@ void map_graphics::load_textures() {
 
 
 void map_graphics::biome_map() {
-	(*window).clear();
-
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			Biomes b = field[i][j].getBiome();
@@ -119,13 +117,11 @@ void map_graphics::biome_map() {
 			(*window).draw(field[i][j].sprite);
 		}
 	}
-	//(*window).display();
 }
 
 
 
 void map_graphics::heat_map() {
-	(*window).clear();
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
@@ -144,12 +140,10 @@ void map_graphics::heat_map() {
 			(*window).draw(rect);
 		}
 	}
-	//(*window).display();
 
 }
 
 void map_graphics::water_map() {
-	(*window).clear();
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
@@ -173,6 +167,5 @@ void map_graphics::water_map() {
 			(*window).draw(rect);
 		}
 	}
-	//(*window).display();
 
 }

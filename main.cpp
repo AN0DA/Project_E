@@ -67,6 +67,7 @@ int main()
 				break;
 			case sf::Event::KeyPressed:
 				if (evt.key.code == sf::Keyboard::Space) {
+					window.clear(sf::Color::Black);
 					std::cout << "SPACJA";
 					switch (m)
 					{
@@ -83,6 +84,8 @@ int main()
 						m = current_map::biome;
 						break;
 					}
+					window.display();
+
 				}
 				break;
 
@@ -91,7 +94,7 @@ int main()
 
 		}
 		//window.clear();
-		window.display();
+		//window.display();
 		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height());
 	}
 };

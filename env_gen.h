@@ -26,7 +26,7 @@ class env_gen
 
 	//tick counters
 	bool init = true;
-	int pressure_exec;
+	int temperature_mix_exec;
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);

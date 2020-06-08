@@ -32,4 +32,6 @@ public:
 	/// \param width sprite_params array width
 	/// \param height sprite_params array height
 	void generate_temperature(sprite_params** data, int width, int height);
+
+	void mix_temperature(sprite_params** data, int width, int height);
 };

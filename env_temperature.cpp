@@ -63,3 +63,33 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 		}
 	}
 }
+
+void env_temperature::mix_temperature(sprite_params** data, int width, int height) {
+	
+	double** temp = new double* [++width];
+	for (int i = 0; i <= width; i++) 
+		temp[i] = new double[++height];
+
+	for (int i = 0; i <= width; i++) {
+		for (int j = 0; j <= height; j++)
+			temp[i][j] = data[i][j].get_temperature();
+	}
+
+
+	//generate first row
+	for (int i = 1; i <= width; i++) {
+			data[0][i].set_temperature((temp[0][--i] + temp[0][i])/2);
+	}
+
+	//generate first column
+	for (int i = 1; i <= height; i++) {
+		data[i][0].set_temperature((temp[--i][0] + temp[i][0]) / 2);
+	}
+
+	//generate rest of area
+	for (int i = 1; i <= width; i++) {
+		for (int j = 1; j <= height; j++) {
+			data[i][j].set_temperature((temp[i][j] + temp[--i][j] + temp[--i][--j] + temp[i][--j])/4);
+		}
+	}
+}

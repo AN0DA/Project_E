@@ -5,9 +5,6 @@
     <ClCompile Include="Core.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="world_gen.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="env_gen.cpp">
       <Filter>Environment</Filter>
     </ClCompile>
@@ -38,9 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
-      <Filter>Core\Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="world_gen.h">
       <Filter>Core\Headers</Filter>
     </ClInclude>
     <ClInclude Include="env_gen.h">

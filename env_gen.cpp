@@ -1,6 +1,10 @@
 #include "env_gen.h"
 
 void env_gen::generate_environment(sprite_params** data, int width, int height) {
+	_width = width;
+	_height - height;
+	_data = data;
+	
 	int w = width;
 	int h = height;
 	sprite_params** d = data;
@@ -25,7 +29,9 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	}
 }
 
-void env_gen::tick() {
+
+
+void env_gen::tick(sprite_params** data, int width, int height) {
 	int pressure_interval = 20000;
 
 	if (init) {

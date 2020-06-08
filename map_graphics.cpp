@@ -1,4 +1,5 @@
 #include "map_graphics.h"
+#include <iostream>
 
 
 map_graphics::map_graphics(sf::RenderWindow* window, int window_height, int window_width, sprite_params** field, int field_height, int field_width) {
@@ -79,6 +80,7 @@ void map_graphics::load_textures() {
 
 
 void map_graphics::biome_map() {
+	(*window).clear();
 
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
@@ -117,13 +119,13 @@ void map_graphics::biome_map() {
 			(*window).draw(field[i][j].sprite);
 		}
 	}
-	(*window).display();
+	//(*window).display();
 }
 
 
 
 void map_graphics::heat_map() {
-
+	(*window).clear();
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
@@ -142,12 +144,12 @@ void map_graphics::heat_map() {
 			(*window).draw(rect);
 		}
 	}
-	(*window).display();
+	//(*window).display();
 
 }
 
 void map_graphics::water_map() {
-
+	(*window).clear();
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
@@ -171,6 +173,6 @@ void map_graphics::water_map() {
 			(*window).draw(rect);
 		}
 	}
-	(*window).display();
+	//(*window).display();
 
 }

@@ -45,15 +45,15 @@ int main()
 	for (int i = 0; i < field_width; i++) {
 		field[i] = new sprite_params[field_height];
 	}
-
-	env_gen e;
-	e.generate_environment(field, field_width-1, field_height-1);
+		
+	env_gen environment_generator;
+	environment_generator.generate_environment(field, field_width-1, field_height-1);
 	std::cout << "generated";
 	map_graphics g(&window, window_height, window_width, field,  field_height, field_width);
 	g.biome_map();
 	//biome_map(&window, field, width, height);
 
-
+	//window.setFramerateLimit(1);
 	while (window.isOpen())
 	{
 
@@ -89,9 +89,9 @@ int main()
 			}
 			//window.display(); <----- EPILEPSJA
 
-			needtogenerate = false;
-			window.display();
 		}
+		//window.clear();
+		window.display();
 		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height());
 	}
 };

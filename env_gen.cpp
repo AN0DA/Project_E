@@ -1,4 +1,5 @@
 #include "env_gen.h"
+#include <iostream>
 
 void env_gen::generate_environment(sprite_params** data, int width, int height) {
 	_width = width;

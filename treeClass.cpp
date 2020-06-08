@@ -4,52 +4,66 @@
 #include <chrono>
 #include "treeClass.h"
 
-Tree::Tree(sprite_params* trunk) {
+void root::addChild(root* child) {
+	this->childRoots.push_back(child);
+}
+
+root::root(sprite_params* _spriteReference, root* _parentRoot) {
+	this->spriteRef = _spriteReference;
+	this->spriteRef->setRootStatus(true);
+	this->parentRoot = _parentRoot;
+	if (this->parentRoot != nullptr) {
+		this->parentRoot->addChild(this);
+	}
+}
+
+bool root::checkChildRoots() {
+	if (this->childRoots.size()) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+sprite_params* root::getSpriteRef() {
+	return this->spriteRef;
+}
+
+Tree::Tree(sprite_params* trunk, int interval) {
 	std::cout << "Tree created" << std::endl;
 	(*trunk).setRootStatus(true);
 	this->trunk = trunk;
-	this->neighborFields.push_back((*trunk).neighbors[0]);
-	this->neighborFields.push_back((*trunk).neighbors[1]);
-	this->neighborFields.push_back((*trunk).neighbors[2]);
-	this->neighborFields.push_back((*trunk).neighbors[3]);
+	this->roots.push_back(new root(this->trunk, nullptr));
+	this->treeLifeCycle(interval);
 }
-void Tree::assignNewNeighbor(sprite_params* newNeighbor) {
-	// search if newNeighbor is neighbor already, if not then push_back it to the neighbors vector
-	for (auto i = this->neighborFields.begin(); i != this->neighborFields.end(); i++) {
-		if (*i == newNeighbor)
-		{
-			return;
-		}
-	}
-	this->neighborFields.push_back(newNeighbor);
-}
+
 void Tree::treeGrow() {
 	// tree will sprout new roots into neighbor field with highest humidity
-	int* currentMaxHumidityId = new int(0);
-	int* currentMaxHumidity = new int(-1);
-	for (int i = 0; i != this->neighborFields.size(); i++) {
-		if (this->neighborFields[i]->getHumidity() > * currentMaxHumidity && !this->neighborFields[i]->getRootStatus()) {
-			*currentMaxHumidityId = i;
-			*currentMaxHumidity = this->neighborFields[i]->getHumidity();
+	double* currentMaxHumidity = new double(-1);
+	root* maxParent = nullptr;
+	sprite_params* maxPointer = nullptr;
+	for (int i = 0; i != this->roots.size(); i++) {
+		for (int j = 0; j != 4; j++) {
+			if (this->roots[i]->getSpriteRef()->neighbors[j]->getRootStatus() && this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity() > * currentMaxHumidity) {
+				maxParent = this->roots[i];
+				maxPointer = this->roots[i]->getSpriteRef()->neighbors[j];
+				*currentMaxHumidity = this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity();
+			}
 		}
 	}
-	// no growing if there are no free spaces
-	if (*currentMaxHumidity == -1) {
-		return;
+	if (*currentMaxHumidity != -1) {
+		this->roots.push_back(new root(maxPointer, maxParent));
 	}
-	// setting found field as new root and deleting it form neighbor
-	this->neighborFields[*currentMaxHumidityId]->setRootStatus(true);
-	this->roots.push_back((this->neighborFields[*currentMaxHumidityId]));
-	this->neighborFields.erase(this->neighborFields.begin() + *currentMaxHumidityId);
-	// adding new neighborFields if they are not neighbors already
-	for (int i = 0; i < 4; i++) {
-		this->assignNewNeighbor(this->neighborFields.back()->neighbors[i]);
-	}
+	delete currentMaxHumidity;
+	delete maxParent;
+	delete maxPointer;
 }
 void Tree::drinkWater() {
 	//drain every root
 	for (int i = 0; i != this->roots.size(); i++) {
-		this->roots[i]->setHumidity(this->roots[i]->getHumidity() - this->drainPerRoot);
+
+		this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
 		this->currentWater += this->drainPerRoot;
 	}
 }
@@ -67,4 +81,14 @@ void Tree::treeShrink() {
 	}
 	delete currentMinHumidity;
 	delete minIndex;
+}
+void Tree::treeLifeCycle(int interval) {
+	this->drinkWater();
+	this->currentWater -= this->humidityUsage * int(this->roots.size());
+	if (this->currentWater > this->waterToGrowth) {
+		this->treeGrow();
+	}
+	else if (this->currentWater <= 0) {
+		this->treeShrink();
+	}
 }

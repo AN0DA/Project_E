@@ -55,7 +55,7 @@ void Tree::drinkWater() {
 		this->currentWater += this->drainPerRoot;
 	}
 }
-
+/*
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = nullptr;
@@ -71,3 +71,4 @@ void Tree::treeShrink() {
 	delete currentMinHumidity;
 	delete minIndex;
 }
+*/

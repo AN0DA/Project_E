@@ -27,13 +27,6 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
 }
 
 
-class Core {
-public:
-	int GenerateRandomInt(int a);
-	void SafeToFileBiomeMap(std::string name, Field** d_f);
-	void ReadFromFileBiomeMap(std::string name, Field** d_f);
-};
-
 class sprite_params {
 	bool water = false;//false = l�d, //true = woda
 	int temperature;

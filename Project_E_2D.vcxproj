@@ -30,7 +30,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="map_graphics.cpp" />
     <ClCompile Include="env_pressure.cpp" />
-    <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="treeClass.cpp" />
     <ClCompile Include="world_gen.cpp" />
   </ItemGroup>

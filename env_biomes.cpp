@@ -14,6 +14,7 @@
 ///
 ///Biome is generated based on tiles water status, temperature and humidity
 ///Full biome parameter table in core.h 
+
 void env_biomes::generate_biomes(sprite_params** data, int width, int height) {
 	Biomes b;
 	for (int i = 0; i <= height; i++) {
@@ -48,6 +49,7 @@ void env_biomes::generate_biomes(sprite_params** data, int width, int height) {
 				else {
 					data[i][j].setBiome(Biomes::savanna);
 					//std::cout << "savanna" << " ";
+
 				}
 			}
 			else if (temperature >= 1) {
@@ -63,5 +65,6 @@ void env_biomes::generate_biomes(sprite_params** data, int width, int height) {
 		}
 		//Debug printing 
 		//std::cout << std::endl;
+
 	}
 }

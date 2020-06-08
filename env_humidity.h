@@ -5,6 +5,7 @@
 /// \author Konstanty Kordas
 /// \date 27.05.2020
 /// \version 0.1
+
 #include <cmath>
 #include <random>
 #include "Core.h"
@@ -79,4 +80,5 @@ public:
 	/// \param coordY Y axis (height) index of the water tile
 	/// \param humidity_reach the radius of the humidity range
 	void create_water_tile(sprite_params** data, int width, int height, int coordX, int coordY, int humidity_reach);
+
 };

@@ -220,8 +220,9 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	//Debug printing all humidity values
 	/*
 	for (int j = 0; j <= height; j++) {
-		std::cout << "RZ¥D: " << j << std::endl;
+		std::cout << "RZÂ¥D: " << j << std::endl;
 		for (int i = 0; i <= width; i++) {
+
 			std::cout << data[i][j].getHumidity() << "  ";
 		}
 		std::cout << std::endl;
@@ -229,3 +230,4 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	*/
 	
 }
+

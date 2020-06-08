@@ -19,6 +19,7 @@ enum class Biomes {
 };
 
 
+
 template<typename T>
 std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::ostream>::type& stream, const T& e)
 {
@@ -34,9 +35,10 @@ public:
 };
 
 class sprite_params {
-	bool water = false;//false = l¹d, //true = woda
-	int temperature = (rand()%46)-10;
+	bool water = false;//false = lï¿½d, //true = woda
+	int temperature;
 	double humidity = 40;
+  double pressure = 1010;
 	int x;
 	int y;
 	bool isRooted;
@@ -53,6 +55,8 @@ public:
 	int getY();
 	double getHumidity();
 	void setHumidity(double newHumidity);
+	double get_pressure();
+	void set_pressure(double _pressure);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
 	void setBiome(Biomes biome);
@@ -61,3 +65,10 @@ public:
 	sprite_params* neighbors[4];
 };
 
+
+class Core {
+public:
+	int GenerateRandomInt(int a);
+	void SaveToFileBiomeMap(std::string name, sprite_params** d_f);
+	void ReadFromFileBiomeMap(std::string name, sprite_params** d_f);
+};

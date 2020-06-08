@@ -19,6 +19,7 @@ enum class current_map {
 current_map m;
 
 
+
 int main()
 {
 	/*Animals_gen table;
@@ -55,6 +56,7 @@ int main()
 
 	while (window.isOpen())
 	{
+
 		sf::Event evt;
 		while (window.pollEvent(evt))
 		{
@@ -83,7 +85,15 @@ int main()
 					}
 				}
 				break;
+
 			}
+			//window.display(); <----- EPILEPSJA
+			needtogenerate = false;
+			window.display();
+
+			//environment_generator.tick();
 		}
+
+		environment_generator.tick();
 	}
 };

@@ -20,7 +20,7 @@ Build using C++ compiler with C++17 support or download .exe file that works out
 
 ## Documentation
 
-We use [Doxygen](https://www.doxygen.nl/) for creating documentation. It can be accessed [here](https://an0da.github.io/Project_E/).
+We use [Doxygen](https://www.doxygen.nl/) for creating documentation. You can access it [here](https://an0da.github.io/Project_E/).
 
 ## Authors
 
@@ -32,4 +32,4 @@ We use [Doxygen](https://www.doxygen.nl/) for creating documentation. It can be 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

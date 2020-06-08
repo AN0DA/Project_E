@@ -16,7 +16,6 @@
 ///Full biome parameter table in core.h 
 
 void env_biomes::generate_biomes(sprite_params** data, int width, int height) {
-	Biomes b;
 	for (int i = 0; i <= height; i++) {
 		for (int j = 0; j <= width; j++) {
 			double humidity = data[i][j].getHumidity();

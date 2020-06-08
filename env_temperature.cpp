@@ -28,7 +28,7 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	double temp_change, temp_value, temp_min, temp_max;
 
 	//generate first row
-	for (int i = 1; i < width; i++) {
+	for (int i = 1; i <= width; i++) {
 		temp_value = data[0][i - 1].get_temperature();
 		temp_change = abs(temp_value * change_percent);
 
@@ -40,8 +40,8 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 
 	//generate first column
-	for (int i = 1; i < height; i++) {
 
+	for (int i = 1; i <= height; i++) {
 		temp_value = data[i - 1][0].get_temperature();
 		temp_change = abs(temp_value * change_percent);
 
@@ -53,9 +53,9 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 
 	//generate rest of area
-	for (int i = 1; i < width; i++) {
 
-		for (int j = 1; j < height; j++) {
+	for (int i = 1; i <= width; i++) {
+		for (int j = 1; j <= height; j++) {
 			temp_value = (data[i - 1][j].get_temperature() + data[i][j - 1].get_temperature() + data[i - 1][j - 1].get_temperature()) / 3;
 			temp_change = abs(temp_value * change_percent);
 

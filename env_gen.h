@@ -19,6 +19,10 @@ class env_gen
 	bool generate_biomes = true;
 	bool generate_pressure = true;
 
+	int _width;
+	int _height;
+	sprite_params** _data;
+
 
 	//tick counters
 	bool init = true;
@@ -26,6 +30,15 @@ class env_gen
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);
+	void tick(sprite_params** data, int width, int height);
 
-	void tick();
+	int get_width() {
+		return this->_width;
+	};
+	int get_height() {
+		return this->_height;
+	};
+	sprite_params** get_data() {
+		return this->_data;
+	};
 };

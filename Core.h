@@ -2,9 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include "world_gen.h"
-#include <iostream>
-#include "field.h"
 
 
 enum class Biomes {

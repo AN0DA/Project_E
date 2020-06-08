@@ -88,12 +88,10 @@ int main()
 
 			}
 			//window.display(); <----- EPILEPSJA
-			//needtogenerate = false;
-			//window.display();
 
-			//environment_generator.tick();
+			needtogenerate = false;
+			window.display();
 		}
-
-		//environment_generator.tick();
+		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height());
 	}
 };

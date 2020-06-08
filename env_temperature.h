@@ -2,8 +2,8 @@
 /// \headerfile
 /// \brief Header file for env_temperature
 /// \details Header file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
-/// \author Miko³aj Kaczmarek
 /// \date 20.05.2020
+/// \author Mikolaj Kaczmarek
 /// \version 0.10
 
 #pragma once
@@ -17,9 +17,7 @@
 class env_temperature
 {
 	/// \class env_temperature env_temperature.h
-	/// \brief Class related to environment temperature simulation.
-	/// \author Miko³aj Kaczmarek
-	
+	/// \brief Class related to environment temperature simulation.	
 	/// Lowest temperature that can be generated
 	const int min_temp = -10; 
 	/// Highest temperature that can be generated

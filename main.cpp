@@ -102,7 +102,7 @@ int main()
 				field[i] = new sprite_params[x];
 			}
 			env_gen e;
-			e.generate_environment(field, x, x);
+			e.generate_environment(field, x-1, x-1);
 			needtogenerate = false;
 			std::cout << "generated";
 			for (int i = 0; i < x; i++)

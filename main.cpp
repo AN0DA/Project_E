@@ -26,31 +26,10 @@ int main()
 	 //texture init for landscape
 
 
-	//Animal Texture
-	sf::Texture cat_texture;
-	if (!cat_texture.loadFromFile("textures/Cat.png"))
-		std::cout << "Error isnt loaded!" << std::endl;
-	else  std::cout << "properly loaded cat" << std::endl; 
-
-	sf::Texture camel_texture;
-	if (!camel_texture.loadFromFile("textures/Camel.png"))
-		std::cout << "Error isnt loaded!" << std::endl;
-	else std::cout << "properly loaded camel" << std::endl; 
-
-	//generating animals
-	Animals_gen Cats(cat_texture);
-	Animals_gen Camels(camel_texture);
-	for (int i = 0; i < 4; i++)
-	{
-		Cat temp_anim(rand() % 30, rand() % 30, rand() % 2); //Creating cat with semiradnom parameters and putting in Cats array
-		Cats.set_new(temp_anim);
-
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		Camel temp_anim(rand() % 30, rand() % 30, rand() % 2); //Creating camel with semirandom parameters and putting in Camels array
-		Camels.set_new(temp_anim);
-	}
+	
+	//Preparing Animals Objects
+	std::vector<Animals_gen> Animals;
+	Animals = prepare_animals();
 	
 
 	while (window.isOpen())
@@ -198,13 +177,16 @@ int main()
 			}
 
 			//Animal Rendering
-			std::vector<sf::Sprite> animal_sprites;
-			animal_sprites = Cats.generate_animals();
-			std::vector<sf::Sprite> temp_camel = Camels.generate_animals();
-			animal_sprites.insert(std::end(animal_sprites), std::begin(temp_camel), std::end(temp_camel));
-			for (int i = 0; i < animal_sprites.size(); i++)
-			{	
-				window.draw(animal_sprites[i]);
+			for (int i = 0; i < Animals.size(); i++)
+			{
+				std::vector<sf::Sprite> animal_sprites;
+				animal_sprites = Animals[i].generate_animals();
+				for (int j = 0; j < animal_sprites.size(); j++)
+				{
+					window.draw(animal_sprites[j]);
+					std::cout << "check";
+				}
+
 			}
 
 			

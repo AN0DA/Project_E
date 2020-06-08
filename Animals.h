@@ -155,20 +155,24 @@ private:
 };
 class Cow : public Animal
 {
-	using Animal::Animal;
+	Cow(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+
 };
 
 class Fish : public Animal
 {
-	using Animal::Animal;
+	Fish(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+
 };
 
 class Bird : public Animal
 {
-	using Animal::Animal;
+	Bird(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+
 };
 
 class Wolf : public Animal
 {
-	using Animal::Animal;
+	Wolf(int _x = 0, int _y = 0, bool _sex = 0, unsigned short _repro = 20, unsigned short _size = 10, unsigned short _sight = 10, Animal* _parents = NULL, Stat* _health = NULL, Stat* _age = NULL, Stat* _thirst = NULL, Stat* _hunger = NULL);
+
 };

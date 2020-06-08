@@ -44,6 +44,7 @@
     <ClInclude Include="env_temperature.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="textures\Camel.png" />
     <Image Include="textures\Cat.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

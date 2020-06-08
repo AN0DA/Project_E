@@ -99,3 +99,19 @@ Camel::Camel(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _s
 	set_type("Camel");
 }
 
+Bird::Bird(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) : Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger) {
+	set_type("Bird");
+}
+
+Fish::Fish(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) : Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger) {
+	set_type("Fish");
+}
+
+Wolf::Wolf(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) : Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger) {
+	set_type("Wolf");
+}
+
+Cow::Cow(int _x, int _y, bool _sex, unsigned short _repro, unsigned short _size, unsigned short _sight, Animal* _parents, Stat* _health, Stat* _age, Stat* _thirst, Stat* _hunger) : Animal(_x, _y, _sex, _repro, _size, _sight, _parents, _health, _age, _thirst, _hunger) {
+	set_type("Cow");
+}
+

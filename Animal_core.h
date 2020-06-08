@@ -70,3 +70,10 @@ private:
 	std::vector<Animal> Animals_all;
 	
 };
+
+/**
+function that prepares animal objects
+and return array of them
+
+*/
+std::vector<Animals_gen>  prepare_animals();

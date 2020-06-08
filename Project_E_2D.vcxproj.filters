@@ -98,5 +98,8 @@
     <Image Include="textures\Cat.png">
       <Filter>Fauna\Textures</Filter>
     </Image>
+    <Image Include="textures\Camel.png">
+      <Filter>Fauna\Textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

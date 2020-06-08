@@ -28,16 +28,16 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 
 void env_gen::tick() {
 	int pressure_interval = 1000;
-	//TreeDaemon* onlyTreeDeamon = new TreeDaemon();
+	TreeDaemon* onlyTreeDeamon = new TreeDaemon();
 
 	if (init) {
 		pressure_exec = int(win::GetTickCount()) + pressure_interval;
 		init = false;
-}	//tam gdzie nullptr ma byc jakies pole, inaczej jest address violation
-	//onlyTreeDeamon->addTree(*(new Tree(nullptr, 2, 1, 3)));
+}
+	onlyTreeDeamon->addTree(*(new Tree(nullptr, 2, 1, 3)));
 	if (abs(pressure_exec) <= abs(int(win::GetTickCount()))) {
 		std::cout << "tick ";
-		//onlyTreeDeamon->treeControl();
+		onlyTreeDeamon->treeControl();
 	pressure_exec = int(win::GetTickCount()) + pressure_interval;
 	}
 

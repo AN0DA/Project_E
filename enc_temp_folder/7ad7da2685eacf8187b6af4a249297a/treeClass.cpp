@@ -101,18 +101,15 @@ void Tree::treeLifeCycle() {
 }
 void TreeDaemon::removeTree(int elementInVector) {
 	this->existingTrees.erase(this->existingTrees.begin() + elementInVector);
-	std::cout << "Tree just died" << std::endl;
 }
 void TreeDaemon::addTree(Tree treeToAdd) {
 	this->existingTrees.push_back(treeToAdd);
 }
 void TreeDaemon::treeControl() {
 	for (int i = 0; i != this->existingTrees.size(); i++) {
+		this->existingTrees[i].treeLifeCycle();
 		if (this->existingTrees[i].getTrunk() == nullptr) {
 			this->removeTree(i);
-		}
-		else {
-			this->existingTrees[i].treeLifeCycle();
 		}
 	}
 }

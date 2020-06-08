@@ -22,10 +22,18 @@ class Tree {
 	int humidityUsage;
 	int waterToGrowth;
 public:
-	Tree(sprite_params* trunk, int interval);
-	void treeLifeCycle(int interval); // this function will need ticks as argument later
+	Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth);
+	void treeLifeCycle();
 	void treeGrow();
 	void drinkWater();
 	void treeShrink();
-	void treeDie();
+	sprite_params* getTrunk();
+};
+// this object using it's method treeControl, lanuched in Ticks will tell all of the Existing Trees when to drink water, grow and die...
+class TreeDaemon {
+	std::vector<Tree> existingTrees;
+public:
+	void addTree(Tree treeToAdd);
+	void treeControl();
+	void removeTree(int elementInVector);
 };

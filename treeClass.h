@@ -21,12 +21,14 @@ class Tree {
 	int drainPerRoot;
 	int humidityUsage;
 	int waterToGrowth;
+	int treeLevel;
 public:
 	Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth);
 	void treeLifeCycle();
 	void treeGrow();
 	void drinkWater();
 	void treeShrink();
+	void handleLevel();
 	sprite_params* getTrunk();
 };
 // this object using it's method treeControl, lanuched in Ticks will tell all of the Existing Trees when to drink water, grow and die...

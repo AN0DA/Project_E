@@ -35,6 +35,7 @@ Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterT
 	this->drainPerRoot = drainPerRoot;
 	this->humidityUsage = humidityUsage;
 	this->waterToGrowth = waterToGrowth;
+	this->treeLevel = 1;
 }
 sprite_params* Tree::getTrunk() {
 	return this->trunk;
@@ -46,7 +47,7 @@ void Tree::treeGrow() {
 	sprite_params* maxPointer = nullptr;
 	for (int i = 0; i != this->roots.size(); i++) {
 		for (int j = 0; j != 4; j++) {
-			if (this->roots[i]->getSpriteRef()->neighbors[j]->getRootStatus() && this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity() > * currentMaxHumidity) {
+			if (this->roots[i]->getSpriteRef()->neighbors[j]->getRootStatus() && this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity() > * currentMaxHumidity && this->roots[i]->getSpriteRef()->neighbors[j] != nullptr) {
 				maxParent = this->roots[i];
 				maxPointer = this->roots[i]->getSpriteRef()->neighbors[j];
 				*currentMaxHumidity = this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity();
@@ -87,6 +88,32 @@ void Tree::treeShrink() {
 	delete currentMinHumidity;
 	delete minIndex;
 }
+void Tree::handleLevel() {
+	if (this->trunk == nullptr) {
+		this->treeLevel = 0;
+		//change spirte here
+		// bool change
+	}
+	else if (this->roots.size() < 4) {
+		this->treeLevel = 1;
+		//change spirte here
+		// bool change
+	} else if(this->roots.size() < 8) {
+		this->treeLevel = 2;
+		//change spirte here
+		// bool change
+	}
+	else if (this->roots.size() < 16) {
+		this->treeLevel = 3;
+		//change spirte here
+		// bool change
+	}
+	else {
+		this->treeLevel = 4;
+		//change spirte here
+		// bool change
+	}
+}
 // tell tree to drink, chceck if it has enought of it to grow or shrink
 void Tree::treeLifeCycle() {
 	this->drinkWater();
@@ -98,6 +125,7 @@ void Tree::treeLifeCycle() {
 	else if (this->currentWater <= 0) {
 		this->treeShrink();
 	}
+	this->handleLevel();
 }
 void TreeDaemon::removeTree(int elementInVector) {
 	this->existingTrees.erase(this->existingTrees.begin() + elementInVector);

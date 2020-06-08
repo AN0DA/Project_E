@@ -1,7 +1,15 @@
+/// \file
+/// \brief Source file for map_graphics
+/// \details Source file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
+/// \author Konstanty Kordas
+/// \date 9.06.2020
+/// \version 0.10
 #include "map_graphics.h"
 #include <iostream>
 
-
+/// \brief map_graphics class constructor
+/// \author Konstanty Kordas
+/// consrtuctor initializes all local variables needed and calls load_textures() function to load aditional textures from files
 map_graphics::map_graphics(sf::RenderWindow* window, int window_height, int window_width, sprite_params** field, int field_height, int field_width) {
 	this->window = window;
 	this->window_height = window_height;
@@ -12,7 +20,7 @@ map_graphics::map_graphics(sf::RenderWindow* window, int window_height, int wind
 	load_textures();
 }
 
-
+/// fuction that loads textures from files and logs in console success and failure
 void map_graphics::load_textures() {
 	if (!water.loadFromFile("textures/water.jpg")) {
 		std::cout << "Water isnt loaded!" << std::endl;
@@ -78,7 +86,9 @@ void map_graphics::load_textures() {
 	}
 }
 
-
+/// \brief function draws graphics based on biomes
+/// \author Konstanty Kordas
+/// function iterates through entire grid and for every block it checks the biome, sets it corresponding texture and draws it on the window
 void map_graphics::biome_map() {
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
@@ -121,6 +131,9 @@ void map_graphics::biome_map() {
 
 
 
+/// \brief function draws graphics based on temperature
+/// \author Konstanty Kordas
+/// function iterates through entire grid and for every block it checks the temperature and draws corresponding rectangle with correct color
 void map_graphics::heat_map() {
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
@@ -143,6 +156,9 @@ void map_graphics::heat_map() {
 
 }
 
+/// \brief function draws graphics based on temperature
+/// \author Konstanty Kordas
+/// function iterates through entire grid and for every block it checks the humidity and draws corresponding rectangle with correct color
 void map_graphics::water_map() {
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {

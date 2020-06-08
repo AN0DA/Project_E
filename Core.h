@@ -3,8 +3,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
-#include "world_gen.h"
-
 
 enum class Biomes {
 	water,		// temp 0+;			wilg = 100			id:0
@@ -27,6 +25,7 @@ std::ostream& operator<<(typename std::enable_if<std::is_enum<T>::value, std::os
 class sprite_params {
 	double temperature = 0;
 	double humidity;
+	double pressure = 1010;
 	int x;
 	int y;
 	bool isRooted;
@@ -41,6 +40,8 @@ public:
 	int getY();
 	double getHumidity();
 	void setHumidity(double newHumidity);
+	double get_pressure();
+	void set_pressure(double _pressure);
 	bool getRootStatus();
 	void setRootStatus(bool newStatus);
 	void setBiome(Biomes biome);

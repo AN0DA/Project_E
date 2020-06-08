@@ -26,10 +26,10 @@
     <ClCompile Include="env_biomes.cpp" />
     <ClCompile Include="env_gen.cpp" />
     <ClCompile Include="env_humidity.cpp" />
+    <ClCompile Include="env_pressure.cpp" />
     <ClCompile Include="env_temperature.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="treeClass.cpp" />
-    <ClCompile Include="world_gen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animals.h" />
@@ -38,7 +38,7 @@
     <ClInclude Include="Core.h" />
     <ClInclude Include="env_biomes.h" />
     <ClInclude Include="env_humidity.h" />
-    <ClInclude Include="world_gen.h" />
+    <ClInclude Include="env_pressure.h" />
     <ClInclude Include="treeClass.h" />
     <ClInclude Include="env_gen.h" />
     <ClInclude Include="env_temperature.h" />
@@ -151,6 +151,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)sfml\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -162,6 +163,9 @@
       <HeapReserveSize>41943040</HeapReserveSize>
       <HeapCommitSize>41943040</HeapCommitSize>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

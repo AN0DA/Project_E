@@ -85,7 +85,7 @@ void Tree::drinkWater() {
 		std::cout << "Tree just drunk water" << std::endl;
 	}
 }
-/*
+
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = new int(this->roots.size()+1);

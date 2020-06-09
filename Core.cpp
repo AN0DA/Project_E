@@ -6,6 +6,7 @@
 #include "Core.h"
 
 
+
 const int x = 50;
 const int y = 20;
 bool mustgenthisforfucksake = true;
@@ -18,6 +19,7 @@ int Core::GenerateRandomInt(int a) {
 	return rand() % a + 1;
 }
 
+
 void Core::SaveToFileBiomeMap(std::string name, sprite_params** d_f) {
 	std::ofstream file;
 	file.open(name);
@@ -25,13 +27,13 @@ void Core::SaveToFileBiomeMap(std::string name, sprite_params** d_f) {
 		for (int j = 0; j < y; j++)
 		{
 			{
-
 				file << d_f[i][j].getBiome();
 			}
 			file << std::endl;
 		}
 	file.close();
 }
+
 
 void Core::ReadFromFileBiomeMap(std::string name, sprite_params** d_f) {
 	//std::ofstream file;
@@ -81,8 +83,15 @@ void  sprite_params::set_temperature(double _temperature) {
 double sprite_params::get_temperature() {
 	return temperature;
 }
-sprite_params::sprite_params() {
-	temperature = 0;
+
+bool sprite_params::isWater() {
+	return this->water;
+}
+sprite_params::sprite_params() = default;
+
+void sprite_params::setWater(bool w) {
+	this->water = w;
+
 }
 int sprite_params::getX() {
 	return this->x;
@@ -96,6 +105,7 @@ double sprite_params::getHumidity() {
 void sprite_params::setHumidity(double newHumidity) {
 	this->humidity = newHumidity;
 }
+
 double sprite_params::get_pressure() {
 	return this->pressure;
 }

@@ -8,8 +8,17 @@
 #include "Core.h"
 #include "Animal_core.h"
 #include "env_gen.h"
+#include "map_graphics.h"
 
-bool needtogenerate = true;
+enum class current_map {
+	biome,
+	heat,
+	water
+};
+
+current_map m;
+
+
 
 int main()
 {
@@ -17,116 +26,66 @@ int main()
 	Animal kot(50, 50, false);
 	kot.set_sprite("textures/Cat.png");
 	table.create_new(kot);*/
+	int window_width = 1000;
+	int window_height = 1000;
 
 	env_gen environment_generator;
 	TreeDaemon mtd;
-
 	//Core core;
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
+	sf::RenderWindow window(sf::VideoMode(window_width, window_height), "Project E");
 	//Core core;
 	//core.StartProjectE(core, &window);
 	 //texture init for landscape
+
+	sprite_params** field;
+	int field_height;
+	int field_width;
+	//end of lodin
+	field_height = 100;
+	field_width = 100;
+	// generating table of fields and sprite is inside
+	field = new sprite_params * [field_width];
+	for (int i = 0; i < field_width; i++) {
+		field[i] = new sprite_params[field_height];
+	}
+		
+	env_gen environment_generator;
+	environment_generator.generate_environment(field, field_width-1, field_height-1);
+	std::cout << "generated";
+	map_graphics g(&window, window_height, window_width, field,  field_height, field_width);
+	g.biome_map();
+	//biome_map(&window, field, width, height);
+	window.display();
+
+	//window.setFramerateLimit(1);
 	while (window.isOpen())
 	{
-		if (needtogenerate)
+
+		sf::Event evt;
+		while (window.pollEvent(evt))
 		{
-			sf::Texture water;
-			if (!water.loadFromFile("textures/water.jpg"))
+			switch (evt.type)
 			{
-				std::cout << "Water isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt0" << std::endl; }
-
-
-			sf::Texture ice;
-			if (!ice.loadFromFile("textures/ice.jpg"))
-			{
-				std::cout << "Ice isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt1" << std::endl; }
-
-
-			sf::Texture rainforest;
-			if (!rainforest.loadFromFile("textures/rainforest.jpg"))
-			{
-				std::cout << "Rainforest isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt2" << std::endl; }
-
-
-			sf::Texture desert;
-			if (!desert.loadFromFile("textures/desert.jpg"))
-			{
-				std::cout << "Desert isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt3" << std::endl; }
-
-
-			sf::Texture savanna;
-			if (!savanna.loadFromFile("textures/savanna.jpg"))
-			{
-				std::cout << "Savanna isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt4" << std::endl; }
-
-
-			sf::Texture grassland;
-			if (!grassland.loadFromFile("textures/grassland.jpg"))
-			{
-				std::cout << "Grassland isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt5" << std::endl; }
-
-
-			sf::Texture snow;
-			if (!snow.loadFromFile("textures/snow.jpg"))
-			{
-				std::cout << "Snow isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt6" << std::endl; }
-
-
-			sf::Texture error_texture;
-			if (!snow.loadFromFile("textures/error_texture.jpg"))
-			{
-				std::cout << "Error isnt loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt7" << std::endl; }
-
-
-			//end of loading
-			const int x = 30;
-			// generating table of fields and sprite is inside
-			sprite_params** field = new sprite_params* [x];
-			for (int i = 0; i < x; i++) {
-				field[i] = new sprite_params[x];
-			}
-			env_gen e;
-			e.generate_environment(field, x-1, x-1);
-			needtogenerate = false;
-			std::cout << "generated";
-			for (int i = 0; i < x; i++)
-			{
-				for (int j = 0; j < x; j++)
-				{
-					
-					Biomes b = field[i][j].getBiome();
-					switch (b)
+			case sf::Event::Closed:
+				window.close();
+				break;
+			case sf::Event::KeyPressed:
+				if (evt.key.code == sf::Keyboard::Space) {
+					window.clear(sf::Color::Black);
+					std::cout << "SPACJA";
+					switch (m)
 					{
-					case Biomes::water:
-						field[i][j].sprite.setTexture(water);
+					case current_map::biome:
+						g.heat_map();
+						m = current_map::heat;
 						break;
-					case Biomes::ice:
-						field[i][j].sprite.setTexture(ice);
+					case current_map::heat:
+						g.water_map();
+						m = current_map::water;
 						break;
-					case Biomes::rainforest:
-						field[i][j].sprite.setTexture(rainforest);
-						break;
-					case Biomes::desert:
-						field[i][j].sprite.setTexture(desert);
-						break;
-					case Biomes::savanna:
-						field[i][j].sprite.setTexture(savanna);
+					case current_map::water:
+						g.biome_map();
+						m = current_map::biome;
 						break;
 					case Biomes::grassland:
 						field[i][j].sprite.setTexture(grassland);
@@ -157,6 +116,7 @@ int main()
 			case sf::Event::Closed:
 				window.close();
 				break;
+
 			}
 			//window.display(); <----- EPILEPSJA
 			needtogenerate = false;

@@ -46,6 +46,7 @@ Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterT
 	this->y = y;
 	this->needToDraw = true;
 }
+
 sprite_params* Tree::getTrunk() {
 	return this->trunk;
 }
@@ -94,10 +95,6 @@ void Tree::drinkWater() {
 		else {
 			this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
 			this->currentWater += this->drainPerRoot;
-		}
-		//std::cout << "Tree just drunk water" << std::endl;
-	}
-}
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = new int(this->roots.size()+1);
@@ -121,6 +118,7 @@ void Tree::treeShrink() {
 	//delete minIndex;
 	std::cout << "Tree just shrunk" << std::endl;
 }
+
 void Tree::handleLevel() {
 	if (this->trunk == nullptr) {
 		this->treeLevel = 0;

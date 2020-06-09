@@ -52,6 +52,7 @@ int main()
 	map_graphics g(&window, window_height, window_width, field,  field_height, field_width);
 	g.biome_map();
 	//biome_map(&window, field, width, height);
+	window.display();
 
 	//window.setFramerateLimit(1);
 	while (window.isOpen())

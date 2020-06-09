@@ -1,4 +1,5 @@
 #include "env_gen.h"
+#include "treeClass.h"
 
 void env_gen::generate_environment(sprite_params** data, int width, int height) {
 	_width = width;
@@ -29,18 +30,16 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	}
 }
 
-
-
 void env_gen::tick(sprite_params** data, int width, int height) {
 	int pressure_interval = 20000;
-
 	if (init) {
 		pressure_exec = int(win::GetTickCount()) + pressure_interval;
 		init = false;
-}
-
+}	//tam gdzie nullptr ma byc jakies pole, inaczej jest address violation
+	//onlyTreeDeamon->addTree(*(new Tree(nullptr, 2, 1, 3)));
 	if (abs(pressure_exec) <= abs(int(win::GetTickCount()))) {
 		std::cout << "tick ";
+		//onlyTreeDeamon->treeControl();
 	pressure_exec = int(win::GetTickCount()) + pressure_interval;
 	}
 

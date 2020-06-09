@@ -46,6 +46,7 @@ Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterT
 sprite_params* Tree::getTrunk() {
 	return this->trunk;
 }
+
 void Tree::treeGrow() {
 	// tree will sprout new roots into neighbor field with highest humidity
 	double* currentMaxHumidity = new double(-1);

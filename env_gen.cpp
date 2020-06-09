@@ -1,4 +1,5 @@
 #include "env_gen.h"
+#include "treeClass.h"
 
 
 void create_neighbours(sprite_params** data, int width, int height)

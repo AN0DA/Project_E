@@ -86,7 +86,7 @@ void Tree::drinkWater() {
 }
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
-	int* minIndex = new int(this->roots.size());
+	int* minIndex = new int(this->roots.size()+1);
 	for (int i = 0; i != this->roots.size(); i++) {
 		if (this->roots[i]->getSpriteRef()->getHumidity() < *currentMinHumidity && !this->roots[i]->checkChildRoots()) {
 			*currentMinHumidity = this->roots[i]->getSpriteRef()->getHumidity();

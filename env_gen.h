@@ -5,6 +5,7 @@
 #include "env_humidity.h"
 #include "env_biomes.h"
 #include "env_pressure.h"
+#include "treeClass.h"
 
 #include <cmath>
 
@@ -30,13 +31,16 @@ class env_gen
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);
-	void tick(sprite_params** data, int width, int height);
+	void tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon);
 
 	int get_width() {
 		return this->_width;
 	};
 	int get_height() {
 		return this->_height;
+	};
+	void setData(sprite_params** newData) {
+		this->_data = newData;
 	};
 	sprite_params** get_data() {
 		return this->_data;

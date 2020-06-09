@@ -49,9 +49,16 @@ class Tree {
 	int waterToGrowth;
 	/// treeLevel is determined in 0-4, it is used to tell what spirte should be used by trunk
 	int treeLevel;
+	/// x contains x position of trunk
+	int x;
+	/// y contains y position of trunk
+	int y;
+	/// bool containg information if tree has leveled up and needs to update its sprite
+	bool needToDraw;
+	
 public:
 	/// simple construcotr, that also sets trunk as first root with no parent and currentWater to default value of 10
-	Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth);
+	Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth, int x, int y);
 	/// treeLifeCycle is a method executed by treeDeamon that tells tree to drink water from roots, checks if tree has enought water to grow, executes grow or if tree has negative amount of water, shrinks it
 	void treeLifeCycle();
 	/// treeGrow is a method that seeks the best suitable nieghbour sprite_param to make it one of tree's roots
@@ -64,6 +71,15 @@ public:
 	void handleLevel();
 	/// getTrunk is a siple getter that returns a pointer pointing at tree's trunk
 	sprite_params* getTrunk();
+	/// simple x getter
+	int getPositionX();
+	/// simple y getter
+	int getPositionY();
+	/// simple needToDraw getter
+	bool getNeedToDraw();
+	/// simple level getter
+	int getLevel();
+	sf::Sprite treeSprite;
 };
 class TreeDaemon {
 	/// \class TreeDaemon treeClass.h
@@ -77,4 +93,8 @@ public:
 	void treeControl();
 	/// removeTree is a method evoked to remove element witch specyfic id from the exisitingTrees vector
 	void removeTree(int elementInVector);
+	///
+	bool checkChange();
+	///
+	void Change(sf::RenderWindow* window);
 };

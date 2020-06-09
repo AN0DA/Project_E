@@ -87,9 +87,8 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	}
 	create_neighbours(d, w, h);
 }
-
-void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon) {
-	int pressure_interval = 100;
+void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow *window) {
+	int pressure_interval = 1000;
 	if (init) {
 		pressure_exec = int(win::GetTickCount()) + pressure_interval;
 		init = false;
@@ -97,6 +96,11 @@ void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* main
 	if (abs(pressure_exec) <= abs(int(win::GetTickCount()))) {
 		std::cout << "tick ";
 		mainTreeDaemon->treeControl();
+		if (mainTreeDaemon->checkChange()) {
+			window->clear();
+			mainTreeDaemon->Change(window);
+			window->display();
+		}
 	pressure_exec = int(win::GetTickCount()) + pressure_interval;
 	}
 

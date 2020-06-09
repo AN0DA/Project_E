@@ -31,7 +31,7 @@ class env_gen
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);
-	void tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon);
+	void tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow* window);
 
 	int get_width() {
 		return this->_width;

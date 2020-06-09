@@ -49,15 +49,18 @@ int main()
 	for (int i = 0; i < field_width; i++) {
 		field[i] = new sprite_params[field_height];
 	}
-		
+	double scale_width = window_width /(double)(32 * field_width);
+	double scale_height =  window_height /(double)(32 * field_height);
+
+	std::cout << scale_width;
 	environment_generator.generate_environment(field, field_width-1, field_height-1);
 	std::cout << "generated";
-	map_graphics g(&window, window_height, window_width, field,  field_height, field_width);
+	map_graphics g(&window, scale_height, scale_width, field,  field_height, field_width);
 	g.biome_map();
 	//biome_map(&window, field, width, height);
 	environment_generator.setData(environment_generator.get_data());
 	sprite_params* toPole = &(environment_generator.get_data()[7][6]);
-	mtd.addTree(Tree(toPole, 2, 1, 3));
+	mtd.addTree(Tree(toPole, 2, 1, 3, 7*32*scale_width, 6*32*scale_height));
 	window.display();
 	//window.setFramerateLimit(1);
 	while (window.isOpen())
@@ -73,7 +76,7 @@ int main()
 				break;
 			case sf::Event::KeyPressed:
 				if (evt.key.code == sf::Keyboard::Space) {
-					window.clear(sf::Color::Black);
+					window.clear();
 					std::cout << "SPACJA";
 					switch (m)
 					{
@@ -89,18 +92,8 @@ int main()
 						g.biome_map();
 						m = current_map::biome;
 						break;
-					case Biomes::grassland:
-						field[i][j].sprite.setTexture(grassland);
-						break;
-					case Biomes::snow:
-						field[i][j].sprite.setTexture(snow);
-						break;
-					default:
-						field[i][j].sprite.setTexture(error_texture);
-						break;
 					}
 					window.display();
-
 				}
 				else if (evt.key.code == sf::Keyboard::P) {
 					bool pause = true;
@@ -118,33 +111,8 @@ int main()
 				}
 			}
 		}
-		//window.display();
-		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd);
-					field[i][j].sprite.setPosition(sf::Vector2f(i * 32, j * 32));
-					//window->setVisible();
-					window.draw(field[i][j].sprite);
-				}
-			}
-			environment_generator.setData(e.get_data());
-			sprite_params* toPole = &(environment_generator.get_data()[7][6]);
-			mtd.addTree(Tree(toPole, 2, 1, 3, 224, 192));
+		if (m == current_map::biome) {
+			environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd, &window,&g,scale_width,scale_height);
 		}
-
-		//window.display();
-		sf::Event evt;
-		while (window.pollEvent(evt))
-		{
-			switch (evt.type)
-			{
-			case sf::Event::Closed:
-				window.close();
-				break;
-
-			}
-			//window.display(); <----- EPILEPSJA
-			needtogenerate = false;
-			//window.display();
-		}
-		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd, &window);
 	}
 };

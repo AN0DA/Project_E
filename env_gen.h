@@ -6,6 +6,7 @@
 #include "env_biomes.h"
 #include "env_pressure.h"
 #include "treeClass.h"
+#include "map_graphics.h"
 
 #include <cmath>
 
@@ -31,7 +32,7 @@ class env_gen
 
 public:
 	void generate_environment(sprite_params** data, int width, int height);
-	void tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow* window);
+	void tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow* window,map_graphics*g, double scale_width, double scale_height);
 
 	int get_width() {
 		return this->_width;

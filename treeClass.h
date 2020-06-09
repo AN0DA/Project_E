@@ -96,5 +96,5 @@ public:
 	///
 	bool checkChange();
 	///
-	void Change(sf::RenderWindow* window);
+	void Change(sf::RenderWindow* window, double scale_width, double scale_height);
 };

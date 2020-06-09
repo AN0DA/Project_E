@@ -32,6 +32,9 @@
     <ClCompile Include="env_biomes.cpp">
       <Filter>Environment</Filter>
     </ClCompile>
+    <ClCompile Include="Animal_actions.cpp">
+      <Filter>Fauna</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core.h">
@@ -63,6 +66,9 @@
     </ClInclude>
     <ClInclude Include="env_biomes.h">
       <Filter>Environment</Filter>
+    </ClInclude>
+    <ClInclude Include="Animal_actions.h">
+      <Filter>Fauna\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

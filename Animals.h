@@ -116,6 +116,8 @@ public:
 	///Object that describes Hunger of an animal
 	Stat hunger;
 
+
+
 private:
 
 	/// X Position of an Animal

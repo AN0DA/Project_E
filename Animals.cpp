@@ -25,7 +25,7 @@ Animal::Animal(int _x, int _y, bool _sex, unsigned short _repro, unsigned short 
 }
 
 bool Animal::is_dead() {
-	if (health.get_current() <= 0) return true;
+	if (health.get_current() <= 0 || age.get_current() > age.get_max()) return true;
 	else return false;
 }
 void Animal::set_x(int _x) {

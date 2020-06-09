@@ -6,6 +6,10 @@ void Animals_gen::set_new(Animal _animal) {
 	Animals_all.push_back(_animal);
 }
 
+void Animals_gen::update_animal(int _index, Animal _Animal) {
+	Animals_all[_index] = _Animal;
+}
+
 std::vector< sf::Sprite >  Animals_gen::generate_animals()
 {
 	std::vector<sf::Sprite> sprites (Animals_all.size());
@@ -13,7 +17,6 @@ std::vector< sf::Sprite >  Animals_gen::generate_animals()
 	{
 		sprites[i].setTexture(texture);
 		sprites[i].setPosition(sf::Vector2f(Animals_all[i].get_x()*32, Animals_all[i].get_y()*32));
-		std::cout << sprites[i].getPosition().x << "\n";
 	}
 	return sprites;
 	

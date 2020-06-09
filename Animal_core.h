@@ -5,7 +5,7 @@
 #include <string>
 
 #include "Animals.h"
-
+#include "Animal_actions.h"
 /**
 * Class that generates and contains all animals
 */
@@ -36,6 +36,14 @@ public:
 	* @param _animal Animal object to add to list of animals
 	*/
 	void set_new(Animal _animal);
+	/**
+	Updates existing animal
+
+	@param _index Number of animal
+
+	@param _Animal Animal that overrites
+	*/
+	void update_animal(int _index, Animal _Animal);
 	/**
 	* Get Animal on given index
 	*

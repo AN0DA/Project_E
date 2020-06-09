@@ -6,6 +6,8 @@
 #include <string>
 #include <time.h>
 #include <stdlib.h>
+#include <Windows.h>
+#include <cstdlib>
 
 
 #include "Core.h"
@@ -13,6 +15,7 @@
 #include "env_gen.h"
 
 bool needtogenerate = true;
+const int x = 30;
 
 int main()
 {	
@@ -25,17 +28,19 @@ int main()
 	//core.StartProjectE(core, &window);
 	 //texture init for landscape
 
-
-	
 	//Preparing Animals Objects
 	std::vector<Animals_gen> Animals;
-	Animals = prepare_animals();
-	
 
+	
 	while (window.isOpen())
 	{
-		if (needtogenerate)
+		window.clear();
+		if (true)
+		//if(needtogenerate)
 		{
+			//Preparing Animals Objects
+			Animals = prepare_animals();
+
 			//Ground Textures
 			sf::Texture water;
 			if (!water.loadFromFile("textures/water.jpg"))
@@ -102,11 +107,16 @@ int main()
 
 
 			//end of loadin
-			const int x = 30;
+			
 
 
 			// generating table of fields and sprite is inside
-			sprite_params** field = new sprite_params* [x];
+			/*sprite_params** field = new sprite_params* [x];
+			for (int i = 0; i < x; i++) {
+				field[i] = new sprite_params[x];
+			} */
+			//Preparing World table
+			sprite_params** field = new sprite_params * [x];
 			for (int i = 0; i < x; i++) {
 				field[i] = new sprite_params[x];
 			}
@@ -175,20 +185,6 @@ int main()
 					window.draw(field[i][j].sprite);
 				}
 			}
-
-			//Animal Rendering
-			for (int i = 0; i < Animals.size(); i++)
-			{
-				std::vector<sf::Sprite> animal_sprites;
-				animal_sprites = Animals[i].generate_animals();
-				for (int j = 0; j < animal_sprites.size(); j++)
-				{
-					window.draw(animal_sprites[j]);
-					std::cout << "check";
-				}
-
-			}
-
 			
 			/*
 			//render  other biomes!
@@ -332,7 +328,7 @@ int main()
 
 			//Generate natural environment
 			//sprite_params** sprite_data = new sprite_params * [x];
-			//for (int i = 0; i < x; i++)
+			//for (int i = 0; i< x; i++)
 			//	sprite_data[i] = new sprite_params[y];
 
 			//env_gen habitat;
@@ -341,7 +337,53 @@ int main()
 			//needtogenerate = false;
 		}
 
+
+		
+		//Animal Modifying 
+
+		for (int i = 0; i < Animals.size(); i++)
+		{
+			for (int j = 0; j < Animals[i].get_amount(); j++)
+			{
+				Animal temp_animal = Animals[i].get_animal(j);
+				if (temp_animal.get_x() > 0 && temp_animal.get_x() < x)
+					temp_animal.set_x(temp_animal.get_x() + (std::rand() % 3) - 1);
+				if (temp_animal.get_y() > 0 && temp_animal.get_y() < x) 
+					temp_animal.set_y(temp_animal.get_y() + (std::rand() % 3) - 1);
+				if (temp_animal.get_y() <= 0 )
+					temp_animal.set_y(0 + std::rand() % 2);
+				if (temp_animal.get_x() <= 0)
+					temp_animal.set_x(0 + std::rand() % 2);
+				if (temp_animal.get_x() >= x)
+					temp_animal.set_x(x - std::rand() % 2);
+				if (temp_animal.get_y() >= x)
+					temp_animal.set_y(x - std::rand() % 2);
+				
+
+
+				
+				Animals[i].update_animal(j, temp_animal);
+				std::cout << Animals[i].get_animal(j).get_x() << "\n";
+			}
+
+
+		}
+
+		//Animal Rendering
+		for (int i = 0; i < Animals.size(); i++)
+		{
+			std::vector<sf::Sprite> animal_sprites;
+			animal_sprites = Animals[i].generate_animals();
+			for (int j = 0; j < animal_sprites.size(); j++)
+			{
+				//animal_sprites[j].setPosition(sf::Vector2f(animal_sprites[j].getPosition().x + 32 * rand() % 3, animal_sprites[j].getPosition().y + 32 * rand() % 3));
+				window.draw(animal_sprites[j]);
+			}
+
+		}
+		Sleep(10);
 		window.display();
+		
 		sf::Event evt;
 		while (window.pollEvent(evt))
 		{
@@ -355,5 +397,6 @@ int main()
 			needtogenerate = false;
 			window.display();
 		}
+		
 	}
 };

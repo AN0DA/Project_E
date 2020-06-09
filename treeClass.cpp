@@ -95,6 +95,9 @@ void Tree::drinkWater() {
 		else {
 			this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
 			this->currentWater += this->drainPerRoot;
+		}
+	}
+}
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = new int(this->roots.size()+1);
@@ -191,7 +194,7 @@ bool TreeDaemon::checkChange() {
 	}
 	return false;
 }
-void TreeDaemon::Change(sf::RenderWindow* window) {
+void TreeDaemon::Change(sf::RenderWindow* window, double scale_width, double scale_height) {
 	sf::Texture none;
 	if (!none.loadFromFile("textures/none.png"))
 	{
@@ -234,6 +237,7 @@ void TreeDaemon::Change(sf::RenderWindow* window) {
 			else if (this->existingTrees[i].getLevel() == 4) {
 				this->existingTrees[i].treeSprite.setTexture(tree4);
 			}
+			this->existingTrees[i].treeSprite.setScale(scale_width, scale_height);
 			this->existingTrees[i].treeSprite.setPosition(sf::Vector2f(this->existingTrees[i].getPositionX(), this->existingTrees[i].getPositionY()));
 			(*window).draw(this->existingTrees[i].treeSprite);
 		}

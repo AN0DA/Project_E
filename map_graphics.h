@@ -15,9 +15,9 @@ class map_graphics {
 	/// \author Konstanty Kordas
 	sf::RenderWindow* window;
 	///window of the program
-	int window_height;
+	double scale_height;
 	/// height of the window program (in px)
-	int window_width;
+	double scale_width;
 	/// width of the window program (in px)
 	sprite_params** field;
 	/// grid on which generation is based
@@ -52,7 +52,7 @@ public:
 	/// \param field grid on which generation is based
 	/// \param field_height height of the grid 
 	/// \param field_width width of the grid 
-	map_graphics(sf::RenderWindow* window, int window_height, int window_width, sprite_params** field, int field_height, int field_width);
+	map_graphics(sf::RenderWindow* window, double scale_height, double scale_width, sprite_params** field, int field_height, int field_width);
 
 	/// fuction that loads textures from files and logs in console success and failure
 	/// loads water,ice,swamp,rainforrest,desert,savanna,grassland,snow and error texture from "{texture_name}.jpg" files

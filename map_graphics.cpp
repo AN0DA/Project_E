@@ -10,10 +10,10 @@
 /// \brief map_graphics class constructor
 /// \author Konstanty Kordas
 /// consrtuctor initializes all local variables needed and calls load_textures() function to load aditional textures from files
-map_graphics::map_graphics(sf::RenderWindow* window, int window_height, int window_width, sprite_params** field, int field_height, int field_width) {
+map_graphics::map_graphics(sf::RenderWindow* window, double scale_height, double scale_width, sprite_params** field, int field_height, int field_width) {
 	this->window = window;
-	this->window_height = window_height;
-	this->window_width = window_width;
+	this->scale_height = scale_height;
+	this->scale_width = scale_width;
 	this->field = field;
 	this->field_height = field_height;
 	this->field_width = field_width;
@@ -123,7 +123,8 @@ void map_graphics::biome_map() {
 				field[i][j].sprite.setTexture(error_texture);
 				break;
 			}
-			field[i][j].sprite.setPosition(sf::Vector2f(i * window_width / field_width, j * window_height / field_height));
+			field[i][j].sprite.setScale(scale_width, scale_height);
+			field[i][j].sprite.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));
 			(*window).draw(field[i][j].sprite);
 		}
 	}
@@ -138,7 +139,7 @@ void map_graphics::heat_map() {
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
-			rect.setSize(sf::Vector2f(10, 10));
+			rect.setSize(sf::Vector2f(32*scale_width, 32*scale_height));
 			double temp = field[i][j].get_temperature();
 			if (temp >= 20) { //<20,35>
 				rect.setFillColor(sf::Color(255, (255 - (temp - 20) * 17), 0, 255));
@@ -149,7 +150,7 @@ void map_graphics::heat_map() {
 			else { // <-10,3>
 				rect.setFillColor(sf::Color(0, 255, (255 - (temp + 10) * 15), 255));
 			}
-			rect.setPosition(sf::Vector2f(i * window_width/field_width, j * window_height/field_height));
+			rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));
 			(*window).draw(rect);
 		}
 	}
@@ -163,7 +164,7 @@ void map_graphics::water_map() {
 	for (int j = 0; j < field_height; j++) {
 		for (int i = 0; i < field_width; i++) {
 			sf::RectangleShape rect;
-			rect.setSize(sf::Vector2f(window_width / field_width, window_height / field_height));
+			rect.setSize(sf::Vector2f(32 * scale_width, 32 * scale_height));
 			if (field[i][j].isWater()) {
 				rect.setFillColor(sf::Color(100, 100, 100));
 			}
@@ -179,7 +180,7 @@ void map_graphics::water_map() {
 					rect.setFillColor(sf::Color((33 - humidity) * 7, 231, 231, 255));
 				}
 			}
-			rect.setPosition(sf::Vector2f(i * window_width / field_width, j * window_height / field_height));
+			rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));
 			(*window).draw(rect);
 		}
 	}

@@ -87,8 +87,8 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	}
 	create_neighbours(d, w, h);
 }
-void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow *window) {
-	int pressure_interval = 1000;
+void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow *window, map_graphics* g,double scale_width, double scale_height) {
+	int pressure_interval = 100;
 	if (init) {
 		pressure_exec = int(win::GetTickCount()) + pressure_interval;
 		init = false;
@@ -98,7 +98,8 @@ void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* main
 		mainTreeDaemon->treeControl();
 		if (mainTreeDaemon->checkChange()) {
 			window->clear();
-			mainTreeDaemon->Change(window);
+			g->biome_map();
+			mainTreeDaemon->Change(window,  scale_width,  scale_height);
 			window->display();
 		}
 	pressure_exec = int(win::GetTickCount()) + pressure_interval;

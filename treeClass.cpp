@@ -7,6 +7,12 @@
 void root::addChild(root* child) {
 	this->childRoots.push_back(child);
 }
+void root::removeChild(root* child) {
+	this->childRoots.erase(std::remove(this->childRoots.begin(), this->childRoots.end(), child), this->childRoots.end());
+}
+root* root::getParent() {
+	return this->parentRoot;
+}
 root::root(sprite_params* _spriteReference, root* _parentRoot) {
 	this->spriteRef = _spriteReference;
 	this->spriteRef->setRootStatus(true);
@@ -46,11 +52,11 @@ void Tree::treeGrow() {
 	root* maxParent = nullptr;
 	sprite_params* maxPointer = nullptr;
 	for (int i = 0; i != this->roots.size(); i++) {
-		for (int j = 0; j != 4; j++) {
-			if (this->roots[i]->getSpriteRef()->neighbors[j]->getRootStatus() && this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity() > * currentMaxHumidity && this->roots[i]->getSpriteRef()->neighbors[j] != nullptr) {
+		for (int j = 0; j != this->roots[i]->getSpriteRef()->neighbour_count; j++) {
+			if (this->roots[i]->getSpriteRef()->neighbours[j]->getRootStatus() && this->roots[i]->getSpriteRef()->neighbours[j]->getHumidity() > * currentMaxHumidity && this->roots[i]->getSpriteRef()->neighbours[j] != nullptr) {
 				maxParent = this->roots[i];
-				maxPointer = this->roots[i]->getSpriteRef()->neighbors[j];
-				*currentMaxHumidity = this->roots[i]->getSpriteRef()->neighbors[j]->getHumidity();
+				maxPointer = this->roots[i]->getSpriteRef()->neighbours[j];
+				*currentMaxHumidity = this->roots[i]->getSpriteRef()->neighbours[j]->getHumidity();
 			}
 		}
 	}
@@ -58,20 +64,28 @@ void Tree::treeGrow() {
 		(*maxPointer).setRootStatus(true);
 		this->roots.push_back(new root(maxPointer, maxParent));
 	}
-	delete currentMaxHumidity;
-	delete maxParent;
-	delete maxPointer;
+	//delete currentMaxHumidity;
+	//delete maxParent;
+	//delete maxPointer;
+	std::cout << "Tree just grew" << std::endl;
 }
 void Tree::drinkWater() {
 	//drain every root
 	for (int i = 0; i != this->roots.size(); i++) {
-		this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
-		this->currentWater += this->drainPerRoot;
+		if (this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot <= 0) {
+			this->currentWater += this->roots[i]->getSpriteRef()->getHumidity();
+			this->roots[i]->getSpriteRef()->setHumidity(0);
+		}
+		else {
+			this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
+			this->currentWater += this->drainPerRoot;
+		}
+		std::cout << "Tree just drunk water" << std::endl;
 	}
 }
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
-	int* minIndex = new int(this->roots.size()+1);
+	int* minIndex = new int(this->roots.size());
 	for (int i = 0; i != this->roots.size(); i++) {
 		if (this->roots[i]->getSpriteRef()->getHumidity() < *currentMinHumidity && !this->roots[i]->checkChildRoots()) {
 			*currentMinHumidity = this->roots[i]->getSpriteRef()->getHumidity();
@@ -80,13 +94,17 @@ void Tree::treeShrink() {
 	}
 	if (*minIndex != this->roots.size() + 1) {
 		this->roots[*minIndex]->getSpriteRef()->setRootStatus(false);
+		if (this->roots[*minIndex]->getParent() != nullptr) {
+			this->roots[*minIndex]->getParent()->removeChild(this->roots[*minIndex]);
+		}
 		this->roots.erase(this->roots.begin() + *minIndex);
 		if (this->roots.size() == 0) {
 			trunk = nullptr;
 		}
 	}
-	delete currentMinHumidity;
-	delete minIndex;
+	//delete currentMinHumidity;
+	//delete minIndex;
+	std::cout << "Tree just shrunk" << std::endl;
 }
 void Tree::handleLevel() {
 	if (this->trunk == nullptr) {
@@ -118,6 +136,7 @@ void Tree::handleLevel() {
 void Tree::treeLifeCycle() {
 	this->drinkWater();
 	this->currentWater -= this->humidityUsage * int(this->roots.size());
+	std::cout << "Tree current water: " << this->currentWater << std::endl;
 	if (this->currentWater > this->waterToGrowth) {
 		this->treeGrow();
 		this->waterToGrowth += this->waterToGrowth;
@@ -135,12 +154,15 @@ void TreeDaemon::addTree(Tree treeToAdd) {
 	this->existingTrees.push_back(treeToAdd);
 }
 void TreeDaemon::treeControl() {
-	for (int i = 0; i != this->existingTrees.size(); i++) {
+	for (int i = 0; i < this->existingTrees.size(); i++) {
 		if (this->existingTrees[i].getTrunk() == nullptr) {
 			this->removeTree(i);
 		}
 		else {
 			this->existingTrees[i].treeLifeCycle();
 		}
+	}
+	if (this->existingTrees.size() <= 0) {
+		std::cout << "There are no trees" << std::endl;
 	}
 }

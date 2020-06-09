@@ -78,7 +78,6 @@ void Core::ReadFromFileBiomeMap(std::string name, sprite_params** d_f) {
 void  sprite_params::set_temperature(double _temperature) {
 	temperature = _temperature;
 }
-
 double sprite_params::get_temperature() {
 	return temperature;
 }

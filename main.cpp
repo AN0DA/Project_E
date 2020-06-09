@@ -19,7 +19,7 @@ int main()
 	table.create_new(kot);*/
 
 	env_gen environment_generator;
-
+	TreeDaemon mtd;
 
 	//Core core;
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
@@ -166,6 +166,7 @@ int main()
 					window.draw(field[i][j].sprite);
 				}
 			}
+			environment_generator.setData(e.get_data());
 			/*
 			//render  other biomes!
 			const int NoB = 4;
@@ -315,6 +316,8 @@ int main()
 			//habitat.generate_environment(sprite_data, x, y);
 
 			//needtogenerate = false;
+			sprite_params* toPole = &(environment_generator.get_data()[7][6]);
+			mtd.addTree(Tree(toPole, 2, 1, 3));
 		}
 
 		window.display();
@@ -331,6 +334,6 @@ int main()
 			needtogenerate = false;
 			window.display();
 		}
-		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height());
+		environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd);
 	}
 };

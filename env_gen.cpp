@@ -1,4 +1,5 @@
 #include "env_gen.h"
+#include <iostream>
 #include "treeClass.h"
 
 

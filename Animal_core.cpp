@@ -22,7 +22,7 @@ void Animals_gen::generate_animals(sf::Window* window)
 			sprites[i][j].setTexture(animal);
 			sprites[i][j].setPosition(sf::Vector2f(i, j));
 			//window->setVisible();
-			window->display();//draw(sprites[i][j]);
+			//window->display();//draw(sprites[i][j]);
 		}
 	}
 }

@@ -52,7 +52,8 @@ public:
 	void setBiome(Biomes biome);
 	Biomes getBiome();
 
-	sprite_params* neighbors[4];
+	sprite_params** neighbours;
+	int neighbour_count;
 };
 
 

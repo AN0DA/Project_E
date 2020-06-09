@@ -32,7 +32,7 @@ bool root::checkChildRoots() {
 sprite_params* root::getSpriteRef() {
 	return this->spriteRef;
 }
-Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth) {
+Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterToGrowth, int x, int y) {
 	std::cout << "Tree created" << std::endl;
 	(*trunk).setRootStatus(true);
 	this->trunk = trunk;
@@ -42,12 +42,26 @@ Tree::Tree(sprite_params* trunk, int drainPerRoot, int humidityUsage, int waterT
 	this->humidityUsage = humidityUsage;
 	this->waterToGrowth = waterToGrowth;
 	this->treeLevel = 1;
+	this->x = x;
+	this->y = y;
+	this->needToDraw = true;
 }
 
 sprite_params* Tree::getTrunk() {
 	return this->trunk;
 }
-
+int Tree::getPositionX() {
+	return this->x;
+}
+int Tree::getPositionY() {
+	return this->y;
+}
+bool Tree::getNeedToDraw() {
+	return this->needToDraw;
+}
+int Tree::getLevel() {
+	return this->treeLevel;
+}
 void Tree::treeGrow() {
 	// tree will sprout new roots into neighbor field with highest humidity
 	double* currentMaxHumidity = new double(-1);
@@ -81,11 +95,6 @@ void Tree::drinkWater() {
 		else {
 			this->roots[i]->getSpriteRef()->setHumidity(this->roots[i]->getSpriteRef()->getHumidity() - this->drainPerRoot);
 			this->currentWater += this->drainPerRoot;
-		}
-		std::cout << "Tree just drunk water" << std::endl;
-	}
-}
-/*
 void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = new int(this->roots.size()+1);
@@ -113,27 +122,27 @@ void Tree::treeShrink() {
 void Tree::handleLevel() {
 	if (this->trunk == nullptr) {
 		this->treeLevel = 0;
-		//change spirte here
-		// bool change
+		this->needToDraw = true;
+		std::cout << "Tree just leveled up and is now on: " << this->getLevel() << " level" << std::endl;
 	}
-	else if (this->roots.size() < 4) {
+	else if (this->roots.size() == 1) {
 		this->treeLevel = 1;
-		//change spirte here
-		// bool change
-	} else if(this->roots.size() < 8) {
+		this->needToDraw = true;
+		std::cout << "Tree just leveled up and is now on: " << this->getLevel() << " level" << std::endl;
+	} else if(this->roots.size() == 4) {
 		this->treeLevel = 2;
-		//change spirte here
-		// bool change
+		this->needToDraw = true;
+		std::cout << "Tree just leveled up and is now on: " << this->getLevel() << " level" << std::endl;
 	}
-	else if (this->roots.size() < 16) {
+	else if (this->roots.size() == 8) {
 		this->treeLevel = 3;
-		//change spirte here
-		// bool change
+		this->needToDraw = true;
+		std::cout << "Tree just leveled up and is now on: " << this->getLevel() << " level" << std::endl;
 	}
-	else {
+	else if (this->roots.size() == 16) {
 		this->treeLevel = 4;
-		//change spirte here
-		// bool change
+		this->needToDraw = true;
+		std::cout << "Tree just leveled up and is now on: " << this->getLevel() << " level" << std::endl;
 	}
 }
 // tell tree to drink, chceck if it has enought of it to grow or shrink
@@ -144,11 +153,15 @@ void Tree::treeLifeCycle() {
 	if (this->currentWater > this->waterToGrowth) {
 		this->treeGrow();
 		this->waterToGrowth += this->waterToGrowth;
+		this->handleLevel();
 	}
 	else if (this->currentWater <= 0) {
 		this->treeShrink();
+		this->handleLevel();
 	}
-	this->handleLevel();
+	else {
+		this->needToDraw = false;
+	}
 }
 void TreeDaemon::removeTree(int elementInVector) {
 	this->existingTrees.erase(this->existingTrees.begin() + elementInVector);
@@ -168,5 +181,61 @@ void TreeDaemon::treeControl() {
 	}
 	if (this->existingTrees.size() <= 0) {
 		std::cout << "There are no trees" << std::endl;
+	}
+}
+bool TreeDaemon::checkChange() {
+	for (int i = 0; i < this->existingTrees.size(); i++) {
+		if (this->existingTrees[i].getNeedToDraw()) {
+			return true;
+		}
+	}
+	return false;
+}
+void TreeDaemon::Change(sf::RenderWindow* window) {
+	sf::Texture none;
+	if (!none.loadFromFile("textures/none.png"))
+	{
+		std::cout << "Error isnt loaded!" << std::endl;
+	}
+	sf::Texture tree1;
+	if (!tree1.loadFromFile("textures/tree1.png"))
+	{
+		std::cout << "Error isnt loaded!" << std::endl;
+	}
+	sf::Texture tree2;
+	if (!tree2.loadFromFile("textures/tree2.png"))
+	{
+		std::cout << "Error isnt loaded!" << std::endl;
+	}
+	sf::Texture tree3;
+	if (!tree3.loadFromFile("textures/tree3.png"))
+	{
+		std::cout << "Error isnt loaded!" << std::endl;
+	}
+	sf::Texture tree4;
+	if (!tree4.loadFromFile("textures/tree4.png"))
+	{
+		std::cout << "Error isnt loaded!" << std::endl;
+	}
+	for (int i = 0; i < this->existingTrees.size(); i++) {
+		if (this->existingTrees[i].getNeedToDraw()) {
+			if (this->existingTrees[i].getLevel() == 0) {
+				this->existingTrees[i].treeSprite.setTexture(none);
+			}
+			else if (this->existingTrees[i].getLevel() == 1) {
+				this->existingTrees[i].treeSprite.setTexture(tree1);
+			}
+			else if (this->existingTrees[i].getLevel() == 2) {
+				this->existingTrees[i].treeSprite.setTexture(tree2);
+			}
+			else if (this->existingTrees[i].getLevel() == 3) {
+				this->existingTrees[i].treeSprite.setTexture(tree3);
+			}
+			else if (this->existingTrees[i].getLevel() == 4) {
+				this->existingTrees[i].treeSprite.setTexture(tree4);
+			}
+			this->existingTrees[i].treeSprite.setPosition(sf::Vector2f(this->existingTrees[i].getPositionX(), this->existingTrees[i].getPositionY()));
+			(*window).draw(this->existingTrees[i].treeSprite);
+		}
 	}
 }

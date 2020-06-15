@@ -8,6 +8,7 @@
 #pragma once
 #include <cmath>
 #include <random>
+#include <iostream>
 #include "Core.h"
 
 
@@ -24,6 +25,8 @@ class env_temperature
 	const int max_temp = 35; 
 	/// Max temperature amplitude percent, that can occur in adjacent blocks. It should be in range <0, 1).
 	const double change_percent = 0.2; 
+
+	bool init_mix = true;
 
 public:
 	/// Fuction that generates tempeature for the first time

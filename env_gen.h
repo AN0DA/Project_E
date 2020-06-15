@@ -14,31 +14,23 @@ namespace win {
 
 class env_gen
 {
+	bool init_gen = true;
 	bool generate_temperature = true;
 	bool generate_humidity = true;
 	bool generate_biomes = true;
 	bool generate_pressure = true;
 
+	//tick counters
+	bool init_tick = true;
+	int temperature_mix_exec;
+
+public:
 	int _width;
 	int _height;
 	sprite_params** _data;
 
-
-	//tick counters
-	bool init = true;
-	int temperature_mix_exec;
-
-public:
 	void generate_environment(sprite_params** data, int width, int height);
 	void tick(sprite_params** data, int width, int height);
 
-	int get_width() {
-		return this->_width;
-	};
-	int get_height() {
-		return this->_height;
-	};
-	sprite_params** get_data() {
-		return this->_data;
-	};
+
 };

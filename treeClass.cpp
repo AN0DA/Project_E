@@ -57,9 +57,9 @@ void Tree::treeShrink() {
 	double* currentMinHumidity = new double(9007199254740991);
 	int* minIndex = nullptr;
 	for (int i = 0; i != this->roots.size(); i++) {
-		if (this->roots[i]->getSpriteRef()->getHumidity() < *currentMinHumidity && !this->roots[i]->checkChildRoots()) {
+	/*	if (this->roots[i]->getSpriteRef()->getHumidity() < *currentMinHumidity && !this->roots[i]->checkChildRoots()) {
 			*currentMinHumidity = this->roots[i]->getSpriteRef()->getHumidity();
-		}
+		}*/
 	}
 	this->roots.erase(this->roots.begin() + *minIndex);
 	if (!roots.size()) {

@@ -1,9 +1,13 @@
 #include "env_gen.h"
 
 void env_gen::generate_environment(sprite_params** data, int width, int height) {
-	_width = width;
-	_height - height;
-	_data = data;
+	if (init_gen) {
+		_width = width;
+		_height = height;
+		_data = data;
+		init_gen = false;
+	}
+
 
 	int w = width;
 	int h = height;
@@ -33,9 +37,9 @@ void env_gen::tick(sprite_params** data, int width, int height) {
 	env_temperature temperature;
 
 
-	if (init) {
+	if (init_tick) {
 		temperature_mix_exec = int(win::GetTickCount()) + temperature_mix_exec;
-		init = false;
+		init_tick = false;
 	}
 
 	if (temperature_mix_exec <= int(win::GetTickCount())) {

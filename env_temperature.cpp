@@ -7,14 +7,12 @@
 
 #include "env_temperature.h"
 
-
-
 /// \brief Script generating temperature
 /// \author Miko³aj Kaczmarek
 /// \date 20.05.2020
 /// \version 0.10
 ///
-///Temperature is generated based on previously generated neightbours and amplitude percent set in env_temperature.h. 
+///Temperature is generated based on previously generated neightbours and amplitude percent set in env_temperature.h.
 ///In first place generated is block [0, 0], then first line and after that first column. Rest of array use average value from blocks [n-1, m], [n, m-1] and [n-1, m-1].
 void env_temperature::generate_temperature(sprite_params** data, int width, int height) {
 	std::random_device rd;
@@ -65,31 +63,22 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 }
 
 void env_temperature::mix_temperature(sprite_params** data, int width, int height) {
-	
-	double** temp = new double* [++width];
-	for (int i = 0; i <= width; i++) 
-		temp[i] = new double[++height];
-
-	for (int i = 0; i <= width; i++) {
-		for (int j = 0; j <= height; j++)
-			temp[i][j] = data[i][j].get_temperature();
-	}
-
-
 	//generate first row
 	for (int i = 1; i <= width; i++) {
-			data[0][i].set_temperature((temp[0][--i] + temp[0][i])/2);
+		data[0][i].set_temperature((data[0][i - 1].get_temperature() + data[0][i].get_temperature()) / 2);
 	}
 
 	//generate first column
 	for (int i = 1; i <= height; i++) {
-		data[i][0].set_temperature((temp[--i][0] + temp[i][0]) / 2);
+		data[i][0].set_temperature((data[i - 1][0].get_temperature() + data[i][0].get_temperature()) / 2);
 	}
 
 	//generate rest of area
 	for (int i = 1; i <= width; i++) {
 		for (int j = 1; j <= height; j++) {
-			data[i][j].set_temperature((temp[i][j] + temp[--i][j] + temp[--i][--j] + temp[i][--j])/4);
+			data[i][j].set_temperature((data[i][j].get_temperature() + data[i - 1][j].get_temperature() + data[i - 1][j - 1].get_temperature() + data[i][j - 1].get_temperature()) / 4);
 		}
 	}
+
+	std::cout << "Temperature mixed" << std::endl;
 }

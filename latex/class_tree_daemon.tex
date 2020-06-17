@@ -1,0 +1,102 @@
+\hypertarget{class_tree_daemon}{}\doxysection{Tree\+Daemon Class Reference}
+\label{class_tree_daemon}\index{TreeDaemon@{TreeDaemon}}
+
+
+\mbox{\hyperlink{class_tree_daemon}{Tree\+Daemon}} is a class used to manage all of the existing trees, lauched by ticks, tells trees when to use their tree\+Life\+Cycle method and handles their death existing\+Trees is a vector containg all of the existing trees.  
+
+
+
+
+{\ttfamily \#include $<$tree\+Class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tree_daemon_a81cae280fbb8dd45b30783cd2ebf4d59}{add\+Tree}} (\mbox{\hyperlink{class_tree}{Tree}} tree\+To\+Add)
+\begin{DoxyCompactList}\small\item\em add\+Tree is a method that simply adds a tree to existing\+Trees vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tree_daemon_a0efbf243aca07b6732eaa7c2e245f70c}{tree\+Control}} ()
+\begin{DoxyCompactList}\small\item\em tree\+Control is a method launched by ticks, it iterates through all elements in exising\+Trees vector and evokes their tree\+Life\+Cycles it also checks if tree has any roots and trunk if noot it evokes its removal \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tree_daemon_ae7ed074b03c38b1a62331d8835dae986}{remove\+Tree}} (int element\+In\+Vector)
+\begin{DoxyCompactList}\small\item\em remove\+Tree is a method evoked to remove element witch specyfic id from the exisiting\+Trees vector \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tree_daemon_ae3c9f64e648c91d6becc4c5f067f35ec}{check\+Change}} ()
+\item 
+void \mbox{\hyperlink{class_tree_daemon_a6efca46843b215c015199d1ca05c021c}{Change}} (sf\+::\+Render\+Window $\ast$window, double scale\+\_\+width, double scale\+\_\+height)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_tree_daemon}{Tree\+Daemon}} is a class used to manage all of the existing trees, lauched by ticks, tells trees when to use their tree\+Life\+Cycle method and handles their death existing\+Trees is a vector containg all of the existing trees. 
+
+Definition at line 83 of file tree\+Class.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tree_daemon_a81cae280fbb8dd45b30783cd2ebf4d59}\label{class_tree_daemon_a81cae280fbb8dd45b30783cd2ebf4d59}} 
+\index{TreeDaemon@{TreeDaemon}!addTree@{addTree}}
+\index{addTree@{addTree}!TreeDaemon@{TreeDaemon}}
+\doxysubsubsection{\texorpdfstring{addTree()}{addTree()}}
+{\footnotesize\ttfamily void Tree\+Daemon\+::add\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tree}{Tree}}}]{tree\+To\+Add }\end{DoxyParamCaption})}
+
+
+
+add\+Tree is a method that simply adds a tree to existing\+Trees vector 
+
+
+
+Definition at line 173 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{class_tree_daemon_a6efca46843b215c015199d1ca05c021c}\label{class_tree_daemon_a6efca46843b215c015199d1ca05c021c}} 
+\index{TreeDaemon@{TreeDaemon}!Change@{Change}}
+\index{Change@{Change}!TreeDaemon@{TreeDaemon}}
+\doxysubsubsection{\texorpdfstring{Change()}{Change()}}
+{\footnotesize\ttfamily void Tree\+Daemon\+::\+Change (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window,  }\item[{double}]{scale\+\_\+width,  }\item[{double}]{scale\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Definition at line 197 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{class_tree_daemon_ae3c9f64e648c91d6becc4c5f067f35ec}\label{class_tree_daemon_ae3c9f64e648c91d6becc4c5f067f35ec}} 
+\index{TreeDaemon@{TreeDaemon}!checkChange@{checkChange}}
+\index{checkChange@{checkChange}!TreeDaemon@{TreeDaemon}}
+\doxysubsubsection{\texorpdfstring{checkChange()}{checkChange()}}
+{\footnotesize\ttfamily bool Tree\+Daemon\+::check\+Change (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 189 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{class_tree_daemon_ae7ed074b03c38b1a62331d8835dae986}\label{class_tree_daemon_ae7ed074b03c38b1a62331d8835dae986}} 
+\index{TreeDaemon@{TreeDaemon}!removeTree@{removeTree}}
+\index{removeTree@{removeTree}!TreeDaemon@{TreeDaemon}}
+\doxysubsubsection{\texorpdfstring{removeTree()}{removeTree()}}
+{\footnotesize\ttfamily void Tree\+Daemon\+::remove\+Tree (\begin{DoxyParamCaption}\item[{int}]{element\+In\+Vector }\end{DoxyParamCaption})}
+
+
+
+remove\+Tree is a method evoked to remove element witch specyfic id from the exisiting\+Trees vector 
+
+
+
+Definition at line 169 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{class_tree_daemon_a0efbf243aca07b6732eaa7c2e245f70c}\label{class_tree_daemon_a0efbf243aca07b6732eaa7c2e245f70c}} 
+\index{TreeDaemon@{TreeDaemon}!treeControl@{treeControl}}
+\index{treeControl@{treeControl}!TreeDaemon@{TreeDaemon}}
+\doxysubsubsection{\texorpdfstring{treeControl()}{treeControl()}}
+{\footnotesize\ttfamily void Tree\+Daemon\+::tree\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+tree\+Control is a method launched by ticks, it iterates through all elements in exising\+Trees vector and evokes their tree\+Life\+Cycles it also checks if tree has any roots and trunk if noot it evokes its removal 
+
+
+
+Definition at line 176 of file tree\+Class.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tree_class_8h}{tree\+Class.\+h}}\item 
+\mbox{\hyperlink{tree_class_8cpp}{tree\+Class.\+cpp}}\end{DoxyCompactItemize}

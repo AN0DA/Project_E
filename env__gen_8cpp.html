@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -82,12 +83,70 @@ $(document).ready(function(){initNavTree('env__gen_8cpp.html',''); initResizable
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">env_gen.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="env__gen_8h_source.html">env_gen.h</a>&quot;</code><br />
-</div></div><!-- contents -->
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="tree_class_8h_source.html">treeClass.h</a>&quot;</code><br />
+</div>
+<p><a href="env__gen_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a503ae378f68b821d162b1c8d3176a613"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="env__gen_8cpp.html#a503ae378f68b821d162b1c8d3176a613">create_neighbours</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height)</td></tr>
+<tr class="separator:a503ae378f68b821d162b1c8d3176a613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a503ae378f68b821d162b1c8d3176a613"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a503ae378f68b821d162b1c8d3176a613">&#9670;&nbsp;</a></span>create_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void create_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsprite__params.html">sprite_params</a> **&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fuction that generates neighbours Each block has 2,3 or 4 neighbours</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array passed from main </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array width </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array height </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8cpp_source.html#l00011">11</a> of file <a class="el" href="env__gen_8cpp_source.html">env_gen.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

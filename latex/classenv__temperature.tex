@@ -13,26 +13,29 @@ Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}}.
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classenv__temperature_ae87767157c08de7c08c783126f39c35c}{generate\+\_\+temperature}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height)
-\begin{DoxyCompactList}\small\item\em Script generating temperature. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Script generating temperature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classenv__temperature_a781c5e4a837b1a97919565f596321ce8}{mix\+\_\+temperature}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height)
+\begin{DoxyCompactList}\small\item\em Function mixing temperature mid-\/simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}}. 
 
-Class related to environment temperature simulation.
+Class related to environment temperature simulation. Lowest temperature that can be generated.
 
-Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}} environment parameter. Currently only generates temperature, in future will also mix it as time passes. \begin{DoxyAuthor}{Author}
-Miko³aj Kaczmarek 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-20.\+05.\+2020 
+Header file for \mbox{\hyperlink{classenv__temperature}{env\+\_\+temperature}} environment parameter. Currently only generates temperature, in future will also mix it as time passes. \begin{DoxyDate}{Date}
+18.\+06.\+2020 
 \end{DoxyDate}
-\begin{DoxyVersion}{Version}
-0.\+10
-\end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
-Miko³aj Kaczmarek 
+Mikolaj Kaczmarek 
 \end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+10 
+\end{DoxyVersion}
+
+
+Definition at line 15 of file env\+\_\+temperature.\+h.
+
 
 
 \doxysubsection{Member Function Documentation}
@@ -58,15 +61,53 @@ Fuction that generates tempeature for the first time
 \hline
 \end{DoxyParams}
 \begin{DoxyAuthor}{Author}
-Miko³aj Kaczmarek 
+Mikolaj Kaczmarek 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
 20.\+05.\+2020 
 \end{DoxyDate}
 \begin{DoxyVersion}{Version}
-0.\+10
+1.\+00
 \end{DoxyVersion}
 Temperature is generated based on previously generated neightbours and amplitude percent set in \mbox{\hyperlink{env__temperature_8h}{env\+\_\+temperature.\+h}}. In first place generated is block \mbox{[}0, 0\mbox{]}, then first line and after that first column. Rest of array use average value from blocks \mbox{[}n-\/1, m\mbox{]}, \mbox{[}n, m-\/1\mbox{]} and \mbox{[}n-\/1, m-\/1\mbox{]}. 
+
+Definition at line 18 of file env\+\_\+temperature.\+cpp.
+
+\mbox{\Hypertarget{classenv__temperature_a781c5e4a837b1a97919565f596321ce8}\label{classenv__temperature_a781c5e4a837b1a97919565f596321ce8}} 
+\index{env\_temperature@{env\_temperature}!mix\_temperature@{mix\_temperature}}
+\index{mix\_temperature@{mix\_temperature}!env\_temperature@{env\_temperature}}
+\doxysubsubsection{\texorpdfstring{mix\_temperature()}{mix\_temperature()}}
+{\footnotesize\ttfamily void env\+\_\+temperature\+::mix\+\_\+temperature (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Function mixing temperature mid-\/simulation. 
+
+Fuction that mix tempeature during simulation
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array passed from main \\
+\hline
+{\em width} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array width \\
+\hline
+{\em height} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array height\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Mikolaj Kaczmarek 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+25.\+06.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+30
+\end{DoxyVersion}
+Temperature mixing is based on making average value from adjacent fields, assuming SE wind. First mixed is first row with \mbox{[}0\mbox{]}\mbox{[}i-\/1\mbox{]} field, then first column with \mbox{[}i-\/1\mbox{]}\mbox{[}0\mbox{]}, then others with \mbox{[}i-\/1\mbox{]}\mbox{[}j\mbox{]}, \mbox{[}i\mbox{]}\mbox{[}j-\/1\mbox{]} and \mbox{[}i-\/1\mbox{]}\mbox{[}j-\/1\mbox{]}. 
+
+Definition at line 91 of file env\+\_\+temperature.\+cpp.
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['needtogenerate_219',['needtogenerate',['../main_8cpp.html#addb1b3d287e18f1fdcb8c9cc9cc9bf19',1,'needtogenerate():&#160;main.cpp'],['../mian_8cpp.html#addb1b3d287e18f1fdcb8c9cc9cc9bf19',1,'needtogenerate():&#160;mian.cpp']]],
-  ['neighbors_220',['neighbors',['../classsprite__params.html#aa4f26863fc4d1797667610bfcd2086b3',1,'sprite_params::neighbors()'],['../struct_field.html#a31c47fa5be3546d70d94aef3f0535359',1,'Field::neighbors()']]]
+  ['thirst_294',['thirst',['../class_animal.html#a267a6adaad82be8e216cd8749528896b',1,'Animal']]],
+  ['treesprite_295',['treeSprite',['../class_tree.html#abb578a6e67c15518714a77ac54d01fe2',1,'Tree']]]
 ];

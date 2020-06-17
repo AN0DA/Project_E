@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -90,25 +91,27 @@ $(document).ready(function(){initNavTree('env__temperature_8h_source.html',''); 
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_8h.html">Core.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_8h.html">Core.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classenv__temperature.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classenv__temperature.html">env_temperature</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> min_temp = -10; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> max_temp = 35; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> change_percent = 0.2; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">generate_temperature</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> min_temp = -15;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> max_temp = 45;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">double</span> change_percent = 0.2;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">generate_temperature</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__temperature.html#a781c5e4a837b1a97919565f596321ce8">mix_temperature</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="_core_8h.html">Core.h</a></div></div>
-<div class="ttc" id="aclassenv__temperature_html"><div class="ttname"><a href="classenv__temperature.html">env_temperature</a></div><div class="ttdoc">Header file for env_temperature.</div><div class="ttdef"><b>Definition:</b> env_temperature.h:16</div></div>
-<div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> Core.h:27</div></div>
-<div class="ttc" id="aclassenv__temperature_html_ae87767157c08de7c08c783126f39c35c"><div class="ttname"><a href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">env_temperature::generate_temperature</a></div><div class="ttdeci">void generate_temperature(sprite_params **data, int width, int height)</div><div class="ttdoc">Script generating temperature.</div><div class="ttdef"><b>Definition:</b> env_temperature.cpp:19</div></div>
+<div class="ttc" id="aclassenv__temperature_html"><div class="ttname"><a href="classenv__temperature.html">env_temperature</a></div><div class="ttdoc">Header file for env_temperature.</div><div class="ttdef"><b>Definition:</b> <a href="env__temperature_8h_source.html#l00015">env_temperature.h:16</a></div></div>
+<div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00027">Core.h:27</a></div></div>
+<div class="ttc" id="aclassenv__temperature_html_a781c5e4a837b1a97919565f596321ce8"><div class="ttname"><a href="classenv__temperature.html#a781c5e4a837b1a97919565f596321ce8">env_temperature::mix_temperature</a></div><div class="ttdeci">void mix_temperature(sprite_params **data, int width, int height)</div><div class="ttdoc">Function mixing temperature mid-simulation.</div><div class="ttdef"><b>Definition:</b> <a href="env__temperature_8cpp_source.html#l00091">env_temperature.cpp:91</a></div></div>
+<div class="ttc" id="aclassenv__temperature_html_ae87767157c08de7c08c783126f39c35c"><div class="ttname"><a href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">env_temperature::generate_temperature</a></div><div class="ttdeci">void generate_temperature(sprite_params **data, int width, int height)</div><div class="ttdoc">Script generating temperature.</div><div class="ttdef"><b>Definition:</b> <a href="env__temperature_8cpp_source.html#l00018">env_temperature.cpp:18</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

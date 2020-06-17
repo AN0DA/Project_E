@@ -2,13 +2,41 @@
 \label{classenv__biomes}\index{env\_biomes@{env\_biomes}}
 
 
+Header file for \mbox{\hyperlink{classenv__biomes}{env\+\_\+biomes}}.  
+
+
+
+
 {\ttfamily \#include $<$env\+\_\+biomes.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classenv__biomes_a5d28beaa53d2bc808b2b73bbc0b2db83}{generate\+\_\+biomes}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Script setting the biome af every tile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for \mbox{\hyperlink{classenv__biomes}{env\+\_\+biomes}}. 
+
+Class related to setting the biome of all tiles on the grid.
+
+Header file for \mbox{\hyperlink{classenv__biomes}{env\+\_\+biomes}} environment parameter. Sets the biome of every tile. \begin{DoxyAuthor}{Author}
+Konstanty Kordas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+27.\+05.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+1
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas 
+\end{DoxyAuthor}
+
+
+Definition at line 10 of file env\+\_\+biomes.\+h.
+
 
 
 \doxysubsection{Member Function Documentation}
@@ -17,6 +45,34 @@ void \mbox{\hyperlink{classenv__biomes_a5d28beaa53d2bc808b2b73bbc0b2db83}{genera
 \index{generate\_biomes@{generate\_biomes}!env\_biomes@{env\_biomes}}
 \doxysubsubsection{\texorpdfstring{generate\_biomes()}{generate\_biomes()}}
 {\footnotesize\ttfamily void env\+\_\+biomes\+::generate\+\_\+biomes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Script setting the biome af every tile. 
+
+Fuction that goes through every tile on the grid and sets its biome based on tiles temperature and humidity
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array passed from main \\
+\hline
+{\em width} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array width \\
+\hline
+{\em height} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array height\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+27.\+05.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+1
+\end{DoxyVersion}
+Biome is generated based on tiles water status, temperature and humidity Full biome parameter table in core.\+h 
+
+Definition at line 18 of file env\+\_\+biomes.\+cpp.
 
 
 

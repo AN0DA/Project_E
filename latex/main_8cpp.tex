@@ -8,6 +8,16 @@
 {\ttfamily \#include \char`\"{}Core.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Animal\+\_\+core.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}env\+\_\+gen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}map\+\_\+graphics.\+h\char`\"{}}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}{current\+\_\+map}} \{ \mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5}{current\+\_\+map\+::biome}}, 
+\mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931}{current\+\_\+map\+::heat}}, 
+\mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c}{current\+\_\+map\+::water}}, 
+\mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093}{current\+\_\+map\+::pressure}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,8 +26,39 @@ int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{main_8cpp_addb1b3d287e18f1fdcb8c9cc9cc9bf19}{needtogenerate}} = true
+\mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}{current\+\_\+map}} \mbox{\hyperlink{main_8cpp_ab3bbb07a8645db12d8df1b97b14a1753}{m}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}\label{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}} 
+\index{main.cpp@{main.cpp}!current\_map@{current\_map}}
+\index{current\_map@{current\_map}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{current\_map}{current\_map}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}{current\+\_\+map}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{biome@{biome}!main.cpp@{main.cpp}}\index{main.cpp@{main.cpp}!biome@{biome}}}\mbox{\Hypertarget{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5}\label{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5}} 
+biome&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{heat@{heat}!main.cpp@{main.cpp}}\index{main.cpp@{main.cpp}!heat@{heat}}}\mbox{\Hypertarget{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931}\label{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931}} 
+heat&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{water@{water}!main.cpp@{main.cpp}}\index{main.cpp@{main.cpp}!water@{water}}}\mbox{\Hypertarget{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c}\label{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c}} 
+water&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pressure@{pressure}!main.cpp@{main.cpp}}\index{main.cpp@{main.cpp}!pressure@{pressure}}}\mbox{\Hypertarget{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093}\label{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093}} 
+pressure&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 13 of file main.\+cpp.
+
 
 
 \doxysubsection{Function Documentation}
@@ -29,10 +70,18 @@ bool \mbox{\hyperlink{main_8cpp_addb1b3d287e18f1fdcb8c9cc9cc9bf19}{needtogenerat
 
 
 
+Definition at line 22 of file main.\+cpp.
+
+
+
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{main_8cpp_addb1b3d287e18f1fdcb8c9cc9cc9bf19}\label{main_8cpp_addb1b3d287e18f1fdcb8c9cc9cc9bf19}} 
-\index{main.cpp@{main.cpp}!needtogenerate@{needtogenerate}}
-\index{needtogenerate@{needtogenerate}!main.cpp@{main.cpp}}
-\doxysubsubsection{\texorpdfstring{needtogenerate}{needtogenerate}}
-{\footnotesize\ttfamily bool needtogenerate = true}
+\mbox{\Hypertarget{main_8cpp_ab3bbb07a8645db12d8df1b97b14a1753}\label{main_8cpp_ab3bbb07a8645db12d8df1b97b14a1753}} 
+\index{main.cpp@{main.cpp}!m@{m}}
+\index{m@{m}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily \mbox{\hyperlink{main_8cpp_a0fb08967c62dd8c3569f9a75b68e28bd}{current\+\_\+map}} m}
+
+
+
+Definition at line 20 of file main.\+cpp.
 

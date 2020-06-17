@@ -1,0 +1,139 @@
+\hypertarget{classroot}{}\doxysection{root Class Reference}
+\label{classroot}\index{root@{root}}
+
+
+Header file for tree\+Class.  
+
+
+
+
+{\ttfamily \#include $<$tree\+Class.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classroot_ae45e11c526abe4bc6f8aaf37fc83f2d5}{root}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$\+\_\+sprite\+Reference, \mbox{\hyperlink{classroot}{root}} $\ast$\+\_\+parent\+Root)
+\begin{DoxyCompactList}\small\item\em root constructor, if parent root is nullptr then root has no parent and its probably the very first root in a tree \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$ \mbox{\hyperlink{classroot_ab25739799bdd908ce7d4d1ac5af68de8}{get\+Sprite\+Ref}} ()
+\begin{DoxyCompactList}\small\item\em get\+Sprite\+Ref returns pointer on sprite\+Ref to use its getters and setters in tree specyfic methods \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classroot_a8b86e2ebb0f34aea8b18383063e650cc}{add\+Child}} (\mbox{\hyperlink{classroot}{root}} $\ast$child)
+\begin{DoxyCompactList}\small\item\em add\+Child adds a tree new child \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classroot_a4f4a5e6ffc10d4b7f1d6e2d2d9ceb588}{check\+Child\+Roots}} ()
+\begin{DoxyCompactList}\small\item\em check\+Child\+Roots is a method that returns a bool, false if root contains no children, true if opposite \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classroot_a8666fec59688f4fb7866d2ded027fd86}{remove\+Child}} (\mbox{\hyperlink{classroot}{root}} $\ast$child)
+\begin{DoxyCompactList}\small\item\em remove\+Child method seeks if root contains specfic child and removes it from the children vector \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classroot}{root}} $\ast$ \mbox{\hyperlink{classroot_a48c647761c4c447f3d1a6ffd0b4281d4}{get\+Parent}} ()
+\begin{DoxyCompactList}\small\item\em get parent returns a pointer to parrent to use its methods in tree methods \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for tree\+Class. 
+
+Root class contains information about root position, root from which it grew and its children. spirte\+Ref contains info in which sprite this root lies in.
+
+Header file for tree\+Class. Currently contains class for roots, tree and tree daemon which is used to control all of the exisiting tree\textquotesingle{}s life cycles. \begin{DoxyAuthor}{Author}
+Bruno Murek 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+10 
+\end{DoxyVersion}
+
+
+Definition at line 10 of file tree\+Class.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classroot_ae45e11c526abe4bc6f8aaf37fc83f2d5}\label{classroot_ae45e11c526abe4bc6f8aaf37fc83f2d5}} 
+\index{root@{root}!root@{root}}
+\index{root@{root}!root@{root}}
+\doxysubsubsection{\texorpdfstring{root()}{root()}}
+{\footnotesize\ttfamily root\+::root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$}]{\+\_\+sprite\+Reference,  }\item[{\mbox{\hyperlink{classroot}{root}} $\ast$}]{\+\_\+parent\+Root }\end{DoxyParamCaption})}
+
+
+
+root constructor, if parent root is nullptr then root has no parent and its probably the very first root in a tree 
+
+
+
+Definition at line 16 of file tree\+Class.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classroot_a8b86e2ebb0f34aea8b18383063e650cc}\label{classroot_a8b86e2ebb0f34aea8b18383063e650cc}} 
+\index{root@{root}!addChild@{addChild}}
+\index{addChild@{addChild}!root@{root}}
+\doxysubsubsection{\texorpdfstring{addChild()}{addChild()}}
+{\footnotesize\ttfamily void root\+::add\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classroot}{root}} $\ast$}]{child }\end{DoxyParamCaption})}
+
+
+
+add\+Child adds a tree new child 
+
+
+
+Definition at line 7 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{classroot_a4f4a5e6ffc10d4b7f1d6e2d2d9ceb588}\label{classroot_a4f4a5e6ffc10d4b7f1d6e2d2d9ceb588}} 
+\index{root@{root}!checkChildRoots@{checkChildRoots}}
+\index{checkChildRoots@{checkChildRoots}!root@{root}}
+\doxysubsubsection{\texorpdfstring{checkChildRoots()}{checkChildRoots()}}
+{\footnotesize\ttfamily bool root\+::check\+Child\+Roots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+check\+Child\+Roots is a method that returns a bool, false if root contains no children, true if opposite 
+
+
+
+Definition at line 24 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{classroot_a48c647761c4c447f3d1a6ffd0b4281d4}\label{classroot_a48c647761c4c447f3d1a6ffd0b4281d4}} 
+\index{root@{root}!getParent@{getParent}}
+\index{getParent@{getParent}!root@{root}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classroot}{root}} $\ast$ root\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get parent returns a pointer to parrent to use its methods in tree methods 
+
+
+
+Definition at line 13 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{classroot_ab25739799bdd908ce7d4d1ac5af68de8}\label{classroot_ab25739799bdd908ce7d4d1ac5af68de8}} 
+\index{root@{root}!getSpriteRef@{getSpriteRef}}
+\index{getSpriteRef@{getSpriteRef}!root@{root}}
+\doxysubsubsection{\texorpdfstring{getSpriteRef()}{getSpriteRef()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$ root\+::get\+Sprite\+Ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Sprite\+Ref returns pointer on sprite\+Ref to use its getters and setters in tree specyfic methods 
+
+
+
+Definition at line 32 of file tree\+Class.\+cpp.
+
+\mbox{\Hypertarget{classroot_a8666fec59688f4fb7866d2ded027fd86}\label{classroot_a8666fec59688f4fb7866d2ded027fd86}} 
+\index{root@{root}!removeChild@{removeChild}}
+\index{removeChild@{removeChild}!root@{root}}
+\doxysubsubsection{\texorpdfstring{removeChild()}{removeChild()}}
+{\footnotesize\ttfamily void root\+::remove\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classroot}{root}} $\ast$}]{child }\end{DoxyParamCaption})}
+
+
+
+remove\+Child method seeks if root contains specfic child and removes it from the children vector 
+
+
+
+Definition at line 10 of file tree\+Class.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{tree_class_8h}{tree\+Class.\+h}}\item 
+\mbox{\hyperlink{tree_class_8cpp}{tree\+Class.\+cpp}}\end{DoxyCompactItemize}

@@ -5,6 +5,7 @@ var _core_8h =
     [ "Biomes", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19", [
       [ "water", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9460370bb0ca1c98a779b1bcc6861c2c", null ],
       [ "ice", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a", null ],
+      [ "swamp", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19a5d47a77d32202c58837f269a0d1c60c7", null ],
       [ "rainforest", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19aeb79fbb48b05a9db2dcb084e02da328a", null ],
       [ "desert", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19a3fd6b6210e33bb046e69f256a138e28d", null ],
       [ "savanna", "_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9d229ea29361be4e51e129f61ff8a51c", null ],

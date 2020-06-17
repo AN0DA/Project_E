@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -95,9 +96,24 @@ $(document).ready(function(){initNavTree('classenv__gen.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ad05173e624665d24a095ddfa0277e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">generate_environment</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height)</td></tr>
+<tr class="memdesc:a3ad05173e624665d24a095ddfa0277e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function supervising the generation of environmental parameters.  <a href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">More...</a><br /></td></tr>
 <tr class="separator:a3ad05173e624665d24a095ddfa0277e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f766b6a60a8e4771306328c9a436c6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">tick</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height, <a class="el" href="class_tree_daemon.html">TreeDaemon</a> *mainTreeDaemon, sf::RenderWindow *window, <a class="el" href="classmap__graphics.html">map_graphics</a> *g, double scale_width, double scale_height)</td></tr>
+<tr class="memdesc:a1f766b6a60a8e4771306328c9a436c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">function handling tick  <a href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">More...</a><br /></td></tr>
+<tr class="separator:a1f766b6a60a8e4771306328c9a436c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996e1659f1ecf7d0843baf83f2fdae2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">get_width</a> ()</td></tr>
+<tr class="separator:a996e1659f1ecf7d0843baf83f2fdae2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8677a614bd00fc900c7e0cfdea3fd57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">get_height</a> ()</td></tr>
+<tr class="separator:ac8677a614bd00fc900c7e0cfdea3fd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22eb92f12317f7fc5856bd05283ced5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">setData</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **newData)</td></tr>
+<tr class="separator:a22eb92f12317f7fc5856bd05283ced5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf505cd57fb7a581b3442b9f3ed21f2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsprite__params.html">sprite_params</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a> ()</td></tr>
+<tr class="separator:acf505cd57fb7a581b3442b9f3ed21f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="env__gen_8h_source.html#l00014">14</a> of file <a class="el" href="env__gen_8h_source.html">env_gen.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3ad05173e624665d24a095ddfa0277e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ad05173e624665d24a095ddfa0277e3">&#9670;&nbsp;</a></span>generate_environment()</h2>
 
@@ -130,11 +146,228 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Function supervising the generation of environmental parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array passed from main </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array width </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array height</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Mikolaj Kaczmarek </dd>
+<dd>
+Konstanty Kordas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>28.06.2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.40</dd></dl>
+<p>In this method all enivronment generators are called. Using bools (generate_temperature, generate_humidity, generate_bioms, generate_pressure and generate_naighbours) you can easly turn them on and off. </p>
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8cpp_source.html#l00073">73</a> of file <a class="el" href="env__gen_8cpp_source.html">env_gen.cpp</a>.</p>
+
+</div>
+</div>
+<a id="acf505cd57fb7a581b3442b9f3ed21f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf505cd57fb7a581b3442b9f3ed21f2a">&#9670;&nbsp;</a></span>get_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsprite__params.html">sprite_params</a>** env_gen::get_data </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8h_source.html#l00058">58</a> of file <a class="el" href="env__gen_8h_source.html">env_gen.h</a>.</p>
+
+</div>
+</div>
+<a id="ac8677a614bd00fc900c7e0cfdea3fd57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8677a614bd00fc900c7e0cfdea3fd57">&#9670;&nbsp;</a></span>get_height()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int env_gen::get_height </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8h_source.html#l00052">52</a> of file <a class="el" href="env__gen_8h_source.html">env_gen.h</a>.</p>
+
+</div>
+</div>
+<a id="a996e1659f1ecf7d0843baf83f2fdae2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996e1659f1ecf7d0843baf83f2fdae2f">&#9670;&nbsp;</a></span>get_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int env_gen::get_width </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8h_source.html#l00049">49</a> of file <a class="el" href="env__gen_8h_source.html">env_gen.h</a>.</p>
+
+</div>
+</div>
+<a id="a22eb92f12317f7fc5856bd05283ced5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22eb92f12317f7fc5856bd05283ced5c">&#9670;&nbsp;</a></span>setData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void env_gen::setData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsprite__params.html">sprite_params</a> **&#160;</td>
+          <td class="paramname"><em>newData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8h_source.html#l00055">55</a> of file <a class="el" href="env__gen_8h_source.html">env_gen.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f766b6a60a8e4771306328c9a436c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f766b6a60a8e4771306328c9a436c6a">&#9670;&nbsp;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void env_gen::tick </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsprite__params.html">sprite_params</a> **&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tree_daemon.html">TreeDaemon</a> *&#160;</td>
+          <td class="paramname"><em>mainTreeDaemon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::RenderWindow *&#160;</td>
+          <td class="paramname"><em>window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classmap__graphics.html">map_graphics</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>scale_height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function handling tick </p>
+<p>Global tick engine.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array passed from main </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array width </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array height </td></tr>
+    <tr><td class="paramname">mainTreeDaemon</td><td>Handler of all trees in app </td></tr>
+    <tr><td class="paramname">window</td><td>window for draw </td></tr>
+    <tr><td class="paramname">g</td><td><a class="el" href="classmap__graphics.html" title="Header file for generationg map graphics.">map_graphics</a> to redraw biomes </td></tr>
+    <tr><td class="paramname">scale_width</td><td>double for sizing up textures </td></tr>
+    <tr><td class="paramname">scale_height</td><td>double for sizing up textures</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Mikolaj Kaczmarek </dd>
+<dd>
+Konstanty Kordas </dd>
+<dd>
+Bruno Murek </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>18.06.2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.34</dd></dl>
+<p>This funcion is called 30 times per second and call periodically other time fuctions like mix_temperature or redraw map. </p>
+
+<p class="definition">Definition at line <a class="el" href="env__gen_8cpp_source.html#l00108">108</a> of file <a class="el" href="env__gen_8cpp_source.html">env_gen.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="env__gen_8h_source.html">env_gen.h</a></li>
-<li><a class="el" href="env__gen_8cpp.html">env_gen.cpp</a></li>
+<li><a class="el" href="env__gen_8cpp_source.html">env_gen.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -90,14 +91,27 @@ $(document).ready(function(){initNavTree('classenv__biomes.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
+<p>Header file for <a class="el" href="classenv__biomes.html" title="Header file for env_biomes.">env_biomes</a>.  
+ <a href="classenv__biomes.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="env__biomes_8h_source.html">env_biomes.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5d28beaa53d2bc808b2b73bbc0b2db83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__biomes.html#a5d28beaa53d2bc808b2b73bbc0b2db83">generate_biomes</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height)</td></tr>
+<tr class="memdesc:a5d28beaa53d2bc808b2b73bbc0b2db83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Script setting the biome af every tile.  <a href="classenv__biomes.html#a5d28beaa53d2bc808b2b73bbc0b2db83">More...</a><br /></td></tr>
 <tr class="separator:a5d28beaa53d2bc808b2b73bbc0b2db83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file for <a class="el" href="classenv__biomes.html" title="Header file for env_biomes.">env_biomes</a>. </p>
+<p>Class related to setting the biome of all tiles on the grid.</p>
+<p>Header file for <a class="el" href="classenv__biomes.html" title="Header file for env_biomes.">env_biomes</a> environment parameter. Sets the biome of every tile. </p><dl class="section author"><dt>Author</dt><dd>Konstanty Kordas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>27.05.2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Konstanty Kordas </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="env__biomes_8h_source.html#l00010">10</a> of file <a class="el" href="env__biomes_8h_source.html">env_biomes.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5d28beaa53d2bc808b2b73bbc0b2db83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d28beaa53d2bc808b2b73bbc0b2db83">&#9670;&nbsp;</a></span>generate_biomes()</h2>
 
@@ -130,11 +144,28 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Script setting the biome af every tile. </p>
+<p>Fuction that goes through every tile on the grid and sets its biome based on tiles temperature and humidity</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array passed from main </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array width </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array height</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Konstanty Kordas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>27.05.2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1</dd></dl>
+<p>Biome is generated based on tiles water status, temperature and humidity Full biome parameter table in core.h </p>
+
+<p class="definition">Definition at line <a class="el" href="env__biomes_8cpp_source.html#l00018">18</a> of file <a class="el" href="env__biomes_8cpp_source.html">env_biomes.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="env__biomes_8h_source.html">env_biomes.h</a></li>
-<li><a class="el" href="env__biomes_8cpp.html">env_biomes.cpp</a></li>
+<li><a class="el" href="env__biomes_8cpp_source.html">env_biomes.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

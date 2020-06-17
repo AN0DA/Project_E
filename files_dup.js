@@ -19,7 +19,7 @@ var files_dup =
     [ "env_biomes.h", "env__biomes_8h.html", [
       [ "env_biomes", "classenv__biomes.html", "classenv__biomes" ]
     ] ],
-    [ "env_gen.cpp", "env__gen_8cpp.html", null ],
+    [ "env_gen.cpp", "env__gen_8cpp.html", "env__gen_8cpp" ],
     [ "env_gen.h", "env__gen_8h.html", [
       [ "env_gen", "classenv__gen.html", "classenv__gen" ]
     ] ],
@@ -27,20 +27,23 @@ var files_dup =
     [ "env_humidity.h", "env__humidity_8h.html", [
       [ "env_humidity", "classenv__humidity.html", "classenv__humidity" ]
     ] ],
+    [ "env_pressure.cpp", "env__pressure_8cpp.html", null ],
+    [ "env_pressure.h", "env__pressure_8h.html", [
+      [ "env_pressure", "classenv__pressure.html", "classenv__pressure" ]
+    ] ],
     [ "env_temperature.cpp", "env__temperature_8cpp.html", null ],
     [ "env_temperature.h", "env__temperature_8h.html", [
       [ "env_temperature", "classenv__temperature.html", "classenv__temperature" ]
     ] ],
-    [ "field.h", "field_8h.html", [
-      [ "Field", "struct_field.html", "struct_field" ]
-    ] ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
-    [ "mian.cpp", "mian_8cpp.html", "mian_8cpp" ],
-    [ "sfml_app.cpp", "sfml__app_8cpp.html", null ],
+    [ "map_graphics.cpp", "map__graphics_8cpp.html", null ],
+    [ "map_graphics.h", "map__graphics_8h.html", [
+      [ "map_graphics", "classmap__graphics.html", "classmap__graphics" ]
+    ] ],
     [ "treeClass.cpp", "tree_class_8cpp.html", null ],
     [ "treeClass.h", "tree_class_8h.html", [
-      [ "Tree", "class_tree.html", "class_tree" ]
-    ] ],
-    [ "world_gen.cpp", "world__gen_8cpp.html", null ],
-    [ "world_gen.h", "world__gen_8h.html", null ]
+      [ "root", "classroot.html", "classroot" ],
+      [ "Tree", "class_tree.html", "class_tree" ],
+      [ "TreeDaemon", "class_tree_daemon.html", "class_tree_daemon" ]
+    ] ]
 ];

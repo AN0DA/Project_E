@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -100,14 +101,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae87767157c08de7c08c783126f39c35c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">generate_temperature</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height)</td></tr>
 <tr class="memdesc:ae87767157c08de7c08c783126f39c35c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Script generating temperature.  <a href="classenv__temperature.html#ae87767157c08de7c08c783126f39c35c">More...</a><br /></td></tr>
 <tr class="separator:ae87767157c08de7c08c783126f39c35c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781c5e4a837b1a97919565f596321ce8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classenv__temperature.html#a781c5e4a837b1a97919565f596321ce8">mix_temperature</a> (<a class="el" href="classsprite__params.html">sprite_params</a> **data, int width, int height)</td></tr>
+<tr class="memdesc:a781c5e4a837b1a97919565f596321ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function mixing temperature mid-simulation.  <a href="classenv__temperature.html#a781c5e4a837b1a97919565f596321ce8">More...</a><br /></td></tr>
+<tr class="separator:a781c5e4a837b1a97919565f596321ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for <a class="el" href="classenv__temperature.html" title="Header file for env_temperature.">env_temperature</a>. </p>
-<p>Class related to environment temperature simulation.</p>
-<p>Header file for <a class="el" href="classenv__temperature.html" title="Header file for env_temperature.">env_temperature</a> environment parameter. Currently only generates temperature, in future will also mix it as time passes. </p><dl class="section author"><dt>Author</dt><dd>Miko³aj Kaczmarek </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>20.05.2020 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.10</dd></dl>
-<dl class="section author"><dt>Author</dt><dd>Miko³aj Kaczmarek </dd></dl>
+<p>Class related to environment temperature simulation. Lowest temperature that can be generated.</p>
+<p>Header file for <a class="el" href="classenv__temperature.html" title="Header file for env_temperature.">env_temperature</a> environment parameter. Currently only generates temperature, in future will also mix it as time passes. </p><dl class="section date"><dt>Date</dt><dd>18.06.2020 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Mikolaj Kaczmarek </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.10 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="env__temperature_8h_source.html#l00015">15</a> of file <a class="el" href="env__temperature_8h_source.html">env_temperature.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae87767157c08de7c08c783126f39c35c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae87767157c08de7c08c783126f39c35c">&#9670;&nbsp;</a></span>generate_temperature()</h2>
@@ -151,16 +156,69 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section author"><dt>Author</dt><dd>Miko³aj Kaczmarek </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Mikolaj Kaczmarek </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>20.05.2020 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.10</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.00</dd></dl>
 <p>Temperature is generated based on previously generated neightbours and amplitude percent set in <a class="el" href="env__temperature_8h.html">env_temperature.h</a>. In first place generated is block [0, 0], then first line and after that first column. Rest of array use average value from blocks [n-1, m], [n, m-1] and [n-1, m-1]. </p>
+
+<p class="definition">Definition at line <a class="el" href="env__temperature_8cpp_source.html#l00018">18</a> of file <a class="el" href="env__temperature_8cpp_source.html">env_temperature.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a781c5e4a837b1a97919565f596321ce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781c5e4a837b1a97919565f596321ce8">&#9670;&nbsp;</a></span>mix_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void env_temperature::mix_temperature </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classsprite__params.html">sprite_params</a> **&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Function mixing temperature mid-simulation. </p>
+<p>Fuction that mix tempeature during simulation</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array passed from main </td></tr>
+    <tr><td class="paramname">width</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array width </td></tr>
+    <tr><td class="paramname">height</td><td><a class="el" href="classsprite__params.html">sprite_params</a> array height</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section author"><dt>Author</dt><dd>Mikolaj Kaczmarek </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25.06.2020 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.30</dd></dl>
+<p>Temperature mixing is based on making average value from adjacent fields, assuming SE wind. First mixed is first row with [0][i-1] field, then first column with [i-1][0], then others with [i-1][j], [i][j-1] and [i-1][j-1]. </p>
+
+<p class="definition">Definition at line <a class="el" href="env__temperature_8cpp_source.html#l00091">91</a> of file <a class="el" href="env__temperature_8cpp_source.html">env_temperature.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="env__temperature_8h_source.html">env_temperature.h</a></li>
-<li><a class="el" href="env__temperature_8cpp.html">env_temperature.cpp</a></li>
+<li><a class="el" href="env__temperature_8cpp_source.html">env_temperature.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

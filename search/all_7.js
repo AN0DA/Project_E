@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['health_61',['health',['../class_animal.html#a6caf806b597560e8d4526ae0cfd2e3bb',1,'Animal']]],
-  ['humidity_62',['humidity',['../struct_field.html#a5d3ea65aa0cdf2c575382f6683cb5dc0',1,'Field']]],
-  ['hunger_63',['hunger',['../class_animal.html#a571500ba1f2402d3da9cb78c92175260',1,'Animal']]]
+  ['ice_86',['ice',['../_core_8h.html#a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a',1,'Core.h']]],
+  ['is_5fdead_87',['is_dead',['../class_animal.html#a5b76d24da2fef24adeeb049cc054cad6',1,'Animal']]],
+  ['iswater_88',['isWater',['../classsprite__params.html#adec93ab1a6713df3a853fdc4ad2bff93',1,'sprite_params']]]
 ];

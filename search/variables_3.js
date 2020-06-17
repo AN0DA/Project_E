@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['isrooted_217',['isRooted',['../struct_field.html#a5465a6cc8a590b7f7e382addb13cb298',1,'Field']]]
+  ['neighbour_5fcount_291',['neighbour_count',['../classsprite__params.html#ac0723afbdf25033dfe3885b8151ee337',1,'sprite_params']]],
+  ['neighbours_292',['neighbours',['../classsprite__params.html#ac380361cf8035dd1e882edd8c172466d',1,'sprite_params']]]
 ];

@@ -1,26 +1,8 @@
 var searchData=
 [
-  ['generate_5fanimals_38',['generate_animals',['../class_animals__gen.html#a6947e565ab108b267a0b38b7b413f55a',1,'Animals_gen']]],
-  ['generate_5fbiomes_39',['generate_biomes',['../classenv__biomes.html#a5d28beaa53d2bc808b2b73bbc0b2db83',1,'env_biomes']]],
-  ['generate_5fenvironment_40',['generate_environment',['../classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3',1,'env_gen']]],
-  ['generate_5fhumidity_41',['generate_humidity',['../classenv__humidity.html#afb49e6b0c7e0d228b1fe48f37eb6cfe6',1,'env_humidity']]],
-  ['generate_5ftemperature_42',['generate_temperature',['../classenv__temperature.html#ae87767157c08de7c08c783126f39c35c',1,'env_temperature']]],
-  ['generaterandomint_43',['GenerateRandomInt',['../class_core.html#ac607828c853f25ac1c3c2adfdb04e19e',1,'Core']]],
-  ['get_5fcurrent_44',['get_current',['../class_stat.html#a86dc3bb4f9a1098b1bbc04a5fb152e81',1,'Stat']]],
-  ['get_5fmax_45',['get_max',['../class_stat.html#a954b2c3a13d7ed65e83551742179f898',1,'Stat']]],
-  ['get_5fparents_46',['get_parents',['../class_animal.html#a663d7738783727ac547de45fb786f45b',1,'Animal']]],
-  ['get_5freproduction_47',['get_reproduction',['../class_animal.html#abd9e36a867589c8d9ccd36bef068ed28',1,'Animal']]],
-  ['get_5fsex_48',['get_sex',['../class_animal.html#a782154d323fcc7a1bf943f08a5a0b3ed',1,'Animal']]],
-  ['get_5fsight_49',['get_sight',['../class_animal.html#a0069ca94caf2d7c17c7d47897fb63466',1,'Animal']]],
-  ['get_5fsprite_50',['get_sprite',['../class_animal.html#ace8d6b796afa7562495929ac6a08609e',1,'Animal']]],
-  ['get_5ftemperature_51',['get_temperature',['../classsprite__params.html#ad5494c5683c8010cb3dab9adf100b01d',1,'sprite_params']]],
-  ['get_5fx_52',['get_x',['../class_animal.html#a8a6bb02bfbb68ee3cf9c4eb885620b42',1,'Animal']]],
-  ['get_5fy_53',['get_y',['../class_animal.html#a8e2ee195f40e1c4a33302b2ca1062a77',1,'Animal']]],
-  ['getbiome_54',['getBiome',['../classsprite__params.html#add946c0e84b770e9b052ed7c6d115a04',1,'sprite_params']]],
-  ['gethumidity_55',['getHumidity',['../classsprite__params.html#a527700648027adbcf3dcf1efc6246faf',1,'sprite_params']]],
-  ['getrootstatus_56',['getRootStatus',['../classsprite__params.html#afb2949be94d8ea4e66d3d51690268a02',1,'sprite_params']]],
-  ['getsprite_57',['getSprite',['../classsprite__params.html#a1d5240ee7482e89666324956592b1f97',1,'sprite_params']]],
-  ['getx_58',['getX',['../classsprite__params.html#a1307b66e87be3e15f6bfe0805a98ac4a',1,'sprite_params']]],
-  ['gety_59',['getY',['../classsprite__params.html#afec0c51f7a0891b5de60136dadc13daf',1,'sprite_params']]],
-  ['grassland_60',['grassland',['../_core_8h.html#a70b00bc079a450b790a6734b20de6d19a1b2dd777e6b719c5184c2822852a8837',1,'Core.h']]]
+  ['handlelevel_81',['handleLevel',['../class_tree.html#afc86db3f27bd552244802be978f77d6c',1,'Tree']]],
+  ['health_82',['health',['../class_animal.html#a6caf806b597560e8d4526ae0cfd2e3bb',1,'Animal']]],
+  ['heat_83',['heat',['../main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931',1,'main.cpp']]],
+  ['heat_5fmap_84',['heat_map',['../classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672',1,'map_graphics']]],
+  ['hunger_85',['hunger',['../class_animal.html#a571500ba1f2402d3da9cb78c92175260',1,'Animal']]]
 ];

@@ -8,7 +8,24 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classenv__gen_a3ad05173e624665d24a095ddfa0277e3}{generate\+\_\+environment}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height)
+\begin{DoxyCompactList}\small\item\em Function supervising the generation of environmental parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classenv__gen_a1f766b6a60a8e4771306328c9a436c6a}{tick}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$data, int width, int height, \mbox{\hyperlink{class_tree_daemon}{Tree\+Daemon}} $\ast$main\+Tree\+Daemon, sf\+::\+Render\+Window $\ast$window, \mbox{\hyperlink{classmap__graphics}{map\+\_\+graphics}} $\ast$g, double scale\+\_\+width, double scale\+\_\+height)
+\begin{DoxyCompactList}\small\item\em function handling tick \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classenv__gen_a996e1659f1ecf7d0843baf83f2fdae2f}{get\+\_\+width}} ()
+\item 
+int \mbox{\hyperlink{classenv__gen_ac8677a614bd00fc900c7e0cfdea3fd57}{get\+\_\+height}} ()
+\item 
+void \mbox{\hyperlink{classenv__gen_a22eb92f12317f7fc5856bd05283ced5c}{set\+Data}} (\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$new\+Data)
+\item 
+\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$ \mbox{\hyperlink{classenv__gen_acf505cd57fb7a581b3442b9f3ed21f2a}{get\+\_\+data}} ()
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 14 of file env\+\_\+gen.\+h.
+
 
 
 \doxysubsection{Member Function Documentation}
@@ -17,6 +34,122 @@ void \mbox{\hyperlink{classenv__gen_a3ad05173e624665d24a095ddfa0277e3}{generate\
 \index{generate\_environment@{generate\_environment}!env\_gen@{env\_gen}}
 \doxysubsubsection{\texorpdfstring{generate\_environment()}{generate\_environment()}}
 {\footnotesize\ttfamily void env\+\_\+gen\+::generate\+\_\+environment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Function supervising the generation of environmental parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array passed from main \\
+\hline
+{\em width} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array width \\
+\hline
+{\em height} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array height\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Mikolaj Kaczmarek 
+
+Konstanty Kordas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+28.\+06.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+40
+\end{DoxyVersion}
+In this method all enivronment generators are called. Using bools (generate\+\_\+temperature, generate\+\_\+humidity, generate\+\_\+bioms, generate\+\_\+pressure and generate\+\_\+naighbours) you can easly turn them on and off. 
+
+Definition at line 73 of file env\+\_\+gen.\+cpp.
+
+\mbox{\Hypertarget{classenv__gen_acf505cd57fb7a581b3442b9f3ed21f2a}\label{classenv__gen_acf505cd57fb7a581b3442b9f3ed21f2a}} 
+\index{env\_gen@{env\_gen}!get\_data@{get\_data}}
+\index{get\_data@{get\_data}!env\_gen@{env\_gen}}
+\doxysubsubsection{\texorpdfstring{get\_data()}{get\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}}$\ast$$\ast$ env\+\_\+gen\+::get\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 58 of file env\+\_\+gen.\+h.
+
+\mbox{\Hypertarget{classenv__gen_ac8677a614bd00fc900c7e0cfdea3fd57}\label{classenv__gen_ac8677a614bd00fc900c7e0cfdea3fd57}} 
+\index{env\_gen@{env\_gen}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!env\_gen@{env\_gen}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}}
+{\footnotesize\ttfamily int env\+\_\+gen\+::get\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 52 of file env\+\_\+gen.\+h.
+
+\mbox{\Hypertarget{classenv__gen_a996e1659f1ecf7d0843baf83f2fdae2f}\label{classenv__gen_a996e1659f1ecf7d0843baf83f2fdae2f}} 
+\index{env\_gen@{env\_gen}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!env\_gen@{env\_gen}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
+{\footnotesize\ttfamily int env\+\_\+gen\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 49 of file env\+\_\+gen.\+h.
+
+\mbox{\Hypertarget{classenv__gen_a22eb92f12317f7fc5856bd05283ced5c}\label{classenv__gen_a22eb92f12317f7fc5856bd05283ced5c}} 
+\index{env\_gen@{env\_gen}!setData@{setData}}
+\index{setData@{setData}!env\_gen@{env\_gen}}
+\doxysubsubsection{\texorpdfstring{setData()}{setData()}}
+{\footnotesize\ttfamily void env\+\_\+gen\+::set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 55 of file env\+\_\+gen.\+h.
+
+\mbox{\Hypertarget{classenv__gen_a1f766b6a60a8e4771306328c9a436c6a}\label{classenv__gen_a1f766b6a60a8e4771306328c9a436c6a}} 
+\index{env\_gen@{env\_gen}!tick@{tick}}
+\index{tick@{tick}!env\_gen@{env\_gen}}
+\doxysubsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void env\+\_\+gen\+::tick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{data,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{class_tree_daemon}{Tree\+Daemon}} $\ast$}]{main\+Tree\+Daemon,  }\item[{sf\+::\+Render\+Window $\ast$}]{window,  }\item[{\mbox{\hyperlink{classmap__graphics}{map\+\_\+graphics}} $\ast$}]{g,  }\item[{double}]{scale\+\_\+width,  }\item[{double}]{scale\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+function handling tick 
+
+Global tick engine.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array passed from main \\
+\hline
+{\em width} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array width \\
+\hline
+{\em height} & \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} array height \\
+\hline
+{\em main\+Tree\+Daemon} & Handler of all trees in app \\
+\hline
+{\em window} & window for draw \\
+\hline
+{\em g} & \mbox{\hyperlink{classmap__graphics}{map\+\_\+graphics}} to redraw biomes \\
+\hline
+{\em scale\+\_\+width} & double for sizing up textures \\
+\hline
+{\em scale\+\_\+height} & double for sizing up textures\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Mikolaj Kaczmarek 
+
+Konstanty Kordas 
+
+Bruno Murek 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+18.\+06.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+34
+\end{DoxyVersion}
+This funcion is called 30 times per second and call periodically other time fuctions like mix\+\_\+temperature or redraw map. 
+
+Definition at line 108 of file env\+\_\+gen.\+cpp.
 
 
 

@@ -26,8 +26,9 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">0.20</span>
+   &#160;<span id="projectnumber">v1.0</span>
    </div>
+   <div id="projectbrief">Natural environment simulator</div>
   </td>
  </tr>
  </tbody>
@@ -87,27 +88,68 @@ $(document).ready(function(){initNavTree('env__gen_8h_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="env__gen_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_8h.html">Core.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__temperature_8h.html">env_temperature.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__humidity_8h.html">env_humidity.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__biomes_8h.html">env_biomes.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classenv__gen.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classenv__gen.html">env_gen</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">bool</span> generate_temperature = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">bool</span> generate_humidity = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">bool</span> generate_biomes = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_core_8h.html">Core.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__temperature_8h.html">env_temperature.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__humidity_8h.html">env_humidity.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__biomes_8h.html">env_biomes.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env__pressure_8h.html">env_pressure.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tree_class_8h.html">treeClass.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="map__graphics_8h.html">map_graphics.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">generate_environment</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classenv__gen.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classenv__gen.html">env_gen</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">bool</span> generate_temperature = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">bool</span> generate_humidity = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">bool</span> generate_biomes = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> generate_pressure = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> generate_neighbours = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">int</span> _width;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> _height;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classsprite__params.html">sprite_params</a>** _data;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">//tick counters</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> temperature_mix_exec = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">generate_environment</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">tick</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** data, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code" href="class_tree_daemon.html">TreeDaemon</a>* mainTreeDaemon, sf::RenderWindow* window, <a class="code" href="classmap__graphics.html">map_graphics</a>* g, <span class="keywordtype">double</span> scale_width, <span class="keywordtype">double</span> scale_height);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">   49</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">get_width</a>() {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> this-&gt;_width;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    };</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">   52</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">get_height</a>() {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> this-&gt;_height;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    };</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">   55</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">setData</a>(<a class="code" href="classsprite__params.html">sprite_params</a>** newData) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        this-&gt;_data = newData;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">   58</a></span>&#160;    <a class="code" href="classsprite__params.html">sprite_params</a>** <a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>() {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> this-&gt;_data;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    };</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aclassenv__gen_html_acf505cd57fb7a581b3442b9f3ed21f2a"><div class="ttname"><a href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">env_gen::get_data</a></div><div class="ttdeci">sprite_params ** get_data()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00058">env_gen.h:58</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html"><div class="ttname"><a href="classmap__graphics.html">map_graphics</a></div><div class="ttdoc">Header file for generationg map graphics.</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8h_source.html#l00012">map_graphics.h:12</a></div></div>
 <div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="_core_8h.html">Core.h</a></div></div>
 <div class="ttc" id="aenv__humidity_8h_html"><div class="ttname"><a href="env__humidity_8h.html">env_humidity.h</a></div></div>
-<div class="ttc" id="aclassenv__gen_html"><div class="ttname"><a href="classenv__gen.html">env_gen</a></div><div class="ttdef"><b>Definition:</b> env_gen.h:8</div></div>
-<div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> Core.h:27</div></div>
-<div class="ttc" id="aclassenv__gen_html_a3ad05173e624665d24a095ddfa0277e3"><div class="ttname"><a href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">env_gen::generate_environment</a></div><div class="ttdeci">void generate_environment(sprite_params **data, int width, int height)</div><div class="ttdef"><b>Definition:</b> env_gen.cpp:3</div></div>
+<div class="ttc" id="aclass_tree_daemon_html"><div class="ttname"><a href="class_tree_daemon.html">TreeDaemon</a></div><div class="ttdoc">TreeDaemon is a class used to manage all of the existing trees, lauched by ticks, tells trees when to...</div><div class="ttdef"><b>Definition:</b> <a href="tree_class_8h_source.html#l00083">treeClass.h:83</a></div></div>
+<div class="ttc" id="aclassenv__gen_html"><div class="ttname"><a href="classenv__gen.html">env_gen</a></div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00014">env_gen.h:15</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_ac8677a614bd00fc900c7e0cfdea3fd57"><div class="ttname"><a href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">env_gen::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00052">env_gen.h:52</a></div></div>
+<div class="ttc" id="atree_class_8h_html"><div class="ttname"><a href="tree_class_8h.html">treeClass.h</a></div></div>
+<div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00027">Core.h:27</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a1f766b6a60a8e4771306328c9a436c6a"><div class="ttname"><a href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">env_gen::tick</a></div><div class="ttdeci">void tick(sprite_params **data, int width, int height, TreeDaemon *mainTreeDaemon, sf::RenderWindow *window, map_graphics *g, double scale_width, double scale_height)</div><div class="ttdoc">function handling tick</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8cpp_source.html#l00108">env_gen.cpp:108</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a22eb92f12317f7fc5856bd05283ced5c"><div class="ttname"><a href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">env_gen::setData</a></div><div class="ttdeci">void setData(sprite_params **newData)</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00055">env_gen.h:55</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a3ad05173e624665d24a095ddfa0277e3"><div class="ttname"><a href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">env_gen::generate_environment</a></div><div class="ttdeci">void generate_environment(sprite_params **data, int width, int height)</div><div class="ttdoc">Function supervising the generation of environmental parameters.</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8cpp_source.html#l00073">env_gen.cpp:73</a></div></div>
+<div class="ttc" id="aenv__pressure_8h_html"><div class="ttname"><a href="env__pressure_8h.html">env_pressure.h</a></div></div>
+<div class="ttc" id="amap__graphics_8h_html"><div class="ttname"><a href="map__graphics_8h.html">map_graphics.h</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a996e1659f1ecf7d0843baf83f2fdae2f"><div class="ttname"><a href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">env_gen::get_width</a></div><div class="ttdeci">int get_width()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00049">env_gen.h:49</a></div></div>
 <div class="ttc" id="aenv__biomes_8h_html"><div class="ttname"><a href="env__biomes_8h.html">env_biomes.h</a></div></div>
 <div class="ttc" id="aenv__temperature_8h_html"><div class="ttname"><a href="env__temperature_8h.html">env_temperature.h</a></div></div>
 <!-- start footer part -->

@@ -1,0 +1,183 @@
+\hypertarget{classmap__graphics}{}\doxysection{map\+\_\+graphics Class Reference}
+\label{classmap__graphics}\index{map\_graphics@{map\_graphics}}
+
+
+Header file for generationg map graphics.  
+
+
+
+
+{\ttfamily \#include $<$map\+\_\+graphics.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmap__graphics_a18357e6c9b310bf4a3fc07d71be11411}{map\+\_\+graphics}} (sf\+::\+Render\+Window $\ast$window, double scale\+\_\+height, double scale\+\_\+width, \mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$field, int field\+\_\+height, int field\+\_\+width)
+\begin{DoxyCompactList}\small\item\em error texture, loaded when no other texture found \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap__graphics_af6e502352323c51a51da96ce97a02b17}{load\+\_\+textures}} ()
+\begin{DoxyCompactList}\small\item\em fuction that loads textures from files and logs in console success and failure \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap__graphics_a6741e6de2164bade85347257931d1040}{biome\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em function draws graphics based on biomes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap__graphics_a7c51f1eb2aa13ac2177389dda9e76672}{heat\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em function draws graphics based on temperature \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap__graphics_a01d8ac4b9b1b53fe3287ceb591af47eb}{water\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em function draws graphics based on temperature \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classmap__graphics_a3efb15fd473cf999d03e70f702b990a9}{pressure\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em function that draws map based on the pressure on the blocks of the grid \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for generationg map graphics. 
+
+Class related to generating map graphics.
+
+Header file for generating map graphics \begin{DoxyAuthor}{Author}
+Konstanty Kordas 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+9.\+06.\+2020 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+1
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas 
+\end{DoxyAuthor}
+
+
+Definition at line 12 of file map\+\_\+graphics.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmap__graphics_a18357e6c9b310bf4a3fc07d71be11411}\label{classmap__graphics_a18357e6c9b310bf4a3fc07d71be11411}} 
+\index{map\_graphics@{map\_graphics}!map\_graphics@{map\_graphics}}
+\index{map\_graphics@{map\_graphics}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{map\_graphics()}{map\_graphics()}}
+{\footnotesize\ttfamily map\+\_\+graphics\+::map\+\_\+graphics (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window $\ast$}]{window,  }\item[{double}]{scale\+\_\+height,  }\item[{double}]{scale\+\_\+width,  }\item[{\mbox{\hyperlink{classsprite__params}{sprite\+\_\+params}} $\ast$$\ast$}]{field,  }\item[{int}]{field\+\_\+height,  }\item[{int}]{field\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+error texture, loaded when no other texture found 
+
+\mbox{\hyperlink{classmap__graphics}{map\+\_\+graphics}} class constructor
+
+\mbox{\hyperlink{classmap__graphics}{map\+\_\+graphics}} class constructor
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & window of the program \\
+\hline
+{\em window\+\_\+height} & height of the window program (in px) \\
+\hline
+{\em window\+\_\+width} & width of the window program (in px) \\
+\hline
+{\em field} & grid on which generation is based \\
+\hline
+{\em field\+\_\+height} & height of the grid \\
+\hline
+{\em field\+\_\+width} & width of the grid ~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas consrtuctor initializes all local variables needed and calls \mbox{\hyperlink{classmap__graphics_af6e502352323c51a51da96ce97a02b17}{load\+\_\+textures()}} function to load aditional textures from files 
+\end{DoxyAuthor}
+
+
+Definition at line 13 of file map\+\_\+graphics.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmap__graphics_a6741e6de2164bade85347257931d1040}\label{classmap__graphics_a6741e6de2164bade85347257931d1040}} 
+\index{map\_graphics@{map\_graphics}!biome\_map@{biome\_map}}
+\index{biome\_map@{biome\_map}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{biome\_map()}{biome\_map()}}
+{\footnotesize\ttfamily void map\+\_\+graphics\+::biome\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function draws graphics based on biomes 
+
+function that draws the map based on the biome parameter of the blocks on grid textures are loaded by load\+\_\+textures function called in constructor
+
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas function iterates through entire grid and for every block it checks the biome, sets it corresponding texture and draws it on the window 
+\end{DoxyAuthor}
+
+
+Definition at line 93 of file map\+\_\+graphics.\+cpp.
+
+\mbox{\Hypertarget{classmap__graphics_a7c51f1eb2aa13ac2177389dda9e76672}\label{classmap__graphics_a7c51f1eb2aa13ac2177389dda9e76672}} 
+\index{map\_graphics@{map\_graphics}!heat\_map@{heat\_map}}
+\index{heat\_map@{heat\_map}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{heat\_map()}{heat\_map()}}
+{\footnotesize\ttfamily void map\+\_\+graphics\+::heat\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function draws graphics based on temperature 
+
+fuction that draws map based on the temperature of the blocks on the grid color goes from red to yellow to green to blue (hot to cold)
+
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas function iterates through entire grid and for every block it checks the temperature and draws corresponding rectangle with correct color 
+\end{DoxyAuthor}
+
+
+Definition at line 139 of file map\+\_\+graphics.\+cpp.
+
+\mbox{\Hypertarget{classmap__graphics_af6e502352323c51a51da96ce97a02b17}\label{classmap__graphics_af6e502352323c51a51da96ce97a02b17}} 
+\index{map\_graphics@{map\_graphics}!load\_textures@{load\_textures}}
+\index{load\_textures@{load\_textures}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{load\_textures()}{load\_textures()}}
+{\footnotesize\ttfamily void map\+\_\+graphics\+::load\+\_\+textures (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fuction that loads textures from files and logs in console success and failure 
+
+fuction that loads textures from files and logs in console success and failure loads water,ice,swamp,rainforrest,desert,savanna,grassland,snow and error texture from \char`\"{}\{texture\+\_\+name\}.\+jpg\char`\"{} files 
+
+Definition at line 25 of file map\+\_\+graphics.\+cpp.
+
+\mbox{\Hypertarget{classmap__graphics_a3efb15fd473cf999d03e70f702b990a9}\label{classmap__graphics_a3efb15fd473cf999d03e70f702b990a9}} 
+\index{map\_graphics@{map\_graphics}!pressure\_map@{pressure\_map}}
+\index{pressure\_map@{pressure\_map}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{pressure\_map()}{pressure\_map()}}
+{\footnotesize\ttfamily void map\+\_\+graphics\+::pressure\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function that draws map based on the pressure on the blocks of the grid 
+
+
+
+Definition at line 207 of file map\+\_\+graphics.\+cpp.
+
+\mbox{\Hypertarget{classmap__graphics_a01d8ac4b9b1b53fe3287ceb591af47eb}\label{classmap__graphics_a01d8ac4b9b1b53fe3287ceb591af47eb}} 
+\index{map\_graphics@{map\_graphics}!water\_map@{water\_map}}
+\index{water\_map@{water\_map}!map\_graphics@{map\_graphics}}
+\doxysubsubsection{\texorpdfstring{water\_map()}{water\_map()}}
+{\footnotesize\ttfamily void map\+\_\+graphics\+::water\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+function draws graphics based on temperature 
+
+fuction that draws map based on the humidity of the blocks on the grid color is grey for water and goes from blue to green to yellow (wet to dry)
+
+\begin{DoxyAuthor}{Author}
+Konstanty Kordas function iterates through entire grid and for every block it checks the humidity and draws corresponding rectangle with correct color 
+\end{DoxyAuthor}
+
+
+Definition at line 179 of file map\+\_\+graphics.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{map__graphics_8h}{map\+\_\+graphics.\+h}}\item 
+\mbox{\hyperlink{map__graphics_8cpp}{map\+\_\+graphics.\+cpp}}\end{DoxyCompactItemize}

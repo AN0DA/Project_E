@@ -1,3 +1,4 @@
+
 /// \headerfile
 /// \brief Header file for env_temperature
 /// \details Header file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
@@ -12,13 +13,12 @@
 #include "Core.h"
 
 
+
 /// 
 class env_temperature
 {
 	/// \class env_temperature env_temperature.h
-	/// \brief Class related to environment temperature simulation.
-
-	
+	/// \brief Class related to environment temperature simulation.	
 	/// Lowest temperature that can be generated
 	const int min_temp = -10; 
 	/// Highest temperature that can be generated

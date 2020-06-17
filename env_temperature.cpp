@@ -1,7 +1,8 @@
+
 /// \file
 /// \brief Source file for env_temperature
 /// \details Source file for env_temperature environment parameter. Currently only generates temperature, in future will also mix it as time passes.
-/// \author Miko³aj Kaczmarek
+/// \author MikoÂ³aj Kaczmarek
 /// \date 20.05.2020
 /// \version 0.10
 
@@ -17,6 +18,7 @@
 void env_temperature::generate_temperature(sprite_params** data, int width, int height) {
 	std::random_device rd;
 	std::mt19937 gen(rd());
+
 
 	std::uniform_real_distribution<> dis(min_temp, max_temp);
 	data[0][0].set_temperature(dis(gen));
@@ -36,6 +38,7 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 
 	//generate first column
+
 	for (int i = 1; i <= height; i++) {
 		temp_value = data[i - 1][0].get_temperature();
 		temp_change = (abs(temp_value * change_percent) != 0) ? (abs(temp_value * change_percent)) : 10;
@@ -48,6 +51,7 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 
 	//generate rest of area
+
 	for (int i = 1; i <= width; i++) {
 		for (int j = 1; j <= height; j++) {
 			temp_value = (data[i - 1][j].get_temperature() + data[i][j - 1].get_temperature() + data[i - 1][j - 1].get_temperature()) / 3;

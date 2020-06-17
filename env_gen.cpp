@@ -2,12 +2,17 @@
 #include <iostream>
 #include "treeClass.h"
 
-
+/// Fuction that generates neighbours
+/// Each block has 2,3 or 4 neighbours
+///
+/// \param data sprite_params array passed from main
+/// \param width sprite_params array width
+/// \param height sprite_params array height
 void create_neighbours(sprite_params** data, int width, int height)
 {
-	for (int j = 0; j <= width; j++)
+	for (int j = 0; j <= height; j++)
 	{
-		for (int i = 0; i <= height; i++)
+		for (int i = 0; i <= width; i++)
 		{
 			if (j == 0 && i == 0)
 			{
@@ -58,53 +63,76 @@ void create_neighbours(sprite_params** data, int width, int height)
 	}
 }
 
+/// \brief Function supervising the generation of environmental parameters
+/// \author Mikolaj Kaczmarek
+/// \author Konstanty Kordas
+/// \date 28.06.2020
+/// \version 1.40
+///
+/// In this method all enivronment generators are called. Using bools (generate_temperature, generate_humidity, generate_bioms, generate_pressure and generate_naighbours) you can easly turn them on and off.
 void env_gen::generate_environment(sprite_params** data, int width, int height) {
 	_width = width;
-	_height - height;
+	_height = height;
 	_data = data;
 	
-	int w = width;
-	int h = height;
-	sprite_params** d = data;
-
 	env_temperature temperature;
 	env_humidity humidity;
 	env_pressure pressure;
 	env_biomes biomes;
 
-
 	if (generate_temperature) {
-		temperature.generate_temperature(d, w, h);
+		temperature.generate_temperature(data, width, height);
 	}
 	if (generate_humidity) {
-		humidity.generate_humidity(d, w, h);
+		humidity.generate_humidity(data, width, height);
 	}
 	if (generate_biomes) {
-		biomes.generate_biomes(d, w, h);
+		biomes.generate_biomes(data, width, height);
 	}
 	if (generate_pressure) {
-		pressure.generate_pressure(d, w, h);
+		pressure.generate_pressure(data, width, height);
 	}
-	create_neighbours(d, w, h);
-}
-void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow *window, map_graphics* g,double scale_width, double scale_height) {
-	int pressure_interval = 100;
-	if (init) {
-		pressure_exec = int(win::GetTickCount()) + pressure_interval;
-		init = false;
-	}	//tam gdzie nullptr ma byc jakies pole, inaczej jest address violation
-	if (abs(pressure_exec) <= abs(int(win::GetTickCount()))) {
-		std::cout << "tick ";
-		mainTreeDaemon->treeControl();
-		if (mainTreeDaemon->checkChange()) {
-			window->clear();
-			g->biome_map();
-			mainTreeDaemon->Change(window,  scale_width,  scale_height);
-			window->display();
-		}
-	pressure_exec = int(win::GetTickCount()) + pressure_interval;
+	if (generate_neighbours) {
+		create_neighbours(data, width, height);
 	}
-
 }
 
+/// \brief Global tick engine
+/// \author Mikolaj Kaczmarek
+/// \author Konstanty Kordas
+/// \author Bruno Murek
+/// \date 18.06.2020
+/// \version 1.34
+///
+/// This funcion is called 30 times per second and call periodically other time fuctions like mix_temperature or redraw map.
+void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow* window, map_graphics* g, double scale_width, double scale_height) {
+	int temperature_mix_interval = 1;
+	bool redraw = false;
+	env_temperature temperature;
 
+	//std::cout << "tick " << std::endl;;
+	mainTreeDaemon->treeControl();
+	if (mainTreeDaemon->checkChange()) {
+		// check if needs to redraw any trees
+		std::cout << "TREE change" << std::endl;
+		redraw = true;
+	}
+
+	if (temperature_mix_exec == temperature_mix_interval) {
+		temperature.mix_temperature(data, width, height);
+		temperature_mix_exec = 0;
+		redraw = true;
+	}
+	else
+		temperature_mix_exec++;
+
+	if (redraw) {
+		//redraw
+		window->clear();
+		g->biome_map();
+		mainTreeDaemon->Change(window, scale_width, scale_height);
+		window->display();
+		redraw = false;
+		std::cout << "redraw " << std::endl;
+	}
+}

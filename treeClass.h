@@ -7,7 +7,6 @@
 #pragma once
 #include <vector>
 #include "Core.h"
-
 class root {
 	/// \class root treeClass.h
 	/// \brief Root class contains information about root position, root from which it grew and its children.

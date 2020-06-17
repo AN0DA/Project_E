@@ -45,9 +45,6 @@
     <ClInclude Include="env_gen.h" />
     <ClInclude Include="env_temperature.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="textures\Cat.png" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{b7d89909-c491-4bec-8634-b3402ad5877d}</ProjectGuid>

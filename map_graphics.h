@@ -72,4 +72,7 @@ public:
     /// color is grey for water and goes from blue to green to yellow (wet to dry)
 	void water_map();
 
+	/// function that draws map based on the pressure on the blocks of the grid
+	void pressure_map();
+
 };

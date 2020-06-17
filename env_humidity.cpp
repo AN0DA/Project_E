@@ -7,6 +7,7 @@
 
 #include "env_humidity.h"
 #include <cmath>
+#include <iostream>
 
 
 /// \brief Script creating water tile
@@ -34,11 +35,12 @@ void env_humidity::create_water_tile(sprite_params** data, int width, int height
 ///
 /// function generates random amunt of desert tiles in each row, at minimum width/3
 void env_humidity::generate_desert(sprite_params** data, int width, int height, int coordX, int coordY) {
-	for (int i = coordX; i < height; i++) {
+	for (int j = coordX; j <= height; j++) {
 		int left = rand() % (width / 3);
 		int right = rand() % (width / 3);
-		for (int j = (width / 3) - left; j < ((width / 3) * 2) + right - 1; j++) {
+		for (int i = (width / 3) - left; i < ((width / 3) * 2) + right - 1; i++) {
 			data[i][j].setHumidity(10);
+			data[i][j].set_temperature(rand() % 18 + 27);
 		}
 	}
 }
@@ -191,11 +193,11 @@ else {
 }
 void env_humidity::generate_humidity(sprite_params** data, int width, int height) {
 	//river asssociated generation
-
 	int river_top_start  = 1 + (std::rand() % (width - 1));  //beginnig point of a river
 	int river_width = rand() % (std::min(height, width) / 20);  //additional width of a river (actual river width = river_width + 1)
 	int river_turn = (height / 10) + (std::rand() % (height - (height / 10)));	//Y axis (height) index of the turn of the river
 	generate_river(data, width, height, river_top_start, 0, river_width,river_turn);
+	std::cout << "RIVER";
 
 
 	//desert associated generation
@@ -204,7 +206,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 	int desert_coordX = rand() % (width - desert_width - 1);	// X axis (width) index of the beginnig of desert
 	int desert_coordY = rand() % (height - desert_height - 1);	// Y axis (height) index of the beginnig of desert
 	generate_desert(data, desert_width, desert_height, desert_coordX, desert_coordY);
-
+	std::cout << "DESERT";
 
 	//lake associated generation
 	int lake_number = 1 + (rand() % (std::max(width, height) / 20));	//number of generated lakes
@@ -215,7 +217,7 @@ void env_humidity::generate_humidity(sprite_params** data, int width, int height
 		generate_lake(data,width,height, lake_center_coordX, lake_center_coordY, lake_radius);
 		lake_number--;
 	}
-	
+	std::cout << "LAKE";
 
 	//Debug printing all humidity values
 	/*

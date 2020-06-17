@@ -1,14 +1,21 @@
 #include "env_pressure.h"
-#include <cmath>
-#include <iostream>
 
+
+/// \brief Function generating environment pressure cyclons
+/// \author Mikolaj Kaczmarek
+/// \date 17.05.2020
+/// \version 0.20
+///
+/// Pressure generator is based on generating positive or negative currents in shape of circles.
+/// Pressure can vary from 980 to 1040.
 void env_pressure::generate_pressure(sprite_params** data, int width, int height) {
-	for (int iter = 0; iter < floor(width * height / 80); iter++) {
+	for (int iter = 0; iter < floor(width * height / 55); iter++) {
+	//for (int iter = 0; iter < 5; iter++) {
 		int current_height = rand() % height;
 		int current_width = rand() % width;
-		int radius = rand() % 5;
+		int radius = rand() % 12;
 
-		int pressure_change = rand() % 70 + 980;
+		int pressure_change = rand() % 61 + 980;
 		double change_per_block;
 
 
@@ -44,7 +51,10 @@ void env_pressure::generate_pressure(sprite_params** data, int width, int height
 	}
 }
 
-
+/// \brief CURRENTLY NOT USED Function regenerating environment pressure cyclons
+/// \author Mikolaj Kaczmarek
+/// \date 19.05.2020
+/// \version 0.01
 void env_pressure::regenerate_pressure(sprite_params** data, int width, int height, int iterations) {
 	for (int iter = 0; iter < iterations; iter++) {
 		int current_height = rand() % height;

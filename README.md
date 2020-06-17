@@ -32,4 +32,4 @@ We use [Doxygen](https://www.doxygen.nl/) for creating documentation. You can ac
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/AN0DA/Project_E/blob/development/LICENSE) file for details

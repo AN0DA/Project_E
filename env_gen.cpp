@@ -32,6 +32,13 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 	}
 }
 
+
+/// \brief Global tick engine
+/// \author Mikolaj Kaczmarek
+/// \date 07.06.2020
+/// \version 0.21
+///
+/// Function is called on main loop once per frame. Tick call functions based on GetTickCount(), which provide time from Windows system start to now in ms.
 void env_gen::tick(sprite_params** data, int width, int height) {
 	int temperature_mix_interval = 20000;
 	env_temperature temperature;

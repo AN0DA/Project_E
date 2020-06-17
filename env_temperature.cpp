@@ -8,7 +8,7 @@
 #include "env_temperature.h"
 
 /// \brief Script generating temperature
-/// \author Miko³aj Kaczmarek
+/// \author Mikolaj Kaczmarek
 /// \date 20.05.2020
 /// \version 0.10
 ///
@@ -62,6 +62,14 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 	}
 }
 
+
+/// \brief Function mixing temperature mid-simulation
+/// \author Mikolaj Kaczmarek
+/// \date 25.06.2020
+/// \version 0.30
+///
+/// Temperature mixing is based on making average value from adjacent fields, assuming SE wind.
+/// First mixed is first row with [0][i-1] field, then first column with [i-1][0], then others with [i-1][j], [i][j-1] and [i-1][j-1]. 
 void env_temperature::mix_temperature(sprite_params** data, int width, int height) {
 	//generate first row
 	for (int i = 1; i <= width; i++) {

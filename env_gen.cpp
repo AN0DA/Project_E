@@ -106,21 +106,32 @@ void env_gen::generate_environment(sprite_params** data, int width, int height) 
 ///
 /// This funcion is called 30 times per second and call periodically other time fuctions like mix_temperature or redraw map.
 void env_gen::tick(sprite_params** data, int width, int height, TreeDaemon* mainTreeDaemon, sf::RenderWindow* window, map_graphics* g, double scale_width, double scale_height) {
-	int temperature_mix_interval = 1;
+	int temperature_mix_interval = 500000;
+	int tree_control_interval = 250000;
 	bool redraw = false;
 	env_temperature temperature;
 
 	//std::cout << "tick " << std::endl;;
-	mainTreeDaemon->treeControl();
-	if (mainTreeDaemon->checkChange()) {
-		// check if needs to redraw any trees
-		std::cout << "TREE change" << std::endl;
-		redraw = true;
+	if (tree_control_exec == tree_control_interval) {
+		std::cout<<"TREE CONTROL";
+		tree_control_exec=0;
+		mainTreeDaemon->treeControl();
+		if (mainTreeDaemon->checkChange()) {
+			// check if needs to redraw any trees
+			std::cout << "TREE change" << std::endl;
+			redraw = true;
+		}
 	}
+	else {
+		tree_control_exec++;
+	}
+
 
 	if (temperature_mix_exec == temperature_mix_interval) {
 		temperature.mix_temperature(data, width, height);
 		temperature_mix_exec = 0;
+		env_biomes biomes;
+		biomes.generate_biomes(data, width, height);
 		redraw = true;
 	}
 	else

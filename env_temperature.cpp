@@ -89,20 +89,23 @@ void env_temperature::generate_temperature(sprite_params** data, int width, int 
 /// Temperature mixing is based on making average value from adjacent fields, assuming SE wind.
 /// First mixed is first row with [0][i-1] field, then first column with [i-1][0], then others with [i-1][j], [i][j-1] and [i-1][j-1].
 void env_temperature::mix_temperature(sprite_params** data, int width, int height) {
+	//generate [0][0]
+	data[0][0].set_temperature(((data[0][0].get_temperature() * 5) + data[1][0].get_temperature() + data[1][1].get_temperature() + data[0][1].get_temperature() + data[width][height].get_temperature()) / 9);
+	
 	//generate first row
 	for (int i = 1; i <= width; i++) {
-		data[0][i].set_temperature((data[0][i - 1].get_temperature() + data[0][i].get_temperature()) / 2);
+		data[0][i].set_temperature((data[0][i - 1].get_temperature() + (data[0][i].get_temperature()*5)) / 6);
 	}
 
 	//generate first column
 	for (int i = 1; i <= height; i++) {
-		data[i][0].set_temperature((data[i - 1][0].get_temperature() + data[i][0].get_temperature()) / 2);
+		data[i][0].set_temperature((data[i - 1][0].get_temperature() + (data[i][0].get_temperature()*5)) / 6);
 	}
 
 	//generate rest of area
 	for (int i = 1; i <= width; i++) {
 		for (int j = 1; j <= height; j++) {
-			data[i][j].set_temperature((data[i][j].get_temperature() + data[i - 1][j].get_temperature() + data[i - 1][j - 1].get_temperature() + data[i][j - 1].get_temperature()) / 4);
+			data[i][j].set_temperature(((data[i][j].get_temperature()*5) + data[i - 1][j].get_temperature() + data[i - 1][j - 1].get_temperature() + data[i][j - 1].get_temperature()) / 8);
 		}
 	}
 

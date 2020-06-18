@@ -83,7 +83,7 @@ void Tree::treeGrow() {
 	//delete currentMaxHumidity;
 	//delete maxParent;
 	//delete maxPointer;
-	std::cout << "Tree just grew" << std::endl;
+	//std::cout << "Tree just grew" << std::endl;
 }
 void Tree::drinkWater() {
 	//drain every root
@@ -119,7 +119,7 @@ void Tree::treeShrink() {
 	}
 	//delete currentMinHumidity;
 	//delete minIndex;
-	std::cout << "Tree just shrunk" << std::endl;
+	//std::cout << "Tree just shrunk" << std::endl;
 }
 
 void Tree::handleLevel() {
@@ -183,7 +183,7 @@ void TreeDaemon::treeControl() {
 		}
 	}
 	if (this->existingTrees.size() <= 0) {
-		std::cout << "There are no trees" << std::endl;
+		//std::cout << "There are no trees" << std::endl;
 	}
 }
 bool TreeDaemon::checkChange() {

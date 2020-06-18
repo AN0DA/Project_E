@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">v1.0</span>
+   &#160;<span id="projectnumber">v1.01</span>
    </div>
    <div id="projectbrief">Natural environment simulator</div>
   </td>
@@ -128,7 +128,7 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">int</span> field_width;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//end of loading</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    field_height = 100;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    field_width = 100;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    field_width = field_height;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// generating table of fields and sprite is inside</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    field = <span class="keyword">new</span> <a class="code" href="classsprite__params.html">sprite_params</a> * [field_width];</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
@@ -143,92 +143,100 @@ $(document).ready(function(){initNavTree('main_8cpp_source.html',''); initResiza
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classmap__graphics.html">map_graphics</a> g(&amp;window, scale_height, scale_width, field, field_height, field_width);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    g.<a class="code" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">biome_map</a>();</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;map&quot;</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    environment_generator.<a class="code" href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">setData</a>(environment_generator.<a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>());</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classsprite__params.html">sprite_params</a>* toPole = &amp;(environment_generator.<a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>()[7][6]);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    mtd.<a class="code" href="class_tree_daemon.html#a81cae280fbb8dd45b30783cd2ebf4d59">addTree</a>(<a class="code" href="class_tree.html">Tree</a>(toPole, 2, 1, 3, 7 * 32 * scale_width, 6 * 32 * scale_height));</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    window.display();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    window.setFramerateLimit(30);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">while</span> (window.isOpen())</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        sf::Event evt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">while</span> (window.pollEvent(evt))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">switch</span> (evt.type)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">case</span> sf::Event::Closed:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                window.close();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">case</span> sf::Event::KeyPressed:</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">if</span> (evt.key.code == sf::Keyboard::Space) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    window.clear();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;SPACJA&quot;</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <span class="keywordflow">switch</span> (<a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a>)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>:</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">heat_map</a>();</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931">current_map::heat</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931">current_map::heat</a>:</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">water_map</a>();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c">current_map::water</a>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c">current_map::water</a>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">pressure_map</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093">current_map::pressure</a>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093">current_map::pressure</a>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">biome_map</a>();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                    window.display();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (evt.key.code == sf::Keyboard::P) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                    <span class="keywordtype">bool</span> pause = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <span class="keywordflow">while</span> (pause) {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                        sf::Event e;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                        <span class="keywordflow">while</span> (window.pollEvent(e)) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                            <span class="keywordflow">if</span> (e.type == sf::Event::KeyPressed) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                                <span class="keywordflow">if</span> (e.key.code == sf::Keyboard::P) {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                    std::cout &lt;&lt; <span class="stringliteral">&quot;A&quot;</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                                    pause = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                        }</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> == <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>) {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="comment">//environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &amp;mtd, &amp;window, &amp;g, scale_width, scale_height);</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3 + rand() % (field_height-3);i++) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> x_pos = rand()%field_width;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> y_pos = rand()%field_height;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        environment_generator.<a class="code" href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">setData</a>(environment_generator.<a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="classsprite__params.html">sprite_params</a>* toPole = &amp;(environment_generator.<a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>()[x_pos][y_pos]);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        mtd.<a class="code" href="class_tree_daemon.html#a81cae280fbb8dd45b30783cd2ebf4d59">addTree</a>(<a class="code" href="class_tree.html">Tree</a>(toPole, 1+rand()%3, 1+rand()%4, 1+rand()%5, x_pos * 32 * scale_width, y_pos * 32 * scale_height));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::cout&lt;&lt;<span class="stringliteral">&quot;TREES&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    window.display();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    window.setFramerateLimit(24);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">while</span> (window.isOpen())</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        sf::Event evt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">while</span> (window.pollEvent(evt))</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">switch</span> (evt.type)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">case</span> sf::Event::Closed:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                window.close();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">case</span> sf::Event::KeyPressed:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">if</span> (evt.key.code == sf::Keyboard::Space) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                    window.clear();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                    std::cout &lt;&lt; <span class="stringliteral">&quot;SPACJA&quot;</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordflow">switch</span> (<a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a>)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">heat_map</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931">current_map::heat</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931">current_map::heat</a>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">water_map</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c">current_map::water</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c">current_map::water</a>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">pressure_map</a>();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093">current_map::pressure</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                    <span class="keywordflow">case</span> <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093">current_map::pressure</a>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        g.<a class="code" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">biome_map</a>();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> = <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                    window.display();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (evt.key.code == sf::Keyboard::P) {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    <span class="keywordtype">bool</span> pause = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    <span class="keywordflow">while</span> (pause) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        sf::Event e;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        <span class="keywordflow">while</span> (window.pollEvent(e)) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                            <span class="keywordflow">if</span> (e.type == sf::Event::KeyPressed) {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                <span class="keywordflow">if</span> (e.key.code == sf::Keyboard::P) {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                    std::cout &lt;&lt; <span class="stringliteral">&quot;A&quot;</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                                    pause = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                                }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                            }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                        }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a> == <a class="code" href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a>) {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            environment_generator.<a class="code" href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">tick</a>(environment_generator.<a class="code" href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">get_data</a>(), environment_generator.<a class="code" href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">get_width</a>(), environment_generator.<a class="code" href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">get_height</a>(), &amp;mtd, &amp;window, &amp;g, scale_width, scale_height);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclassenv__gen_html_acf505cd57fb7a581b3442b9f3ed21f2a"><div class="ttname"><a href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">env_gen::get_data</a></div><div class="ttdeci">sprite_params ** get_data()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00058">env_gen.h:58</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_acf505cd57fb7a581b3442b9f3ed21f2a"><div class="ttname"><a href="classenv__gen.html#acf505cd57fb7a581b3442b9f3ed21f2a">env_gen::get_data</a></div><div class="ttdeci">sprite_params ** get_data()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00059">env_gen.h:59</a></div></div>
 <div class="ttc" id="aclassmap__graphics_html"><div class="ttname"><a href="classmap__graphics.html">map_graphics</a></div><div class="ttdoc">Header file for generationg map graphics.</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8h_source.html#l00012">map_graphics.h:12</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931"><div class="ttname"><a href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda5d6eb4f1340c4c66e3adff7fdab1c931">current_map::heat</a></div><div class="ttdeci">@ heat</div></div>
 <div class="ttc" id="a_core_8h_html"><div class="ttname"><a href="_core_8h.html">Core.h</a></div></div>
 <div class="ttc" id="aclass_tree_daemon_html"><div class="ttname"><a href="class_tree_daemon.html">TreeDaemon</a></div><div class="ttdoc">TreeDaemon is a class used to manage all of the existing trees, lauched by ticks, tells trees when to...</div><div class="ttdef"><b>Definition:</b> <a href="tree_class_8h_source.html#l00083">treeClass.h:83</a></div></div>
 <div class="ttc" id="aclassenv__gen_html"><div class="ttname"><a href="classenv__gen.html">env_gen</a></div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00014">env_gen.h:15</a></div></div>
 <div class="ttc" id="aenv__gen_8h_html"><div class="ttname"><a href="env__gen_8h.html">env_gen.h</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_ac8677a614bd00fc900c7e0cfdea3fd57"><div class="ttname"><a href="classenv__gen.html#ac8677a614bd00fc900c7e0cfdea3fd57">env_gen::get_height</a></div><div class="ttdeci">int get_height()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00053">env_gen.h:53</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c"><div class="ttname"><a href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda9460370bb0ca1c98a779b1bcc6861c2c">current_map::water</a></div><div class="ttdeci">@ water</div></div>
 <div class="ttc" id="amain_8cpp_html_a0fb08967c62dd8c3569f9a75b68e28bd"><div class="ttname"><a href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bd">current_map</a></div><div class="ttdeci">current_map</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00013">main.cpp:13</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a6741e6de2164bade85347257931d1040"><div class="ttname"><a href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a></div><div class="ttdeci">void biome_map()</div><div class="ttdoc">function draws graphics based on biomes</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00093">map_graphics.cpp:93</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a6741e6de2164bade85347257931d1040"><div class="ttname"><a href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a></div><div class="ttdeci">void biome_map()</div><div class="ttdoc">function draws graphics based on biomes</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00094">map_graphics.cpp:94</a></div></div>
 <div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00027">Core.h:27</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5"><div class="ttname"><a href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bda8510b0b0a0da840a235a2faee434aec5">current_map::biome</a></div><div class="ttdeci">@ biome</div></div>
 <div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00022">main.cpp:22</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a1f766b6a60a8e4771306328c9a436c6a"><div class="ttname"><a href="classenv__gen.html#a1f766b6a60a8e4771306328c9a436c6a">env_gen::tick</a></div><div class="ttdeci">void tick(sprite_params **data, int width, int height, TreeDaemon *mainTreeDaemon, sf::RenderWindow *window, map_graphics *g, double scale_width, double scale_height)</div><div class="ttdoc">function handling tick</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8cpp_source.html#l00108">env_gen.cpp:108</a></div></div>
 <div class="ttc" id="a_animal__core_8h_html"><div class="ttname"><a href="_animal__core_8h.html">Animal_core.h</a></div></div>
 <div class="ttc" id="aclass_tree_daemon_html_a81cae280fbb8dd45b30783cd2ebf4d59"><div class="ttname"><a href="class_tree_daemon.html#a81cae280fbb8dd45b30783cd2ebf4d59">TreeDaemon::addTree</a></div><div class="ttdeci">void addTree(Tree treeToAdd)</div><div class="ttdoc">addTree is a method that simply adds a tree to existingTrees vector</div><div class="ttdef"><b>Definition:</b> <a href="tree_class_8cpp_source.html#l00173">treeClass.cpp:173</a></div></div>
-<div class="ttc" id="aclassenv__gen_html_a22eb92f12317f7fc5856bd05283ced5c"><div class="ttname"><a href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">env_gen::setData</a></div><div class="ttdeci">void setData(sprite_params **newData)</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00055">env_gen.h:55</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a22eb92f12317f7fc5856bd05283ced5c"><div class="ttname"><a href="classenv__gen.html#a22eb92f12317f7fc5856bd05283ced5c">env_gen::setData</a></div><div class="ttdeci">void setData(sprite_params **newData)</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00056">env_gen.h:56</a></div></div>
 <div class="ttc" id="aclassenv__gen_html_a3ad05173e624665d24a095ddfa0277e3"><div class="ttname"><a href="classenv__gen.html#a3ad05173e624665d24a095ddfa0277e3">env_gen::generate_environment</a></div><div class="ttdeci">void generate_environment(sprite_params **data, int width, int height)</div><div class="ttdoc">Function supervising the generation of environmental parameters.</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8cpp_source.html#l00073">env_gen.cpp:73</a></div></div>
 <div class="ttc" id="amap__graphics_8h_html"><div class="ttname"><a href="map__graphics_8h.html">map_graphics.h</a></div></div>
 <div class="ttc" id="amain_8cpp_html_a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093"><div class="ttname"><a href="main_8cpp.html#a0fb08967c62dd8c3569f9a75b68e28bdad99fad96a5d0a7cb2eb41341ea556093">current_map::pressure</a></div><div class="ttdeci">@ pressure</div></div>
-<div class="ttc" id="aclassmap__graphics_html_a01d8ac4b9b1b53fe3287ceb591af47eb"><div class="ttname"><a href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a></div><div class="ttdeci">void water_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00179">map_graphics.cpp:179</a></div></div>
+<div class="ttc" id="aclassenv__gen_html_a996e1659f1ecf7d0843baf83f2fdae2f"><div class="ttname"><a href="classenv__gen.html#a996e1659f1ecf7d0843baf83f2fdae2f">env_gen::get_width</a></div><div class="ttdeci">int get_width()</div><div class="ttdef"><b>Definition:</b> <a href="env__gen_8h_source.html#l00050">env_gen.h:50</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a01d8ac4b9b1b53fe3287ceb591af47eb"><div class="ttname"><a href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a></div><div class="ttdeci">void water_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00180">map_graphics.cpp:180</a></div></div>
 <div class="ttc" id="amain_8cpp_html_ab3bbb07a8645db12d8df1b97b14a1753"><div class="ttname"><a href="main_8cpp.html#ab3bbb07a8645db12d8df1b97b14a1753">m</a></div><div class="ttdeci">current_map m</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00020">main.cpp:20</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a7c51f1eb2aa13ac2177389dda9e76672"><div class="ttname"><a href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a></div><div class="ttdeci">void heat_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00139">map_graphics.cpp:139</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a7c51f1eb2aa13ac2177389dda9e76672"><div class="ttname"><a href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a></div><div class="ttdeci">void heat_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00140">map_graphics.cpp:140</a></div></div>
 <div class="ttc" id="aclass_tree_html"><div class="ttname"><a href="class_tree.html">Tree</a></div><div class="ttdef"><b>Definition:</b> <a href="tree_class_8h_source.html#l00034">treeClass.h:34</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a3efb15fd473cf999d03e70f702b990a9"><div class="ttname"><a href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a></div><div class="ttdeci">void pressure_map()</div><div class="ttdoc">function that draws map based on the pressure on the blocks of the grid</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00207">map_graphics.cpp:207</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a3efb15fd473cf999d03e70f702b990a9"><div class="ttname"><a href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a></div><div class="ttdeci">void pressure_map()</div><div class="ttdoc">function that draws map based on the pressure on the blocks of the grid</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00208">map_graphics.cpp:208</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

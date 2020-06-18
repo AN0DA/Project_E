@@ -29,10 +29,11 @@ var NAVTREE =
       [ "Prerequisites", "index.html#autotoc_md2", null ],
       [ "Installing", "index.html#autotoc_md3", null ]
     ] ],
-    [ "Built With", "index.html#autotoc_md4", null ],
-    [ "Documentation", "index.html#autotoc_md5", null ],
-    [ "Authors", "index.html#autotoc_md6", null ],
-    [ "License", "index.html#autotoc_md7", null ],
+    [ "Control", "index.html#autotoc_md4", null ],
+    [ "Built With", "index.html#autotoc_md5", null ],
+    [ "Documentation", "index.html#autotoc_md6", null ],
+    [ "Authors", "index.html#autotoc_md7", null ],
+    [ "License", "index.html#autotoc_md8", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

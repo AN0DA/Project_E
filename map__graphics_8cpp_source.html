@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Project_E
-   &#160;<span id="projectnumber">v1.0</span>
+   &#160;<span id="projectnumber">v1.01</span>
    </div>
    <div id="projectbrief">Natural environment simulator</div>
   </td>
@@ -90,250 +90,251 @@ $(document).ready(function(){initNavTree('map__graphics_8cpp_source.html',''); i
 <a href="map__graphics_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="map__graphics_8h.html">map_graphics.h</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">   13</a></span>&#160;<a class="code" href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">map_graphics::map_graphics</a>(sf::RenderWindow* window, <span class="keywordtype">double</span> scale_height, <span class="keywordtype">double</span> scale_width, <a class="code" href="classsprite__params.html">sprite_params</a>** field, <span class="keywordtype">int</span> field_height, <span class="keywordtype">int</span> field_width) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    this-&gt;window = window;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;scale_height = scale_height;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    this-&gt;scale_width = scale_width;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;field = field;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    this-&gt;field_height = field_height;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    this-&gt;field_width = field_width;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;LOAD&quot;</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">load_textures</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">   25</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">map_graphics::load_textures</a>() {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">if</span> (!water.loadFromFile(<span class="stringliteral">&quot;textures/water.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Water isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded Water&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span> (!ice.loadFromFile(<span class="stringliteral">&quot;textures/ice.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Ice isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded ice&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (!swamp.loadFromFile(<span class="stringliteral">&quot;textures/swamp.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Swamp isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded swamp&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">if</span> (!rainforest.loadFromFile(<span class="stringliteral">&quot;textures/rainforest.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Rainforest isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded rainforest&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span> (!desert.loadFromFile(<span class="stringliteral">&quot;textures/desert.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Desert isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded desert&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (!savanna.loadFromFile(<span class="stringliteral">&quot;textures/savanna.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Savanna isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded savanna&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span> (!grassland.loadFromFile(<span class="stringliteral">&quot;textures/grassland.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Grassland isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded grassland&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (!snow.loadFromFile(<span class="stringliteral">&quot;textures/snow.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Snow isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded snow&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> (!error_texture.loadFromFile(<span class="stringliteral">&quot;textures/error_texture.jpg&quot;</span>)) {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Error isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded error_texture&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">   93</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a>() {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19">Biomes</a> b = field[i][j].<a class="code" href="classsprite__params.html#add946c0e84b770e9b052ed7c6d115a04">getBiome</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="keywordflow">switch</span> (b)</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            {</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9460370bb0ca1c98a779b1bcc6861c2c">Biomes::water</a>:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(water);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a">Biomes::ice</a>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(ice);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a5d47a77d32202c58837f269a0d1c60c7">Biomes::swamp</a>:</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(swamp);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19aeb79fbb48b05a9db2dcb084e02da328a">Biomes::rainforest</a>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(rainforest);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a3fd6b6210e33bb046e69f256a138e28d">Biomes::desert</a>:</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(desert);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9d229ea29361be4e51e129f61ff8a51c">Biomes::savanna</a>:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(savanna);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a1b2dd777e6b719c5184c2822852a8837">Biomes::grassland</a>:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(grassland);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a2b93fbdf27d43547bec8794054c28e00">Biomes::snow</a>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(snow);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(error_texture);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setScale(scale_width, scale_height);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            (*window).draw(field[i][j].sprite);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        }</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">   14</a></span>&#160;<a class="code" href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">map_graphics::map_graphics</a>(sf::RenderWindow* window, <span class="keywordtype">double</span> scale_height, <span class="keywordtype">double</span> scale_width, <a class="code" href="classsprite__params.html">sprite_params</a>** field, <span class="keywordtype">int</span> field_height, <span class="keywordtype">int</span> field_width) {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;window = window;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    this-&gt;scale_height = scale_height;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    this-&gt;scale_width = scale_width;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    this-&gt;field = field;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    this-&gt;field_height = field_height;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    this-&gt;field_width = field_width;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;LOAD&quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">load_textures</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">   26</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">map_graphics::load_textures</a>() {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">if</span> (!water.loadFromFile(<span class="stringliteral">&quot;textures/water.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Water isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded Water&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">if</span> (!ice.loadFromFile(<span class="stringliteral">&quot;textures/ice.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Ice isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded ice&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (!swamp.loadFromFile(<span class="stringliteral">&quot;textures/swamp.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Swamp isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded swamp&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span> (!rainforest.loadFromFile(<span class="stringliteral">&quot;textures/rainforest.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Rainforest isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded rainforest&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (!desert.loadFromFile(<span class="stringliteral">&quot;textures/desert.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Desert isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded desert&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">if</span> (!savanna.loadFromFile(<span class="stringliteral">&quot;textures/savanna.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Savanna isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded savanna&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (!grassland.loadFromFile(<span class="stringliteral">&quot;textures/grassland.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Grassland isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded grassland&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (!snow.loadFromFile(<span class="stringliteral">&quot;textures/snow.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Snow isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded snow&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">if</span> (!error_texture.loadFromFile(<span class="stringliteral">&quot;textures/error_texture.jpg&quot;</span>)) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;Error isnt loaded!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        std::cout &lt;&lt; <span class="stringliteral">&quot;properly loaded error_texture&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">   94</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a>() {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19">Biomes</a> b = field[i][j].<a class="code" href="classsprite__params.html#add946c0e84b770e9b052ed7c6d115a04">getBiome</a>();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">switch</span> (b)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9460370bb0ca1c98a779b1bcc6861c2c">Biomes::water</a>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(water);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a">Biomes::ice</a>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(ice);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a5d47a77d32202c58837f269a0d1c60c7">Biomes::swamp</a>:</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(swamp);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19aeb79fbb48b05a9db2dcb084e02da328a">Biomes::rainforest</a>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(rainforest);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a3fd6b6210e33bb046e69f256a138e28d">Biomes::desert</a>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(desert);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9d229ea29361be4e51e129f61ff8a51c">Biomes::savanna</a>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(savanna);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a1b2dd777e6b719c5184c2822852a8837">Biomes::grassland</a>:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(grassland);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a2b93fbdf27d43547bec8794054c28e00">Biomes::snow</a>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(snow);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setTexture(error_texture);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setScale(scale_width, scale_height);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            field[i][j].<a class="code" href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite</a>.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            (*window).draw(field[i][j].sprite);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">  139</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a>() {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            sf::RectangleShape rect;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            rect.setSize(sf::Vector2f(32*scale_width, 32*scale_height));</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordtype">double</span> temp = field[i][j].<a class="code" href="classsprite__params.html#ad5494c5683c8010cb3dab9adf100b01d">get_temperature</a>();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordflow">if</span> (temp &gt;= 30) { <span class="comment">//&lt;30,45&gt;</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                <span class="comment">//od 255-000-000 </span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment">//do 255-255-000</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="comment">// rosnie zielony</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                rect.setFillColor(sf::Color(255, ((45-temp) * 17), 0, 255));</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (temp &gt;= 15) { <span class="comment">//&lt;15,29&gt;</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                <span class="comment">//od 238-255-000</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="comment">//do 000-255-000</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="comment">//spada czerwony</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                rect.setFillColor(sf::Color((255 - ((30-temp) * 17)), 255, 0, 255));</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            }</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (temp&gt;=0){ <span class="comment">// &lt;0,14&gt;</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                <span class="comment">//od 000-255-017</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="comment">//do 000-255-255</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="comment">//rosnie niebieski</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                rect.setFillColor(sf::Color(0, 255, ((15-temp) * 17), 255));</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// &lt;-15,-1&gt;</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="comment">//od 000-238-255</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="comment">//do 000-000-255</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="comment">//spada zielony</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                rect.setFillColor(sf::Color(0, (255+(temp*17)), 255, 255));</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            }</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            (*window).draw(rect);</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        }</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">  179</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a>() {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            sf::RectangleShape rect;</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            rect.setSize(sf::Vector2f(32 * scale_width, 32 * scale_height));</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            <span class="keywordflow">if</span> (field[i][j].isWater()) {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                rect.setFillColor(sf::Color(100, 100, 100));</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                <span class="keywordtype">double</span> humidity = field[i][j].<a class="code" href="classsprite__params.html#a527700648027adbcf3dcf1efc6246faf">getHumidity</a>();</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordflow">if</span> (humidity &gt; 66) {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                    rect.setFillColor(sf::Color(0, (33 - (humidity - 67)) * 7, 255, 255));</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (humidity &gt; 33) {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                    rect.setFillColor(sf::Color(0, 231, 31 + (humidity - 34) * 7, 255));</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                    rect.setFillColor(sf::Color((33 - humidity) * 7, 231, 231, 255));</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            }</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            (*window).draw(rect);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        }</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;}</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">  140</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a>() {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            sf::RectangleShape rect;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            rect.setSize(sf::Vector2f(32*scale_width, 32*scale_height));</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            <span class="keywordtype">double</span> temp = field[i][j].<a class="code" href="classsprite__params.html#ad5494c5683c8010cb3dab9adf100b01d">get_temperature</a>();</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">if</span> (temp &gt;= 30) { <span class="comment">//&lt;30,45&gt;</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                <span class="comment">//od 255-000-000 </span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="comment">//do 255-255-000</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                <span class="comment">// rosnie zielony</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                rect.setFillColor(sf::Color(255, ((45-temp) * 17), 0, 255));</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (temp &gt;= 15) { <span class="comment">//&lt;15,29&gt;</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="comment">//od 238-255-000</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                <span class="comment">//do 000-255-000</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                <span class="comment">//spada czerwony</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                rect.setFillColor(sf::Color((255 - ((30-temp) * 17)), 255, 0, 255));</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (temp&gt;=0){ <span class="comment">// &lt;0,14&gt;</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="comment">//od 000-255-017</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="comment">//do 000-255-255</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="comment">//rosnie niebieski</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                rect.setFillColor(sf::Color(0, 255, ((15-temp) * 17), 255));</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// &lt;-15,-1&gt;</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="comment">//od 000-238-255</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="comment">//do 000-000-255</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="comment">//spada zielony</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                rect.setFillColor(sf::Color(0, (255+(temp*17)), 255, 255));</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            (*window).draw(rect);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">  180</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a>() {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            sf::RectangleShape rect;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            rect.setSize(sf::Vector2f(32 * scale_width, 32 * scale_height));</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            <span class="keywordflow">if</span> (field[i][j].isWater()) {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                rect.setFillColor(sf::Color(100, 100, 100));</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <span class="keywordtype">double</span> humidity = field[i][j].<a class="code" href="classsprite__params.html#a527700648027adbcf3dcf1efc6246faf">getHumidity</a>();</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                <span class="keywordflow">if</span> (humidity &gt; 66) {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    rect.setFillColor(sf::Color(0, (33 - (humidity - 67)) * 7, 255, 255));</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (humidity &gt; 33) {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    rect.setFillColor(sf::Color(0, 231, 31 + (humidity - 34) * 7, 255));</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    rect.setFillColor(sf::Color((33 - humidity) * 7, 231, 231, 255));</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            (*window).draw(rect);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;}</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">  207</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a>(){</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;PRESS&quot;</span>;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            sf::RectangleShape rect;</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            rect.setSize(sf::Vector2f(32*scale_width, 32*scale_height));</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordtype">double</span> press = field[i][j].<a class="code" href="classsprite__params.html#a564213e7ff7e03f32cd18fca4c9cbe44">get_pressure</a>();</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordflow">if</span> (press &gt;= 1025) { <span class="comment">//&lt;1025,1040&gt;</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="comment">//od 255-000-000 </span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="comment">//do 255-255-000</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <span class="comment">// rosnie zielony</span></div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                rect.setFillColor(sf::Color(255, ((1040-press) * 17), 0, 255));</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (press &gt;= 1010) { <span class="comment">//&lt;1010,1024&gt;</span></div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;                <span class="comment">//od 238-255-000</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                <span class="comment">//do 000-255-000</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <span class="comment">//spada czerwony</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                rect.setFillColor(sf::Color((255 - ((1025-press) * 17)), 255, 0, 255));</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            }</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (press&gt;=995){ <span class="comment">// &lt;995,1009&gt;</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="comment">//od 000-255-017</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="comment">//do 000-255-255</span></div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                <span class="comment">//rosnie niebieski</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                rect.setFillColor(sf::Color(0, 255, ((1010-press) * 17), 255));</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// &lt;980,994&gt;</span></div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                <span class="comment">//od 000-238-255</span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="comment">//do 000-000-255</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="comment">//spada zielony</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                rect.setFillColor(sf::Color(0, (255-((995-press)*17)), 255, 255));</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            }</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            (*window).draw(rect);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        }</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">  208</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a>(){</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    std::cout &lt;&lt; <span class="stringliteral">&quot;PRESS&quot;</span>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; field_height; j++) {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; field_width; i++) {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            sf::RectangleShape rect;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            rect.setSize(sf::Vector2f(32*scale_width, 32*scale_height));</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordtype">double</span> press = field[i][j].<a class="code" href="classsprite__params.html#a564213e7ff7e03f32cd18fca4c9cbe44">get_pressure</a>();</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordflow">if</span> (press &gt;= 1025) { <span class="comment">//&lt;1025,1040&gt;</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="comment">//od 255-000-000 </span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                <span class="comment">//do 255-255-000</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                <span class="comment">// rosnie zielony</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                rect.setFillColor(sf::Color(255, ((1040-press) * 17), 0, 255));</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (press &gt;= 1010) { <span class="comment">//&lt;1010,1024&gt;</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                <span class="comment">//od 238-255-000</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <span class="comment">//do 000-255-000</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="comment">//spada czerwony</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                rect.setFillColor(sf::Color((255 - ((1025-press) * 17)), 255, 0, 255));</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (press&gt;=995){ <span class="comment">// &lt;995,1009&gt;</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <span class="comment">//od 000-255-017</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                <span class="comment">//do 000-255-255</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="comment">//rosnie niebieski</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                rect.setFillColor(sf::Color(0, 255, ((1010-press) * 17), 255));</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="keywordflow">else</span> { <span class="comment">// &lt;980,994&gt;</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                <span class="comment">//od 000-238-255</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                <span class="comment">//do 000-000-255</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                <span class="comment">//spada zielony</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                rect.setFillColor(sf::Color(0, (255-((995-press)*17)), 255, 255));</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            rect.setPosition(sf::Vector2f(i * 32 * scale_width, j * 32 * scale_height));</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            (*window).draw(rect);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclasssprite__params_html_add946c0e84b770e9b052ed7c6d115a04"><div class="ttname"><a href="classsprite__params.html#add946c0e84b770e9b052ed7c6d115a04">sprite_params::getBiome</a></div><div class="ttdeci">Biomes getBiome()</div><div class="ttdef"><b>Definition:</b> <a href="_core_8cpp_source.html#l00122">Core.cpp:122</a></div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19aeb79fbb48b05a9db2dcb084e02da328a"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19aeb79fbb48b05a9db2dcb084e02da328a">Biomes::rainforest</a></div><div class="ttdeci">@ rainforest</div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a5d47a77d32202c58837f269a0d1c60c7"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a5d47a77d32202c58837f269a0d1c60c7">Biomes::swamp</a></div><div class="ttdeci">@ swamp</div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a9d229ea29361be4e51e129f61ff8a51c"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9d229ea29361be4e51e129f61ff8a51c">Biomes::savanna</a></div><div class="ttdeci">@ savanna</div></div>
-<div class="ttc" id="aclassmap__graphics_html_af6e502352323c51a51da96ce97a02b17"><div class="ttname"><a href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">map_graphics::load_textures</a></div><div class="ttdeci">void load_textures()</div><div class="ttdoc">fuction that loads textures from files and logs in console success and failure</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00025">map_graphics.cpp:25</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_af6e502352323c51a51da96ce97a02b17"><div class="ttname"><a href="classmap__graphics.html#af6e502352323c51a51da96ce97a02b17">map_graphics::load_textures</a></div><div class="ttdeci">void load_textures()</div><div class="ttdoc">fuction that loads textures from files and logs in console success and failure</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00026">map_graphics.cpp:26</a></div></div>
 <div class="ttc" id="aclasssprite__params_html_a4f813baf57faa394b1fdff9df2d67929"><div class="ttname"><a href="classsprite__params.html#a4f813baf57faa394b1fdff9df2d67929">sprite_params::sprite</a></div><div class="ttdeci">sf::Sprite sprite</div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00037">Core.h:37</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a18357e6c9b310bf4a3fc07d71be11411"><div class="ttname"><a href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">map_graphics::map_graphics</a></div><div class="ttdeci">map_graphics(sf::RenderWindow *window, double scale_height, double scale_width, sprite_params **field, int field_height, int field_width)</div><div class="ttdoc">error texture, loaded when no other texture found</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00013">map_graphics.cpp:13</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a6741e6de2164bade85347257931d1040"><div class="ttname"><a href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a></div><div class="ttdeci">void biome_map()</div><div class="ttdoc">function draws graphics based on biomes</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00093">map_graphics.cpp:93</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a18357e6c9b310bf4a3fc07d71be11411"><div class="ttname"><a href="classmap__graphics.html#a18357e6c9b310bf4a3fc07d71be11411">map_graphics::map_graphics</a></div><div class="ttdeci">map_graphics(sf::RenderWindow *window, double scale_height, double scale_width, sprite_params **field, int field_height, int field_width)</div><div class="ttdoc">error texture, loaded when no other texture found</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00014">map_graphics.cpp:14</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a6741e6de2164bade85347257931d1040"><div class="ttname"><a href="classmap__graphics.html#a6741e6de2164bade85347257931d1040">map_graphics::biome_map</a></div><div class="ttdeci">void biome_map()</div><div class="ttdoc">function draws graphics based on biomes</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00094">map_graphics.cpp:94</a></div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19">Biomes</a></div><div class="ttdeci">Biomes</div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00007">Core.h:7</a></div></div>
 <div class="ttc" id="aclasssprite__params_html"><div class="ttname"><a href="classsprite__params.html">sprite_params</a></div><div class="ttdef"><b>Definition:</b> <a href="_core_8h_source.html#l00027">Core.h:27</a></div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a1b2dd777e6b719c5184c2822852a8837"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a1b2dd777e6b719c5184c2822852a8837">Biomes::grassland</a></div><div class="ttdeci">@ grassland</div></div>
 <div class="ttc" id="amap__graphics_8h_html"><div class="ttname"><a href="map__graphics_8h.html">map_graphics.h</a></div></div>
 <div class="ttc" id="aclasssprite__params_html_a527700648027adbcf3dcf1efc6246faf"><div class="ttname"><a href="classsprite__params.html#a527700648027adbcf3dcf1efc6246faf">sprite_params::getHumidity</a></div><div class="ttdeci">double getHumidity()</div><div class="ttdef"><b>Definition:</b> <a href="_core_8cpp_source.html#l00102">Core.cpp:102</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a01d8ac4b9b1b53fe3287ceb591af47eb"><div class="ttname"><a href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a></div><div class="ttdeci">void water_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00179">map_graphics.cpp:179</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a01d8ac4b9b1b53fe3287ceb591af47eb"><div class="ttname"><a href="classmap__graphics.html#a01d8ac4b9b1b53fe3287ceb591af47eb">map_graphics::water_map</a></div><div class="ttdeci">void water_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00180">map_graphics.cpp:180</a></div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a7bdff76536f12a7c5ffde207e72cfe3a">Biomes::ice</a></div><div class="ttdeci">@ ice</div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a2b93fbdf27d43547bec8794054c28e00"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a2b93fbdf27d43547bec8794054c28e00">Biomes::snow</a></div><div class="ttdeci">@ snow</div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a9460370bb0ca1c98a779b1bcc6861c2c"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a9460370bb0ca1c98a779b1bcc6861c2c">Biomes::water</a></div><div class="ttdeci">@ water</div></div>
 <div class="ttc" id="aclasssprite__params_html_ad5494c5683c8010cb3dab9adf100b01d"><div class="ttname"><a href="classsprite__params.html#ad5494c5683c8010cb3dab9adf100b01d">sprite_params::get_temperature</a></div><div class="ttdeci">double get_temperature()</div><div class="ttdef"><b>Definition:</b> <a href="_core_8cpp_source.html#l00083">Core.cpp:83</a></div></div>
 <div class="ttc" id="aclasssprite__params_html_a564213e7ff7e03f32cd18fca4c9cbe44"><div class="ttname"><a href="classsprite__params.html#a564213e7ff7e03f32cd18fca4c9cbe44">sprite_params::get_pressure</a></div><div class="ttdeci">double get_pressure()</div><div class="ttdef"><b>Definition:</b> <a href="_core_8cpp_source.html#l00109">Core.cpp:109</a></div></div>
 <div class="ttc" id="a_core_8h_html_a70b00bc079a450b790a6734b20de6d19a3fd6b6210e33bb046e69f256a138e28d"><div class="ttname"><a href="_core_8h.html#a70b00bc079a450b790a6734b20de6d19a3fd6b6210e33bb046e69f256a138e28d">Biomes::desert</a></div><div class="ttdeci">@ desert</div></div>
-<div class="ttc" id="aclassmap__graphics_html_a7c51f1eb2aa13ac2177389dda9e76672"><div class="ttname"><a href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a></div><div class="ttdeci">void heat_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00139">map_graphics.cpp:139</a></div></div>
-<div class="ttc" id="aclassmap__graphics_html_a3efb15fd473cf999d03e70f702b990a9"><div class="ttname"><a href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a></div><div class="ttdeci">void pressure_map()</div><div class="ttdoc">function that draws map based on the pressure on the blocks of the grid</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00207">map_graphics.cpp:207</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a7c51f1eb2aa13ac2177389dda9e76672"><div class="ttname"><a href="classmap__graphics.html#a7c51f1eb2aa13ac2177389dda9e76672">map_graphics::heat_map</a></div><div class="ttdeci">void heat_map()</div><div class="ttdoc">function draws graphics based on temperature</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00140">map_graphics.cpp:140</a></div></div>
+<div class="ttc" id="aclassmap__graphics_html_a3efb15fd473cf999d03e70f702b990a9"><div class="ttname"><a href="classmap__graphics.html#a3efb15fd473cf999d03e70f702b990a9">map_graphics::pressure_map</a></div><div class="ttdeci">void pressure_map()</div><div class="ttdoc">function that draws map based on the pressure on the blocks of the grid</div><div class="ttdef"><b>Definition:</b> <a href="map__graphics_8cpp_source.html#l00208">map_graphics.cpp:208</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

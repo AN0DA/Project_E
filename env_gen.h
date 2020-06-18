@@ -25,6 +25,7 @@ class env_gen
 
 	//tick counters
 	int temperature_mix_exec = 0;
+	int tree_control_exec = 249999;
 
 public:
 	/// \brief Function supervising the generation of environmental parameters.

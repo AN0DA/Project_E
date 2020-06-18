@@ -14,6 +14,19 @@ Project_E use SFML graphic library which is included in repo files.
 
 Build using C++ compiler with C++17 support or download .exe file that works out-of-the-box!
 
+## Control
++---------+------------------------+
+| Key     | Action                 |
++=========+========================+
+| `Space` | Change beetween views: |
+|         | - Biomes               |
+|         | - temperature          |
+|         | - humidity             |
+|         | - pressure             |
++---------+------------------------+
+| `P`     | Pause                  |
++---------+------------------------+
+
 ## Built With
 
 * [SFML](https://www.sfml-dev.org/) - The graphic engine we used
@@ -32,4 +45,4 @@ We use [Doxygen](https://www.doxygen.nl/) for creating documentation. You can ac
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/AN0DA/Project_E/blob/development/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

@@ -39,7 +39,7 @@ int main()
 	int field_width;
 	//end of loading
 	field_height = 100;
-	field_width = 100;
+	field_width = field_height;
 	// generating table of fields and sprite is inside
 	field = new sprite_params * [field_width];
 	for (int i = 0; i < field_width; i++) {
@@ -54,11 +54,16 @@ int main()
 	map_graphics g(&window, scale_height, scale_width, field, field_height, field_width);
 	g.biome_map();
 	std::cout << "map";
-	environment_generator.setData(environment_generator.get_data());
-	sprite_params* toPole = &(environment_generator.get_data()[7][6]);
-	mtd.addTree(Tree(toPole, 2, 1, 3, 7 * 32 * scale_width, 6 * 32 * scale_height));
+	for (int i = 0; i < 3 + rand() % (field_height-3);i++) {
+		int x_pos = rand()%field_width;
+		int y_pos = rand()%field_height;
+		environment_generator.setData(environment_generator.get_data());
+		sprite_params* toPole = &(environment_generator.get_data()[x_pos][y_pos]);
+		mtd.addTree(Tree(toPole, 1+rand()%3, 1+rand()%4, 1+rand()%5, x_pos * 32 * scale_width, y_pos * 32 * scale_height));
+	}
+	std::cout<<"TREES";
 	window.display();
-	window.setFramerateLimit(30);
+	window.setFramerateLimit(24);
 	while (window.isOpen())
 	{
 		sf::Event evt;
@@ -110,7 +115,7 @@ int main()
 			}
 		}
 		if (m == current_map::biome) {
-			//environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd, &window, &g, scale_width, scale_height);
+			environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd, &window, &g, scale_width, scale_height);
 		}
 	}
 };

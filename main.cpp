@@ -22,10 +22,8 @@ current_map m;
 int main()
 {
 	srand(time(NULL));
-	/*Animals_gen table;
 	Animal kot(50, 50, false);
-	kot.set_sprite("textures/Cat.png");
-	table.create_new(kot);*/
+	kot.set_sprite("Fauna/textures/Cat.png");
 	int window_width = 1000;
 	int window_height = 1000;
 

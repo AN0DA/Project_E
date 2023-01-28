@@ -8,234 +8,62 @@
 #include "Core.h"
 #include "Animal_core.h"
 #include "env_gen.h"
+#include "map_graphics.h"
 
-bool needtogenerate = true;
+enum class current_map {
+	biome,
+	heat,
+	water,
+	pressure
+};
+
+current_map m;
 
 int main()
 {
-
+	srand(time(NULL));
 	Animal kot(50, 50, false);
 	kot.set_sprite("Fauna/textures/Cat.png");
+	int window_width = 1000;
+	int window_height = 1000;
 
+	env_gen environment_generator;
+	TreeDaemon mtd;
 
-	Core core;
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Project E");
-	//Core core;
-	//core.StartProjectE(core, &window);
-	 //texture init for landscape
+	sf::RenderWindow window(sf::VideoMode(window_width, window_height), "Project_E");
+
+	sprite_params** field;
+	int field_height;
+	int field_width;
+	//end of loading
+	field_height = 100;
+	field_width = field_height;
+	// generating table of fields and sprite is inside
+	field = new sprite_params * [field_width];
+	for (int i = 0; i < field_width; i++) {
+		field[i] = new sprite_params[field_height];
+	}
+	double scale_width = window_width / (double)(32 * field_width);
+	double scale_height = window_height / (double)(32 * field_height);
+
+	std::cout << "scaling factor for textures: " << scale_width << std::endl;
+	environment_generator.generate_environment(field, field_width - 1, field_height - 1);
+	std::cout << "generated";
+	map_graphics g(&window, scale_height, scale_width, field, field_height, field_width);
+	g.biome_map();
+	std::cout << "map";
+	for (int i = 0; i < 3 + rand() % (field_height-3);i++) {
+		int x_pos = rand()%field_width;
+		int y_pos = rand()%field_height;
+		environment_generator.setData(environment_generator.get_data());
+		sprite_params* toPole = &(environment_generator.get_data()[x_pos][y_pos]);
+		mtd.addTree(Tree(toPole, 1+rand()%3, 1+rand()%4, 1+rand()%5, x_pos * 32 * scale_width, y_pos * 32 * scale_height));
+	}
+	std::cout<<"TREES";
+	window.display();
+	window.setFramerateLimit(24);
 	while (window.isOpen())
 	{
-		if (needtogenerate)
-		{
-			sf::Texture sand;
-			if (!sand.loadFromFile("textures/sand2.jpg"))
-			{
-				std::cout << "Sand isnt loaded!";
-			}
-			else { std::cout << "properly loaded txt1"; }
-			sf::Texture sawannah;
-			if (!sawannah.loadFromFile("textures/sawannah.jpg"))
-			{
-				std::cout << "Sand isnt loaded!";
-			}
-			else { std::cout << "properly loaded txt2"; }
-			sf::Texture snow;
-			if (!snow.loadFromFile("textures/snow.jpg"))
-			{
-				std::cout << "snow isnt loaded!";
-			}
-			else { std::cout << "properly loaded txt3"; }
-			sf::Texture grass;
-			if (!grass.loadFromFile("textures/grass.jpg"))
-			{
-				std::cout << "Grass isnt loaded!";
-			}
-			else { std::cout << "properly loaded txt4"; }
-			//end of lodin
-			const int x = 50;
-			const int y = 20;
-			// generating table of fields and sprite is inside
-			sprite_params field [x] [x] ;
-			for (int i = 0; i < x; i++)
-			{
-				for (int j = 0; j < x; j++)
-				{
-					//sprites[i][j].setColor(sf::Color(core.GenerateRandomInt(10), core.GenerateRandomInt(10), core.GenerateRandomInt(10)));
-					//just to get clear sprites are assigned to fields
-					if (j >= y && i <= y)
-					{
-						field[i][j].sprite.setTexture(grass);
-					}
-					else if (j >= y && i > y)
-					{
-						field[i][j].sprite.setTexture(sawannah);
-					}
-					else  if (j < y && i >= y)
-					{
-						field[i][j].sprite.setTexture(snow);
-					}
-					else
-					{
-						field[i][j].sprite.setTexture(sand);
-					}
-
-					field[i][j].sprite.setPosition(sf::Vector2f(i * 32, j * 32));
-					//window->setVisible();
-					window.draw(field[i][j].sprite);
-				}
-			}
-			/*
-			//render  other biomes!
-			const int NoB = 4;
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x+8 / k + 12);
-				int j = int(x+8 / k - 8);
-				//sprites[i][j].setTexture(sand);
-				for (int m = 0; m < 10; m++)
-				{
-					for (int n = 0; n < core.GenerateRandomInt(10); n++)
-					{
-						sprites[i +n][j+m].setTexture(sand);
-					}
-				}
-			}
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x / k * 3 + 7);
-				int j = int(x / k * 3 + 8);
-				//sprites[i][j].setTexture(sawannah);
-			sf::Texture sand;
-			if (!sand.loadFromFile("textures/sand2.jpg"))
-			{
-				std::cout << "Sand isn't loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt1" << std::endl; }
-			sf::Texture sawannah;
-			if (!sawannah.loadFromFile("textures/sawannah.jpg"))
-			{
-				std::cout << "Sand isn't loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt2" << std::endl; }
-			sf::Texture snow;
-			if (!snow.loadFromFile("textures/snow.jpg"))
-			{
-				std::cout << "snow isn't loaded!" << std::endl;
-			}
-			else { std::cout << "properly loaded txt3" << std::endl; }
-			sf::Texture grass;
-			if (!grass.loadFromFile("textures/grass.jpg"))
-			{
-				std::cout << "Grass isn't loaded! << std::endl << std::endl";
-			}
-			else { std::cout << "properly loaded txt4" << std::endl << std::endl; }
-			//end of loading
-
-			const int x = 50;
-			const int y = 20;
-			sf::Sprite sprites[x][x];
-			for (int i = 0; i < x; i++)
-			{
-				for (int j = 0; j < x; j++)
-				{
-					//sprites[i][j].setColor(sf::Color(core.GenerateRandomInt(10), core.GenerateRandomInt(10), core.GenerateRandomInt(10)));
-
-					if (j >= y && i <= y)
-					{
-						sprites[i][j].setTexture(grass);
-					}
-					else if (j >= y && i > y)
-					{
-						sprites[i][j].setTexture(sawannah);
-					}
-					else  if (j < y && i >= y)
-					{
-						sprites[i][j].setTexture(snow);
-					}
-					else
-					{
-						sprites[i][j].setTexture(sand);
-					}
-
-					sprites[i][j].setPosition(sf::Vector2f(i * 32, j * 32));
-					//window->setVisible();
-					window.draw(sprites[i][j]);
-				}
-			}
-			/*
-			//render  other biomes!
-			const int NoB = 4;
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x+8 / k + 12);
-				int j = int(x+8 / k - 8);
-				//sprites[i][j].setTexture(sand);
-				for (int m = 0; m < 10; m++)
-				{
-					for (int n = 0; n < core.GenerateRandomInt(10); n++)
-					{
-						sprites[i +n][j+m].setTexture(sand);
-					}
-				}
-			}
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x / k * 3 + 7);
-				int j = int(x / k * 3 + 8);
-				//sprites[i][j].setTexture(sawannah);
-				for (int m = 0; m < 10; m++)
-				{
-					for (int n = 0; n < 10; n++)
-					{
-						sprites[i + n][j + m].setTexture(sawannah);
-					}
-				}
-			}
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x / k * 2 + 2);
-				int j = int(x / k * 2 - 3);
-				//sprites[i][j].setTexture(snow);
-
-				for (int m = 0; m < 10; m++)
-				{
-					for (int n = 0; n < 10; n++)
-					{
-						sprites[i + n][j + m].setTexture(sawannah);
-					}
-				}
-			}
-			for (int k = 1; NoB > k; k++)
-			{
-				int i = int(x / k * 2 + 2);
-				int j = int(x / k * 2 - 3);
-				//sprites[i][j].setTexture(snow);
-				for (int m = 0; m < 10; m++)
-				{
-					for (int n = 0; n < 10; n++)
-					{
-						sprites[i + n][j + m].setTexture(snow);
-					}
-				}
-						sprites[i + n][j + m].setTexture(snow);
-					}
-				}
-			}
-			*/
-			//window.display(); //<----- EPILEPSJA
-
-			//Generate natural environment
-			sprite_params** sprite_data = new sprite_params * [x];
-			for (int i = 0; i < x; i++)
-				sprite_data[i] = new sprite_params[y];
-
-			env_gen habitat;
-			habitat.generate_environment(sprite_data, x, y);
-
-			needtogenerate = false;
-		}
-
-		window.display();
 		sf::Event evt;
 		while (window.pollEvent(evt))
 		{
@@ -244,10 +72,48 @@ int main()
 			case sf::Event::Closed:
 				window.close();
 				break;
+			case sf::Event::KeyPressed:
+				if (evt.key.code == sf::Keyboard::Space) {
+					window.clear();
+					std::cout << "SPACJA";
+					switch (m)
+					{
+					case current_map::biome:
+						g.heat_map();
+						m = current_map::heat;
+						break;
+					case current_map::heat:
+						g.water_map();
+						m = current_map::water;
+						break;
+					case current_map::water:
+						g.pressure_map();
+						m = current_map::pressure;
+						break;
+					case current_map::pressure:
+						g.biome_map();
+						m = current_map::biome;
+					}
+					window.display();
+				}
+				else if (evt.key.code == sf::Keyboard::P) {
+					bool pause = true;
+					while (pause) {
+						sf::Event e;
+						while (window.pollEvent(e)) {
+							if (e.type == sf::Event::KeyPressed) {
+								if (e.key.code == sf::Keyboard::P) {
+									std::cout << "A";
+									pause = false;
+								}
+							}
+						}
+					}
+				}
 			}
-			//window.display(); <----- EPILEPSJA
-			needtogenerate = false;
-			window.display();
+		}
+		if (m == current_map::biome) {
+			environment_generator.tick(environment_generator.get_data(), environment_generator.get_width(), environment_generator.get_height(), &mtd, &window, &g, scale_width, scale_height);
 		}
 	}
 };
